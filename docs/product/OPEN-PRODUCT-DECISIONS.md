@@ -7,7 +7,7 @@ Codex must not invent answers to these items.
 
 | ID      | Decision                                               | Required before                      | Current position                                                |
 | ------- | ------------------------------------------------------ | ------------------------------------ | --------------------------------------------------------------- |
-| OPD-001 | Authentication provider and session architecture       | Auth implementation                  | Open                                                            |
+| OPD-001 | Authentication provider and session architecture       | Auth implementation                  | Closed 13 July 2026 — Supabase Auth; see ADR-0005               |
 | OPD-002 | Final role-to-daily/monthly reporting-frequency matrix | Achievement reporting implementation | Open                                                            |
 | OPD-003 | Monthly field-requisition cut-off date                 | Requisition rollout                  | Configurable until approved                                     |
 | OPD-004 | Field-requisition reviewer and escalation rules        | Requisition workflow                 | Project Coordinator review is expected; detailed authority open |
@@ -39,3 +39,29 @@ For each decision:
 5. Update the controlling requirement.
 6. Add an ADR when architecture is affected.
 7. Mark the decision closed with date and reference.
+
+## OPD-001 decision record
+
+**Status:** Closed on 13 July 2026
+**Decision reference:** `docs/decisions/ADR-0005-supabase-auth-and-postgresql-hosting.md`
+
+HSF approved Supabase Auth for Phase 1A sign-in, sign-out, password reset, email
+verification, session management, identity, and access-token and refresh-token
+issuance. Next.js will use `@supabase/ssr` with secure, server-managed cookies.
+NestJS will validate Supabase-issued access tokens using the configured Supabase
+project issuer and JWKS endpoint. Local HSF users will be linked through the
+immutable Supabase Auth user identifier represented by JWT `sub`.
+
+HSF also selected Supabase PostgreSQL as the preferred production database host
+and Prisma for HSF ERP schema definitions, migrations, and queries. HSF ERP tables remain
+authoritative for organization membership, internal user profile, roles,
+permissions, project/location assignments, separation of duties, approval
+authority, account status, and audit history. Supabase user metadata, custom
+claims, and RLS are not the sole source of HSF business authorization. Browser
+access to core ERP business data must go through the NestJS domain API rather
+than direct exposure of business tables.
+
+Supabase region, environments, MFA policy, session duration, provisioning,
+recovery, external users, JWT verification configuration, key rotation,
+database pooling, and backups remain implementation configuration decisions;
+they do not reopen the provider and trust-boundary decision.

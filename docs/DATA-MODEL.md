@@ -113,18 +113,29 @@ erDiagram
 
 ## 4.2 user
 
-| Field              | Type        | Notes                       |
-| ------------------ | ----------- | --------------------------- |
-| id                 | UUID        | PK                          |
-| organization_id    | UUID        | FK                          |
-| employee_id        | UUID NULL   | Optional employee link      |
-| email              | CITEXT      | Unique within organization  |
-| phone              | VARCHAR     | Optional                    |
-| password_hash      | VARCHAR     | Secure hash                 |
-| preferred_language | VARCHAR     | en, bn                      |
-| two_factor_enabled | BOOLEAN     | Default false               |
-| status             | VARCHAR     | Active, Suspended, Disabled |
-| last_login_at      | TIMESTAMPTZ | Audit                       |
+| Field              | Type        | Notes                                  |
+| ------------------ | ----------- | -------------------------------------- |
+| id                 | UUID        | PK                                     |
+| organization_id    | UUID        | FK                                     |
+| supabase_user_id   | UUID        | Immutable Supabase Auth user/JWT `sub` |
+| employee_id        | UUID NULL   | Optional employee link                 |
+| email              | CITEXT      | Unique within organization             |
+| phone              | VARCHAR     | Optional                               |
+| preferred_language | VARCHAR     | en, bn                                 |
+| status             | VARCHAR     | Active, Suspended, Disabled            |
+| last_login_at      | TIMESTAMPTZ | Audit                                  |
+
+Supabase Auth owns sign-in, sign-out, password reset, email verification,
+authentication sessions, identity, and access-token and refresh-token issuance.
+The ERP must not store a Supabase password hash.
+Authentication through Supabase does not grant ERP access unless the linked
+local HSF user and organization membership are active and local authorization
+permits the action. The implementation design must decide whether this identity
+link uses a cross-schema database constraint or application-enforced integrity
+without allowing Prisma migrations to alter Supabase-managed auth tables.
+Supabase user metadata, custom claims, and RLS must not replace authorization
+from HSF ERP membership, role, permission, project, location, approval, account
+status, separation-of-duties, and audit tables.
 
 ## 4.3 role
 

@@ -403,16 +403,16 @@ Needs:
 
 # 8.1 Authentication and Security
 
-| ID       | Requirement                                                 | Priority |
-| -------- | ----------------------------------------------------------- | -------- |
-| AUTH-001 | Users must log in using approved credentials.               | Must     |
-| AUTH-002 | Sensitive roles must support two-factor authentication.     | Must     |
-| AUTH-003 | Sessions must expire after configured inactivity.           | Must     |
-| AUTH-004 | Failed login attempts must be logged.                       | Must     |
-| AUTH-005 | Administrators must be able to suspend or deactivate users. | Must     |
-| AUTH-006 | Password reset must use a secure token.                     | Must     |
-| AUTH-007 | Role changes must be audited.                               | Must     |
-| AUTH-008 | Users must only access assigned projects and locations.     | Must     |
+| ID       | Requirement                                                  | Priority |
+| -------- | ------------------------------------------------------------ | -------- |
+| AUTH-001 | Users must authenticate through approved Supabase Auth.      | Must     |
+| AUTH-002 | Supabase Auth must support two-factor authentication policy. | Must     |
+| AUTH-003 | Sessions must expire after configured inactivity.            | Must     |
+| AUTH-004 | Failed login attempts must be logged.                        | Must     |
+| AUTH-005 | Administrators must be able to suspend or deactivate users.  | Must     |
+| AUTH-006 | Password reset and email verification use Supabase Auth.     | Must     |
+| AUTH-007 | Role changes must be audited.                                | Must     |
+| AUTH-008 | Users must only access assigned projects and locations.      | Must     |
 
 ---
 
@@ -849,6 +849,17 @@ Field Submission
 - HTTPS
 - Strong password policy
 - 2FA for sensitive roles
+- Supabase Auth-managed sign-in, sign-out, password reset, email verification,
+  session, identity, and access/refresh token issuance
+- Secure cookie-based Next.js sessions through `@supabase/ssr`
+- NestJS validation through the Supabase project issuer and JWKS endpoint
+- Supabase-hosted production PostgreSQL with Prisma-managed HSF ERP schema,
+  migrations, and queries
+- HSF ERP database tables remain authoritative for authorization
+- Supabase metadata, custom claims, and RLS are not the sole HSF business
+  authorization source
+- Browser access to core ERP data goes through the NestJS domain API; business
+  tables are not directly exposed as an API bypass
 - RBAC
 - Project and location scoping
 - Encryption in transit
