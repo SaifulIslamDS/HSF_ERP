@@ -1,0 +1,43 @@
+{
+  "name": "@hsf/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prisma and PostgreSQL foundation for HSF ERP.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "pnpm db:generate && tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "typecheck": "pnpm db:generate && tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "clean": "rimraf dist src/generated coverage",
+    "db:generate": "prisma generate",
+    "db:validate": "prisma validate",
+    "db:format": "prisma format",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.0.0",
+    "@prisma/client": "^7.0.0",
+    "dotenv": "^17.0.0",
+    "pg": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.0.0",
+    "eslint": "9.39.5",
+    "prisma": "^7.0.0",
+    "rimraf": "6.0.1",
+    "typescript": "5.9.3",
+    "vitest": "4.1.0"
+  }
+}

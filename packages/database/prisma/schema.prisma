@@ -1,0 +1,262 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum RecordStatus {
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+}
+
+enum UserStatus {
+  INVITED
+  ACTIVE
+  SUSPENDED
+  DISABLED
+}
+
+enum FinancialPeriodStatus {
+  OPEN
+  FIELD_SUBMISSION_DUE
+  FINANCE_REVIEW
+  RECONCILIATION
+  MANAGEMENT_REVIEW
+  CLOSED
+  REOPENED
+}
+
+model Organization {
+  id              String       @id @default(uuid()) @db.Uuid
+  legalName       String       @map("legal_name")
+  shortName       String       @map("short_name")
+  registrationNo  String?      @map("registration_no")
+  countryCode     String       @default("BD") @map("country_code") @db.Char(2)
+  timezone        String       @default("Asia/Dhaka")
+  defaultCurrency String       @default("BDT") @map("default_currency") @db.Char(3)
+  status          RecordStatus @default(ACTIVE)
+  createdAt       DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  users       User[]
+  roles       Role[]
+  projects    Project[]
+  locations   Location[]
+  fiscalYears FiscalYear[]
+  auditEvents AuditEvent[]
+
+  @@map("organizations")
+}
+
+model User {
+  id                String     @id @default(uuid()) @db.Uuid
+  organizationId    String     @map("organization_id") @db.Uuid
+  email             String
+  displayName       String     @map("display_name")
+  preferredLanguage String     @default("en") @map("preferred_language")
+  twoFactorEnabled  Boolean    @default(false) @map("two_factor_enabled")
+  status            UserStatus @default(INVITED)
+  lastLoginAt       DateTime?  @map("last_login_at") @db.Timestamptz(6)
+  createdAt         DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime   @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization   Organization         @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  roles          UserRole[]
+  projectAccess  UserProjectAccess[]
+  locationAccess UserLocationAccess[]
+  auditEvents    AuditEvent[]
+
+  @@unique([organizationId, email])
+  @@index([organizationId, status])
+  @@map("users")
+}
+
+model Role {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @map("organization_id") @db.Uuid
+  code           String
+  name           String
+  description    String?
+  isSystemRole   Boolean      @default(false) @map("is_system_role")
+  status         RecordStatus @default(ACTIVE)
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization     @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  users        UserRole[]
+  permissions  RolePermission[]
+
+  @@unique([organizationId, code])
+  @@map("roles")
+}
+
+model Permission {
+  id          String  @id @default(uuid()) @db.Uuid
+  code        String  @unique
+  module      String
+  action      String
+  description String?
+
+  roles RolePermission[]
+
+  @@map("permissions")
+}
+
+model UserRole {
+  userId     String    @map("user_id") @db.Uuid
+  roleId     String    @map("role_id") @db.Uuid
+  validFrom  DateTime  @default(now()) @map("valid_from") @db.Timestamptz(6)
+  validTo    DateTime? @map("valid_to") @db.Timestamptz(6)
+  assignedBy String?   @map("assigned_by") @db.Uuid
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model RolePermission {
+  roleId       String @map("role_id") @db.Uuid
+  permissionId String @map("permission_id") @db.Uuid
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model Project {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @map("organization_id") @db.Uuid
+  code           String
+  name           String
+  description    String?
+  startDate      DateTime?    @map("start_date") @db.Date
+  endDate        DateTime?    @map("end_date") @db.Date
+  status         RecordStatus @default(ACTIVE)
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization        @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  userAccess   UserProjectAccess[]
+  locations    Location[]
+
+  @@unique([organizationId, code])
+  @@index([organizationId, status])
+  @@map("projects")
+}
+
+model Location {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @map("organization_id") @db.Uuid
+  projectId      String?      @map("project_id") @db.Uuid
+  parentId       String?      @map("parent_id") @db.Uuid
+  code           String
+  name           String
+  type           String
+  status         RecordStatus @default(ACTIVE)
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization         @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  project      Project?             @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  parent       Location?            @relation("LocationTree", fields: [parentId], references: [id], onDelete: Restrict)
+  children     Location[]           @relation("LocationTree")
+  userAccess   UserLocationAccess[]
+
+  @@unique([organizationId, code])
+  @@index([parentId])
+  @@map("locations")
+}
+
+model UserProjectAccess {
+  userId      String @map("user_id") @db.Uuid
+  projectId   String @map("project_id") @db.Uuid
+  accessLevel String @default("READ") @map("access_level")
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@id([userId, projectId])
+  @@map("user_project_access")
+}
+
+model UserLocationAccess {
+  userId             String  @map("user_id") @db.Uuid
+  locationId         String  @map("location_id") @db.Uuid
+  includeDescendants Boolean @default(false) @map("include_descendants")
+  accessLevel        String  @default("READ") @map("access_level")
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  location Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+
+  @@id([userId, locationId])
+  @@map("user_location_access")
+}
+
+model FiscalYear {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @map("organization_id") @db.Uuid
+  name           String
+  startDate      DateTime     @map("start_date") @db.Date
+  endDate        DateTime     @map("end_date") @db.Date
+  status         RecordStatus @default(ACTIVE)
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization      @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  periods      FinancialPeriod[]
+
+  @@unique([organizationId, name])
+  @@map("fiscal_years")
+}
+
+model FinancialPeriod {
+  id           String                @id @default(uuid()) @db.Uuid
+  fiscalYearId String                @map("fiscal_year_id") @db.Uuid
+  monthNumber  Int                   @map("month_number") @db.SmallInt
+  startDate    DateTime              @map("start_date") @db.Date
+  endDate      DateTime              @map("end_date") @db.Date
+  status       FinancialPeriodStatus @default(OPEN)
+  closedAt     DateTime?             @map("closed_at") @db.Timestamptz(6)
+  closedBy     String?               @map("closed_by") @db.Uuid
+  reopenedAt   DateTime?             @map("reopened_at") @db.Timestamptz(6)
+  reopenedBy   String?               @map("reopened_by") @db.Uuid
+  reopenReason String?               @map("reopen_reason")
+  createdAt    DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  fiscalYear FiscalYear @relation(fields: [fiscalYearId], references: [id], onDelete: Restrict)
+
+  @@unique([fiscalYearId, monthNumber])
+  @@map("financial_periods")
+}
+
+model AuditEvent {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @map("organization_id") @db.Uuid
+  userId         String?  @map("user_id") @db.Uuid
+  entityType     String   @map("entity_type")
+  entityId       String?  @map("entity_id") @db.Uuid
+  action         String
+  beforeData     Json?    @map("before_data")
+  afterData      Json?    @map("after_data")
+  reason         String?
+  ipAddress      String?  @map("ip_address")
+  userAgent      String?  @map("user_agent")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  user         User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, entityId, createdAt])
+  @@index([organizationId, createdAt])
+  @@map("audit_events")
+}

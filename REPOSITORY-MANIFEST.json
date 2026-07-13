@@ -1,0 +1,568 @@
+{
+  "name": "HSF_ERP",
+  "version": "0.1.0",
+  "generated": "2026-07-13",
+  "fileCount": 140,
+  "files": [
+    {
+      "path": ".editorconfig",
+      "bytes": 188
+    },
+    {
+      "path": ".env.example",
+      "bytes": 556
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 127
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "bytes": 610
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "bytes": 595
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "bytes": 669
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 1160
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 549
+    },
+    {
+      "path": ".node-version",
+      "bytes": 8
+    },
+    {
+      "path": ".npmrc",
+      "bytes": 131
+    },
+    {
+      "path": ".nvmrc",
+      "bytes": 8
+    },
+    {
+      "path": ".prettierignore",
+      "bytes": 88
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "bytes": 179
+    },
+    {
+      "path": ".vscode/settings.json",
+      "bytes": 194
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "bytes": 294
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 4434
+    },
+    {
+      "path": "README.md",
+      "bytes": 3463
+    },
+    {
+      "path": "REPOSITORY-MANIFEST.json",
+      "bytes": 10989
+    },
+    {
+      "path": "apps/api/nest-cli.json",
+      "bytes": 171
+    },
+    {
+      "path": "apps/api/package.json",
+      "bytes": 730
+    },
+    {
+      "path": "apps/api/src/app.controller.ts",
+      "bytes": 281
+    },
+    {
+      "path": "apps/api/src/app.module.ts",
+      "bytes": 332
+    },
+    {
+      "path": "apps/api/src/app.service.test.ts",
+      "bytes": 339
+    },
+    {
+      "path": "apps/api/src/app.service.ts",
+      "bytes": 211
+    },
+    {
+      "path": "apps/api/src/main.ts",
+      "bytes": 486
+    },
+    {
+      "path": "apps/api/src/modules/audit/README.md",
+      "bytes": 139
+    },
+    {
+      "path": "apps/api/src/modules/auth/README.md",
+      "bytes": 138
+    },
+    {
+      "path": "apps/api/src/modules/banking/README.md",
+      "bytes": 141
+    },
+    {
+      "path": "apps/api/src/modules/budgets/README.md",
+      "bytes": 141
+    },
+    {
+      "path": "apps/api/src/modules/climate/README.md",
+      "bytes": 141
+    },
+    {
+      "path": "apps/api/src/modules/disbursements/README.md",
+      "bytes": 147
+    },
+    {
+      "path": "apps/api/src/modules/documents/README.md",
+      "bytes": 143
+    },
+    {
+      "path": "apps/api/src/modules/donors/README.md",
+      "bytes": 140
+    },
+    {
+      "path": "apps/api/src/modules/education/README.md",
+      "bytes": 143
+    },
+    {
+      "path": "apps/api/src/modules/finance/README.md",
+      "bytes": 141
+    },
+    {
+      "path": "apps/api/src/modules/fiscal-years/README.md",
+      "bytes": 146
+    },
+    {
+      "path": "apps/api/src/modules/health/health.controller.ts",
+      "bytes": 264
+    },
+    {
+      "path": "apps/api/src/modules/health/health.module.ts",
+      "bytes": 177
+    },
+    {
+      "path": "apps/api/src/modules/health-services/README.md",
+      "bytes": 149
+    },
+    {
+      "path": "apps/api/src/modules/hr/README.md",
+      "bytes": 136
+    },
+    {
+      "path": "apps/api/src/modules/iou/README.md",
+      "bytes": 137
+    },
+    {
+      "path": "apps/api/src/modules/locations/README.md",
+      "bytes": 143
+    },
+    {
+      "path": "apps/api/src/modules/meal/README.md",
+      "bytes": 138
+    },
+    {
+      "path": "apps/api/src/modules/mfr/README.md",
+      "bytes": 137
+    },
+    {
+      "path": "apps/api/src/modules/organization/README.md",
+      "bytes": 146
+    },
+    {
+      "path": "apps/api/src/modules/payroll/README.md",
+      "bytes": 141
+    },
+    {
+      "path": "apps/api/src/modules/period-close/README.md",
+      "bytes": 146
+    },
+    {
+      "path": "apps/api/src/modules/procurement/README.md",
+      "bytes": 145
+    },
+    {
+      "path": "apps/api/src/modules/projects/README.md",
+      "bytes": 142
+    },
+    {
+      "path": "apps/api/src/modules/vouchers/README.md",
+      "bytes": 142
+    },
+    {
+      "path": "apps/api/src/modules/women-empowerment/README.md",
+      "bytes": 151
+    },
+    {
+      "path": "apps/api/tsconfig.build.json",
+      "bytes": 114
+    },
+    {
+      "path": "apps/api/tsconfig.json",
+      "bytes": 460
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "bytes": 140
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "bytes": 155
+    },
+    {
+      "path": "apps/web/package.json",
+      "bytes": 650
+    },
+    {
+      "path": "apps/web/src/app/api/health/route.ts",
+      "bytes": 120
+    },
+    {
+      "path": "apps/web/src/app/dashboard/page.tsx",
+      "bytes": 1164
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "bytes": 2262
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "bytes": 400
+    },
+    {
+      "path": "apps/web/src/app/page.test.ts",
+      "bytes": 180
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "bytes": 1527
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "bytes": 411
+    },
+    {
+      "path": "apps/worker/package.json",
+      "bytes": 612
+    },
+    {
+      "path": "apps/worker/src/index.test.ts",
+      "bytes": 223
+    },
+    {
+      "path": "apps/worker/src/index.ts",
+      "bytes": 292
+    },
+    {
+      "path": "apps/worker/tsconfig.json",
+      "bytes": 305
+    },
+    {
+      "path": "docker-compose.yml",
+      "bytes": 945
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 2355
+    },
+    {
+      "path": "docs/CODEX-ONBOARDING.md",
+      "bytes": 726
+    },
+    {
+      "path": "docs/CURRENT-STATUS.md",
+      "bytes": 1553
+    },
+    {
+      "path": "docs/DATA-MODEL.md",
+      "bytes": 26015
+    },
+    {
+      "path": "docs/DECISIONS-AND-OPEN-ITEMS.md",
+      "bytes": 9154
+    },
+    {
+      "path": "docs/DEVELOPMENT-WORKFLOW.md",
+      "bytes": 1638
+    },
+    {
+      "path": "docs/ENVIRONMENT.md",
+      "bytes": 1106
+    },
+    {
+      "path": "docs/FINANCE-WORKFLOWS.md",
+      "bytes": 886
+    },
+    {
+      "path": "docs/MASTER-SYSTEM-DESIGN.md",
+      "bytes": 42980
+    },
+    {
+      "path": "docs/OPERATIONS-AND-WORKFLOWS.md",
+      "bytes": 47764
+    },
+    {
+      "path": "docs/PHASE-1-SCOPE.md",
+      "bytes": 12208
+    },
+    {
+      "path": "docs/PRODUCT-REQUIREMENTS.md",
+      "bytes": 27320
+    },
+    {
+      "path": "docs/RBAC-AND-APPROVALS.md",
+      "bytes": 8357
+    },
+    {
+      "path": "docs/RELEASE-PROCESS.md",
+      "bytes": 538
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "bytes": 1525
+    },
+    {
+      "path": "docs/SCALABILITY-ROADMAP.md",
+      "bytes": 31267
+    },
+    {
+      "path": "docs/TESTING-CHECKLIST.md",
+      "bytes": 1634
+    },
+    {
+      "path": "docs/archive/README.md",
+      "bytes": 190
+    },
+    {
+      "path": "docs/codex/NEXT-TASK.md",
+      "bytes": 1640
+    },
+    {
+      "path": "docs/codex/README.md",
+      "bytes": 230
+    },
+    {
+      "path": "docs/decisions/ADR-0001-modular-monolith.md",
+      "bytes": 263
+    },
+    {
+      "path": "docs/decisions/ADR-0002-pnpm-turborepo.md",
+      "bytes": 212
+    },
+    {
+      "path": "docs/decisions/ADR-0003-postgresql-prisma.md",
+      "bytes": 283
+    },
+    {
+      "path": "docs/decisions/ADR-0004-finance-first.md",
+      "bytes": 303
+    },
+    {
+      "path": "docs/modules/donors/README.md",
+      "bytes": 360
+    },
+    {
+      "path": "docs/modules/education/README.md",
+      "bytes": 388
+    },
+    {
+      "path": "docs/modules/finance/README.md",
+      "bytes": 374
+    },
+    {
+      "path": "docs/modules/health/README.md",
+      "bytes": 382
+    },
+    {
+      "path": "docs/modules/hr/README.md",
+      "bytes": 369
+    },
+    {
+      "path": "docs/modules/meal/README.md",
+      "bytes": 365
+    },
+    {
+      "path": "docs/releases/README.md",
+      "bytes": 213
+    },
+    {
+      "path": "eslint.config.mjs",
+      "bytes": 788
+    },
+    {
+      "path": "infrastructure/deployment/README.md",
+      "bytes": 286
+    },
+    {
+      "path": "infrastructure/docker/README.md",
+      "bytes": 248
+    },
+    {
+      "path": "package.json",
+      "bytes": 1413
+    },
+    {
+      "path": "packages/auth/package.json",
+      "bytes": 643
+    },
+    {
+      "path": "packages/auth/src/index.ts",
+      "bytes": 425
+    },
+    {
+      "path": "packages/auth/tsconfig.json",
+      "bytes": 250
+    },
+    {
+      "path": "packages/config/package.json",
+      "bytes": 635
+    },
+    {
+      "path": "packages/config/src/index.ts",
+      "bytes": 107
+    },
+    {
+      "path": "packages/config/tsconfig.json",
+      "bytes": 250
+    },
+    {
+      "path": "packages/contracts/package.json",
+      "bytes": 628
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "bytes": 125
+    },
+    {
+      "path": "packages/contracts/tsconfig.json",
+      "bytes": 250
+    },
+    {
+      "path": "packages/database/package.json",
+      "bytes": 1107
+    },
+    {
+      "path": "packages/database/prisma/migrations/.gitkeep",
+      "bytes": 0
+    },
+    {
+      "path": "packages/database/prisma/schema.prisma",
+      "bytes": 9633
+    },
+    {
+      "path": "packages/database/prisma.config.ts",
+      "bytes": 248
+    },
+    {
+      "path": "packages/database/src/client.ts",
+      "bytes": 380
+    },
+    {
+      "path": "packages/database/src/database.test.ts",
+      "bytes": 205
+    },
+    {
+      "path": "packages/database/src/index.ts",
+      "bytes": 77
+    },
+    {
+      "path": "packages/database/tsconfig.json",
+      "bytes": 250
+    },
+    {
+      "path": "packages/reporting/package.json",
+      "bytes": 636
+    },
+    {
+      "path": "packages/reporting/src/index.ts",
+      "bytes": 119
+    },
+    {
+      "path": "packages/reporting/tsconfig.json",
+      "bytes": 250
+    },
+    {
+      "path": "packages/ui/package.json",
+      "bytes": 740
+    },
+    {
+      "path": "packages/ui/src/button.tsx",
+      "bytes": 284
+    },
+    {
+      "path": "packages/ui/src/card.tsx",
+      "bytes": 211
+    },
+    {
+      "path": "packages/ui/src/index.ts",
+      "bytes": 72
+    },
+    {
+      "path": "packages/ui/tsconfig.json",
+      "bytes": 287
+    },
+    {
+      "path": "packages/validation/package.json",
+      "bytes": 634
+    },
+    {
+      "path": "packages/validation/src/index.ts",
+      "bytes": 207
+    },
+    {
+      "path": "packages/validation/tsconfig.json",
+      "bytes": 250
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "bytes": 40
+    },
+    {
+      "path": "prettier.config.mjs",
+      "bytes": 179
+    },
+    {
+      "path": "scripts/bootstrap.ps1",
+      "bytes": 500
+    },
+    {
+      "path": "scripts/bootstrap.sh",
+      "bytes": 403
+    },
+    {
+      "path": "scripts/check-sensitive-files.mjs",
+      "bytes": 1177
+    },
+    {
+      "path": "scripts/clean-root.mjs",
+      "bytes": 179
+    },
+    {
+      "path": "scripts/verify-structure.mjs",
+      "bytes": 974
+    },
+    {
+      "path": "tsconfig.base.json",
+      "bytes": 597
+    },
+    {
+      "path": "turbo.json",
+      "bytes": 902
+    }
+  ]
+}

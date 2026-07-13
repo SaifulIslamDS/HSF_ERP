@@ -1,0 +1,29 @@
+{
+  "name": "@hsf/auth",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Authentication and permission primitives.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "clean": "rimraf dist coverage"
+  },
+  "devDependencies": {
+    "eslint": "9.39.5",
+    "rimraf": "6.0.1",
+    "typescript": "5.9.3",
+    "vitest": "4.1.0"
+  }
+}

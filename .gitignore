@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Builds
+.next/
+dist/
+coverage/
+.turbo/
+out/
+
+# Generated
+packages/database/src/generated/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local data and sensitive exports
+data/
+uploads/
+private/
+*.csv
+*.xlsx
+*.xlsm
+*.pdf
+*.sql
+*.dump
+*.bak
+
+# IDE and OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Prisma local artifacts
+packages/database/prisma/*.db
+packages/database/prisma/*.db-journal

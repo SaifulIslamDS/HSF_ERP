@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "HSF ERP: Dev",
+      "type": "shell",
+      "command": "pnpm dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "HSF ERP: Verify",
+      "type": "shell",
+      "command": "pnpm verify",
+      "problemMatcher": []
+    }
+  ]
+}
