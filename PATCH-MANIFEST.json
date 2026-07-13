@@ -1,0 +1,51 @@
+{
+  "release": "v0.1.1",
+  "name": "Executive UI Foundation",
+  "fileCount": 11,
+  "files": [
+    {
+      "path": "PATCH-NOTES.md",
+      "bytes": 749
+    },
+    {
+      "path": "apply-patch.ps1",
+      "bytes": 1052
+    },
+    {
+      "path": "repo-overlay/apps/web/public/branding/hsf-logo.jpg",
+      "bytes": 42694
+    },
+    {
+      "path": "repo-overlay/apps/web/public/branding/hsf-mark.png",
+      "bytes": 118533
+    },
+    {
+      "path": "repo-overlay/apps/web/src/app/dashboard/page.tsx",
+      "bytes": 6570
+    },
+    {
+      "path": "repo-overlay/apps/web/src/app/globals.css",
+      "bytes": 20530
+    },
+    {
+      "path": "repo-overlay/apps/web/src/app/icon.png",
+      "bytes": 118533
+    },
+    {
+      "path": "repo-overlay/apps/web/src/app/layout.tsx",
+      "bytes": 720
+    },
+    {
+      "path": "repo-overlay/apps/web/src/app/not-found.tsx",
+      "bytes": 524
+    },
+    {
+      "path": "repo-overlay/apps/web/src/app/page.tsx",
+      "bytes": 6737
+    },
+    {
+      "path": "repo-overlay/docs/releases/v0.1.1.md",
+      "bytes": 2044
+    }
+  ]
+}
