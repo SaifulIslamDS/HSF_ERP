@@ -1,38 +1,73 @@
-# HSF ERP v0.1.1 Executive UI Patch
+# HSF ERP v0.1.3 Codex Documentation Stack Patch
+
+## Important naming note
+
+The repository uses `AGENTS.md`, not `AGENT.md`.
+
+This is intentional because:
+
+- the existing repository already uses `AGENTS.md`
+- Codex reads repository instructions from that file
+- the repository rule permits only `README.md` and `AGENTS.md` at root
 
 ## Apply
 
+Extract this ZIP outside the repository, open PowerShell in the extracted patch
+folder, and run:
+
 ```powershell
-PowerShell -ExecutionPolicy Bypass -File .\apply-patch.ps1 -RepoPath "D:\Essentials\HSF_ERP"
+PowerShell -ExecutionPolicy Bypass -File .\apply-patch.ps1 `
+  -RepoPath "D:\Essentials\HSF_ERP"
 ```
 
-## Validate
+## Review and validate the documentation patch
 
 ```powershell
 cd "D:\Essentials\HSF_ERP"
+
+git status --short
+git diff -- AGENTS.md docs package.json apps/web/package.json
+
 pnpm format
-pnpm --filter @hsf/web lint
-pnpm --filter @hsf/web typecheck
-pnpm --filter @hsf/web test:run
-pnpm --filter @hsf/web build
-pnpm --filter @hsf/web dev
+pnpm verify:structure
+pnpm verify:sensitive
+pnpm format:check
 ```
 
-Open:
+This patch changes documentation and package version metadata only. It does not
+change application runtime behavior.
 
-- `http://localhost:3000`
-- `http://localhost:3000/dashboard`
-- `http://localhost:3000/api/health`
-
-## Commit and tag
+## Suggested commit
 
 ```powershell
 git add -A
-git commit -m "feat(web): add HSF executive UI foundation"
+git commit -m "docs(codex): add HSF ERP operating document stack"
 git push origin main
-
-git tag -a v0.1.1 -m "v0.1.1 - Executive UI Foundation"
-git push origin v0.1.1
 ```
 
-Use `docs/releases/v0.1.1.md` for the GitHub release.
+## Suggested tag
+
+```powershell
+git tag -a v0.1.3 -m "v0.1.3 - Codex Documentation and Operating Stack"
+git push origin v0.1.3
+```
+
+## GitHub release title
+
+```text
+v0.1.3 — Codex Documentation and Operating Stack
+```
+
+Use `docs/releases/v0.1.3.md` as the release note.
+
+## First Codex action
+
+After the patch is committed, open the repository in Codex and use:
+
+```text
+Read AGENTS.md and execute the single current task in docs/codex/NEXT-TASK.md.
+
+Before changing anything, inspect the repository and state your plan. Do not
+implement authentication or ERP business features in this task. Return the
+complete required report from NEXT-TASK.md.
+```
