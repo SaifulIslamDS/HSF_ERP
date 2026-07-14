@@ -2,7 +2,7 @@
 
 **Current version:** `v0.1.3`  
 **Stage:** Baseline Audited; Supabase Phase 1A Architecture Approved
-**Last updated:** 13 July 2026
+**Last updated:** 14 July 2026
 
 ## Completed
 
@@ -64,6 +64,17 @@
 - New baseline-audit task
 - Supabase Auth, Supabase PostgreSQL hosting, Prisma data access, and HSF-owned
   authorization architecture approved in ADR-0005
+- Dependency-aware autonomous MVP roadmap recorded under `docs/codex/`
+
+### Autonomous MVP execution
+
+- Working branch: `codex/hsf-erp-autonomous-mvp`
+- Roadmap: `docs/codex/AUTONOMOUS-MVP-ROADMAP.md`
+- Phase A baseline validation passed on 14 July 2026.
+- Implementation has not started because the active NEXT-TASK remains Task 001
+  and explicitly excludes authentication and ERP feature implementation.
+- The recommended next task is the local Supabase identity-link,
+  account-state, and authentication-audit schema/contracts foundation.
 
 ### Confirmed baseline audit — 13 July 2026
 
@@ -132,3 +143,6 @@ HSF ERP tables remain authoritative for authorization. Authentication and
 production hosting are not implemented. The next task should be a separately
 approved, small Phase 1A foundation task and must not combine ERP business
 features with access-control implementation.
+
+The autonomous roadmap does not override NEXT-TASK. A new approved NEXT-TASK
+with explicit acceptance criteria is required before Milestone B1 begins.
