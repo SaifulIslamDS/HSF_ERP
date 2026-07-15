@@ -281,3 +281,26 @@ Read `docs/codex/NEXT-TASK.md`.
 
 Follow the one-task-at-a-time working agreement in
 `docs/codex/WORKING-AGREEMENT.md`.
+
+## 16. Complete UI blueprint boundary
+
+The repository includes a management-presentation UI covering every currently
+planned module and route. Preserve these rules:
+
+- A visible route is an approved **UI contract**, not proof that its backend,
+  database, calculation, approval, notification, export, or integration exists.
+- Every preview screen must clearly use synthetic demonstration data.
+- Do not connect UI actions to live data until a separately approved functional
+  task defines the requirement, acceptance criteria, security boundary, and
+  tests.
+- Preserve the responsive portal shell and the route catalogue in
+  `apps/web/src/lib/portal-catalog.ts`.
+- Update `docs/UI-BLUEPRINT-AND-ROUTE-MAP.md` when a route is added, renamed, or
+  removed.
+- Reuse the existing UI patterns for dashboards, registries, workflows, forms,
+  reports, calendars, libraries, settings, and record details before creating
+  a new pattern.
+- Keep draft, submitted, review, returned, approved, completed, verified, and
+  closed states visually distinct without implying that enforcement is live.
+- All future functional implementation should be introduced as small vertical
+  slices behind the existing UI rather than rebuilding the complete interface.

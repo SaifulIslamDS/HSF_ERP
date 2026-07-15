@@ -21,3 +21,10 @@ Start with:
 - `archive/` — superseded or historical documentation
 
 The precedence rules are defined in `DOCUMENT-STACK.md`.
+
+## Complete management UI
+
+- [Complete UI Blueprint and Route Map](UI-BLUEPRINT-AND-ROUTE-MAP.md)
+- [Repository Analysis and Complete UI Rebuild](./REPOSITORY-ANALYSIS-AND-UI-REBUILD.md) — analysis, coverage, boundaries, and validation
+
+- [Netlify Deployment](./NETLIFY-DEPLOYMENT.md) — monorepo build, publish, and deployment settings

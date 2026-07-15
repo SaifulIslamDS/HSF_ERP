@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { portalGroups, portalRouteCount } from "@/lib/portal-catalog";
 
 const programmes = [
   ["E4BL", "Education for Better Life", "Education centres, students, graduates, and sponsorship."],
@@ -45,7 +46,7 @@ export default function HomePage() {
           <div className="hero-copy">
             <span className="release">
               <i />
-              v0.1.1 · Executive UI Foundation
+              Complete UI Blueprint · Management Preview
             </span>
             <p className="eyebrow light">One foundation. One source of truth.</p>
             <h1>
@@ -58,7 +59,7 @@ export default function HomePage() {
             </p>
             <div className="hero-actions">
               <Link className="button button-light" href="/dashboard">
-                Open executive preview <span>→</span>
+                Open complete ERP preview <span>→</span>
               </Link>
               <a className="button button-ghost" href="#platform">
                 Explore the platform
@@ -107,8 +108,8 @@ export default function HomePage() {
           <span>Education centres</span>
         </article>
         <article>
-          <strong>10</strong>
-          <span>Health field team</span>
+          <strong>{portalRouteCount}</strong>
+          <span>Planned UI screens</span>
         </article>
       </section>
 
@@ -161,7 +162,7 @@ export default function HomePage() {
 
       <section className="section programmes-section" id="programmes">
         <p className="eyebrow">Programme portfolio</p>
-        <h2>One platform, designed around HSF&apos;s real work.</h2>
+        <h2>One platform, with every planned management domain visible.</h2>
         <div className="programme-grid">
           {programmes.map(([code, name, detail]) => (
             <article className="programme-card" key={code}>
@@ -176,13 +177,45 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section programmes-section" id="modules">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Complete UI blueprint</p>
+            <h2>
+              {portalRouteCount} management screens across {portalGroups.length} connected domains.
+            </h2>
+          </div>
+          <p>
+            Every planned screen is available for management review. The current release is
+            intentionally UI-only; live authentication, approvals, transactions, and data will be
+            implemented step by step.
+          </p>
+        </div>
+        <div className="programme-grid">
+          {portalGroups.slice(0, 8).map((group) => (
+            <Link
+              className="programme-card"
+              href={`/${group.slug}/${group.pages[0]?.slug}`}
+              key={group.id}
+            >
+              <span className="programme-code">{group.code}</span>
+              <div>
+                <h3>{group.title}</h3>
+                <p>{group.pages.length} complete UI screens</p>
+              </div>
+              <span className="outbound">↗</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="closing">
         <div>
           <p className="eyebrow light">HSF ERP</p>
           <h2>Built carefully. Implemented responsibly. Scaled with evidence.</h2>
         </div>
         <Link className="button button-light" href="/dashboard">
-          View executive foundation <span>→</span>
+          Explore the complete UI <span>→</span>
         </Link>
       </section>
 
@@ -196,7 +229,7 @@ export default function HomePage() {
             <small>Human Safety Foundation</small>
           </span>
         </div>
-        <p>Customized NGO management platform · Foundation release v0.1.1</p>
+        <p>Customized NGO management platform · Complete UI blueprint · No live data connected</p>
       </footer>
     </main>
   );

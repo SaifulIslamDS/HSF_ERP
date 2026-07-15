@@ -1,6 +1,6 @@
 {
   "name": "hsf-erp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "description": "Customized NGO ERP for Human Safety Foundation.",
   "packageManager": "pnpm@11.10.0",

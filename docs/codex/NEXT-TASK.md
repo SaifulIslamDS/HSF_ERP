@@ -1,12 +1,12 @@
-# Codex Task 001 — Audit the Current Baseline and Prepare the Phase 1A Access-Control Plan
+# Codex Task 002 — Management Review and First Functional Vertical-Slice Selection
 
 ## Purpose
 
-Establish a trustworthy view of the repository after the initial UI releases
-and prepare a small, implementation-ready plan for authentication,
-organization context, project/location assignment, and RBAC.
+Review the complete HSF ERP management UI blueprint, correct confirmed visual or
+route gaps, and select the first small functional vertical slice to implement.
 
-This task must not implement the ERP feature set yet.
+The complete UI is already present. This task must not attempt to implement the
+whole ERP.
 
 ## Controlling documents
 
@@ -15,97 +15,45 @@ Read:
 1. `AGENTS.md`
 2. `docs/CURRENT-STATUS.md`
 3. `docs/DOCUMENT-STACK.md`
-4. `docs/product/HSF-ERP-PRODUCT-VISION.md`
-5. `docs/PRODUCT-REQUIREMENTS.md`
-6. `docs/ARCHITECTURE.md`
-7. `docs/DATA-MODEL.md`
-8. `docs/RBAC-AND-APPROVALS.md`
-9. `docs/product/OPEN-PRODUCT-DECISIONS.md`
-10. `docs/codex/WORKING-AGREEMENT.md`
+4. `docs/UI-BLUEPRINT-AND-ROUTE-MAP.md`
+5. `docs/product/HSF-ERP-PRODUCT-VISION.md`
+6. `docs/PRODUCT-REQUIREMENTS.md`
+7. `docs/ARCHITECTURE.md`
+8. `docs/DATA-MODEL.md`
+9. `docs/RBAC-AND-APPROVALS.md`
+10. `docs/product/OPEN-PRODUCT-DECISIONS.md`
 
 ## Scope
 
-1. Inspect the complete repository and current Git status.
-2. Confirm the actual package versions, application boundaries, workspace
-   packages, Prisma schema, existing authentication package, UI routes, tests,
-   and deployment configuration.
-3. Run the existing repository validation:
-   - `pnpm verify:structure`
-   - `pnpm verify:sensitive`
-   - `pnpm format:check`
-   - `pnpm lint`
-   - `pnpm typecheck`
-   - `pnpm test:run`
-   - `pnpm build`
-4. Run package-specific commands where needed to isolate failures.
-5. Fix only confirmed repository-foundation defects that block the audit.
-6. Do not implement authentication or ERP business features in this task.
-7. Compare the current codebase with the canonical document stack.
-8. Prepare an implementation recommendation for Phase 1A covering:
-   - authentication architecture
-   - session and API authentication strategy
-   - organization membership
-   - role assignment
-   - project assignment
-   - location assignment
-   - permission evaluation
-   - separation of duties
-   - audit logging
-9. Present authentication options and trade-offs. Do not silently choose an
-   option when owner approval is required.
-10. Divide the recommended implementation into small Codex tasks with explicit
-    acceptance criteria.
-11. Update:
-    - `docs/CURRENT-STATUS.md`
-    - `docs/product/OPEN-PRODUCT-DECISIONS.md`
-      only where the audit provides confirmed information.
+1. Run and inspect the complete responsive UI.
+2. Confirm navigation, route coverage, mobile behavior, synthetic-data labels,
+   and visual consistency.
+3. Fix only confirmed UI defects or route omissions.
+4. Prepare three candidate first vertical slices with dependencies, risks, and
+   acceptance criteria.
+5. Recommend one small first slice for product-owner approval.
 
 ## Excluded
 
-- Authentication implementation
-- Login UI implementation
-- Database migrations for new business features
-- Finance workflows
-- Staff achievement implementation
-- Field requisition implementation
-- E4BL implementation
-- A2PHC implementation
-- Real HSF data
-- Production backend deployment
-- Tagging or releasing
+- Full authentication implementation
+- Full RBAC implementation
+- Any complete finance, HR, E4BL, A2PHC, procurement, payroll, donor, or MEAL
+  module
+- Production data or credentials
+- Destructive database or Git actions
+- Commit, push, tag, release, or deployment without explicit approval
 
 ## Acceptance criteria
 
-- The current repository state is accurately documented.
-- All validation commands and results are reported truthfully.
-- Any foundation fix remains small and in scope.
-- Current authentication and RBAC code is inventoried.
-- At least two viable authentication approaches are evaluated.
-- One recommended approach is identified with reasons and risks.
-- The recommendation explains how Next.js and NestJS will share identity and
-  authorization.
-- Organization, project, location, role, permission, and audit boundaries are
-  mapped.
-- Phase 1A is divided into small implementation tasks.
-- No ERP business feature is implemented.
-- No sensitive data is committed.
-- Documentation reflects confirmed findings only.
+- Every documented base route opens without a runtime error.
+- Desktop, tablet, and mobile navigation remain usable.
+- No preview screen presents synthetic data as real HSF data.
+- Any route-map change is reflected in both the route catalogue and the UI route
+  document.
+- The recommended next slice is small, testable, and does not silently close an
+  open product decision.
 
 ## Required report
 
-Return:
-
-1. Repository and Git status
-2. Environment and package versions
-3. Current application and package architecture
-4. Current Prisma and authentication inventory
-5. Commands run
-6. Validation results
-7. Foundation fixes, if any
-8. Authentication option comparison
-9. Recommended Phase 1A architecture
-10. Proposed small-task sequence
-11. Open decisions requiring user approval
-12. Files changed
-13. Remaining warnings
-14. Whether this task passed its acceptance criteria
+Return the reviewed routes, defects fixed, validation results, candidate slices,
+recommended slice, open decisions, and exact files changed.

@@ -44,9 +44,12 @@ identify matters that must not be invented.
 4. `docs/RBAC-AND-APPROVALS.md`
 5. `docs/PHASE-1-SCOPE.md`
 6. `docs/FINANCE-WORKFLOWS.md`
+7. `docs/UI-BLUEPRINT-AND-ROUTE-MAP.md`
 
 These files control implementation architecture, data boundaries, access,
-approval, and initial finance scope.
+approval, initial finance scope, and the approved management-facing UI route
+contract. The UI route map does not override unresolved product or business
+decisions.
 
 ## Tier 4 — Operating workflows and modules
 
@@ -94,4 +97,5 @@ When behavior changes:
 - Update `DATA-MODEL.md` when an approved domain model changes.
 - Add an ADR for architecture decisions.
 - Update `CURRENT-STATUS.md`.
+- Update `UI-BLUEPRINT-AND-ROUTE-MAP.md` when routes or reusable UI contracts change.
 - Add or update the release note when versioned.

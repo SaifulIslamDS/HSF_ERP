@@ -8,3 +8,7 @@ pnpm-lock.yaml
 *.xlsx
 *.xlsm
 *.csv
+# Generated complete UI blueprint sources
+apps/web/src/components/portal-page.tsx
+apps/web/src/lib/portal-catalog.ts
+docs/UI-BLUEPRINT-AND-ROUTE-MAP.md

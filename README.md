@@ -1,33 +1,48 @@
 # HSF ERP
 
-A customized NGO Enterprise Resource Planning and Management Information System for **Human Safety Foundation (HSF)**.
+A customized NGO Enterprise Resource Planning and Management Information System
+for **Human Safety Foundation (HSF)**.
 
-HSF ERP is designed to integrate finance, annual budgeting, Monthly Fund Requisitions, procurement, bank and cash management, IOUs, payroll, HR, E4BL education-centre operations, A2PHC health services, donor management, project monitoring, and organizational reporting.
+HSF ERP is designed to connect planning, people, projects, funds, activities,
+approvals, evidence, achievements, procurement, finance, HR, education, health,
+donors, meetings, training, documents, and reporting through one controlled
+platform.
 
-## Current status
+## Current release
 
-**Version:** `v0.1.0 — Repository and Platform Foundation`
+**Version:** `v0.1.4 — Complete Management UI Blueprint`
 
-This repository contains:
+The repository now contains the complete management-facing interface planned in
+the HSF ERP overview and canonical documentation:
 
-- A pnpm and Turborepo monorepo
-- A Next.js web-app foundation
-- A NestJS API foundation
-- A worker-service foundation
-- A PostgreSQL and Prisma foundation schema
-- Shared package scaffolding
-- Docker-based PostgreSQL and Redis development services
-- CI workflow
-- Codex operating instructions
-- Full product, architecture, workflow, data-model, RBAC, and implementation documentation
+- One executive dashboard
+- Nineteen connected UI domains
+- Four hundred planned module screens
+- Responsive desktop, tablet, and mobile navigation
+- Dashboard, table, workflow, form, report, calendar, library, profile,
+  settings, detail, evidence, and audit-history patterns
+- Synthetic demonstration content only
 
-No production HSF financial, patient, student, payroll, donor, or banking data is included.
+The complete route catalogue is available in
+[UI Blueprint and Route Map](docs/UI-BLUEPRINT-AND-ROUTE-MAP.md).
+
+## Important boundary
+
+This release is **UI only**.
+
+A visible route does not mean that its authentication, authorization, database,
+calculation, approval, posting, notification, export, upload, clinical, payroll,
+or integration functionality exists.
+
+Functionality will be connected step by step through separately approved tasks.
+No real HSF financial, patient, student, payroll, donor, banking, employee, or
+credential data is included.
 
 ## Technology baseline
 
 - Node.js 24 LTS
 - pnpm 11
-- TypeScript
+- TypeScript 5.9
 - Next.js 16
 - React 19
 - NestJS 11
@@ -43,9 +58,9 @@ No production HSF financial, patient, student, payroll, donor, or banking data i
 ```text
 HSF_ERP/
 ├── apps/
-│   ├── web/
-│   ├── api/
-│   └── worker/
+│   ├── web/          # Complete management UI blueprint
+│   ├── api/          # NestJS foundation
+│   └── worker/       # Background-worker foundation
 ├── packages/
 │   ├── auth/
 │   ├── config/
@@ -55,34 +70,39 @@ HSF_ERP/
 │   ├── ui/
 │   └── validation/
 ├── docs/
-├── scripts/
 ├── infrastructure/
-├── .github/
+├── scripts/
 ├── AGENTS.md
 ├── docker-compose.yml
+├── netlify.toml
 ├── package.json
 ├── pnpm-workspace.yaml
 └── turbo.json
 ```
 
-## Prerequisites
+## Local setup
 
-Install:
-
-- Node.js 24 LTS
-- Corepack
-- Docker Desktop
-- Git
-
-Enable pnpm:
+Install Node.js `24.18.0` or a compatible declared version.
 
 ```powershell
 corepack enable
 corepack prepare pnpm@11.10.0 --activate
-pnpm --version
+pnpm install
+pnpm --filter @hsf/web dev
 ```
 
-## Local setup
+Open:
+
+- Public presentation: `http://localhost:3000`
+- Complete ERP UI: `http://localhost:3000/dashboard`
+- Module catalogue: `http://localhost:3000/administration/module-catalogue`
+
+The current UI does not require PostgreSQL, Redis, Supabase, or the NestJS API to
+be running.
+
+## Full development services
+
+For later functional work:
 
 ```powershell
 Copy-Item .env.example .env
@@ -92,15 +112,6 @@ pnpm db:validate
 pnpm db:generate
 pnpm dev
 ```
-
-Services:
-
-- Web: `http://localhost:3000`
-- API: `http://localhost:4000/api/v1/health`
-- PostgreSQL: `localhost:5432`
-- Redis: `localhost:6379`
-
-The first `pnpm install` creates `pnpm-lock.yaml`. Commit that lockfile before feature implementation.
 
 ## Validation
 
@@ -114,46 +125,39 @@ pnpm test:run
 pnpm build
 ```
 
+## Netlify deployment
+
+The root `netlify.toml` is prepared for the Next.js monorepo web application.
+Connect the GitHub repository and keep the Netlify base directory blank so the
+root pnpm workspace and lockfile are detected.
+
+The file supplies:
+
+```text
+Build command: corepack pnpm --filter @hsf/web build
+Publish directory: apps/web/.next
+Node version: 24.18.0
+```
+
 ## Canonical documentation
 
-Codex and developers must read:
+Read in the order defined by [AGENTS.md](AGENTS.md) and
+[Document Stack](docs/DOCUMENT-STACK.md).
+
+Key references:
 
 1. [Current Status](docs/CURRENT-STATUS.md)
-2. [Product Requirements](docs/PRODUCT-REQUIREMENTS.md)
-3. [Master System Design](docs/MASTER-SYSTEM-DESIGN.md)
-4. [Phase 1 Scope](docs/PHASE-1-SCOPE.md)
-5. [Architecture](docs/ARCHITECTURE.md)
-6. [Data Model](docs/DATA-MODEL.md)
-7. [RBAC and Approvals](docs/RBAC-AND-APPROVALS.md)
-8. [Decisions and Open Items](docs/DECISIONS-AND-OPEN-ITEMS.md)
-9. [Codex Onboarding](docs/CODEX-ONBOARDING.md)
-
-## Development rule
-
-Every implementation task must have:
-
-- Purpose
-- Scope
-- Acceptance criteria
-- Validation commands
-- Security and data considerations
-- Documentation update
-- Review before commit
-
-See [AGENTS.md](AGENTS.md) and [Development Workflow](docs/DEVELOPMENT-WORKFLOW.md).
+2. [Complete UI Blueprint and Route Map](docs/UI-BLUEPRINT-AND-ROUTE-MAP.md)
+3. [Product Vision](docs/product/HSF-ERP-PRODUCT-VISION.md)
+4. [Product Requirements](docs/PRODUCT-REQUIREMENTS.md)
+5. [Master System Design](docs/MASTER-SYSTEM-DESIGN.md)
+6. [Architecture](docs/ARCHITECTURE.md)
+7. [Data Model](docs/DATA-MODEL.md)
+8. [RBAC and Approvals](docs/RBAC-AND-APPROVALS.md)
+9. [Open Product Decisions](docs/product/OPEN-PRODUCT-DECISIONS.md)
 
 ## Data safety
 
-Never commit:
-
-- Patient exports
-- Student personal information
-- Employee salary sheets
-- Bank statements
-- Donor KYC information
-- Real bills or vouchers
-- Production credentials
-- `.env` files
-- Database dumps
-
-Use synthetic fixtures only.
+Never commit real patient, student, employee, salary, bank, donor, bill,
+voucher, identity, safeguarding, or credential data. Use synthetic fixtures and
+screenshots only.
