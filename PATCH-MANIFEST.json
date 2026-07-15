@@ -1,0 +1,90 @@
+{
+  "name": "HSF ERP A2PHC UI and Role Visibility Patch",
+  "version": "0.1.5",
+  "baseline": "0.1.4",
+  "type": "additive UI patch",
+  "ui_only": true,
+  "non_a2phc_page_redesigns": false,
+  "role_visibility_is_security_enforcement": false,
+  "validation": {
+    "typescript": "passed against Next.js 16.2.10 / React 19.2.7 test harness",
+    "development_routes": [
+      "/a2phc/dashboard HTTP 200",
+      "/a2phc/consultations HTTP 200",
+      "/a2phc/patient-registration HTTP 200"
+    ],
+    "production_compile": "Next.js code compilation passed; full static generation was not used as the final gate in the container"
+  },
+  "files": [
+    {
+      "path": "GIT-AND-RELEASE.md",
+      "size_bytes": 508,
+      "sha256": "514b314d6db3f54db04698479684d5987e723c2259b12f9361307debfccd475e"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 1529,
+      "sha256": "fd01232d4f04581ae31ab1cfbf264ca7644d4eb755c925ca8cc9f128a9468868"
+    },
+    {
+      "path": "apply-patch.ps1",
+      "size_bytes": 3014,
+      "sha256": "719e90abcd930caaeec6005fc05bad7dd91fe8ab3155324eb35b71af45d307f1"
+    },
+    {
+      "path": "overlay/apps/web/src/app/a2phc/[[...slug]]/page.tsx",
+      "size_bytes": 837,
+      "sha256": "ed4ea582b30bcce09d5b2b9e6a336aa7a0b98159ddb3f67a08558d9d83d3e218"
+    },
+    {
+      "path": "overlay/apps/web/src/app/template.tsx",
+      "size_bytes": 324,
+      "sha256": "657f4c5679c96a5f4575dc38384e811dd841d49bf22221c1d292b403e61995fd"
+    },
+    {
+      "path": "overlay/apps/web/src/components/a2phc/a2phc-module.module.css",
+      "size_bytes": 23551,
+      "sha256": "eebe1c956fb0b3965b275f43d8a87f78dec2a6cd1aa3f81c6f71006b400f1dae"
+    },
+    {
+      "path": "overlay/apps/web/src/components/a2phc/a2phc-module.tsx",
+      "size_bytes": 39650,
+      "sha256": "dc79054cd8423cd403753be2f5ce28e1da11ead211145de23734721cc82e5150"
+    },
+    {
+      "path": "overlay/apps/web/src/components/role-visibility/role-visibility-preview.module.css",
+      "size_bytes": 3890,
+      "sha256": "d76be37ef974f7e21c00bd31962bc66ca80a58143d3b2632ebea088d57f62c8a"
+    },
+    {
+      "path": "overlay/apps/web/src/components/role-visibility/role-visibility-preview.tsx",
+      "size_bytes": 6858,
+      "sha256": "4c8b65b85f03f7542338c6d0841728129c72e12eb079a6759d20d552d090bd0a"
+    },
+    {
+      "path": "overlay/apps/web/src/lib/a2phc-catalog.ts",
+      "size_bytes": 16117,
+      "sha256": "baf23c89a74aad9a9c69a623d8f894d26afaa180581f34181c9c50d7a5016c21"
+    },
+    {
+      "path": "overlay/apps/web/src/lib/portal-role-access.ts",
+      "size_bytes": 9776,
+      "sha256": "5cdf5db0770753c9aeaf615f4852cd76e21c5667336f14b68ccf4389da6a0cd1"
+    },
+    {
+      "path": "overlay/docs/codex/NEXT-TASK-v0.1.5.md",
+      "size_bytes": 871,
+      "sha256": "8cfe53b872289ca641a31de82f0e24470a55aa1b16b52cf24cd7ff0883ab316a"
+    },
+    {
+      "path": "overlay/docs/modules/A2PHC-UI-EXPANSION-AND-ROLE-VISIBILITY.md",
+      "size_bytes": 4050,
+      "sha256": "6021b0391d8fdd2593013c722b9e0a9d403edc0705c713e67e24344b2b68b3a7"
+    },
+    {
+      "path": "overlay/docs/releases/v0.1.5.md",
+      "size_bytes": 3172,
+      "sha256": "1d60c98a1e274c79747e462547e2c1f61f3a9abc3836792b60a64a7017a1b7d4"
+    }
+  ]
+}

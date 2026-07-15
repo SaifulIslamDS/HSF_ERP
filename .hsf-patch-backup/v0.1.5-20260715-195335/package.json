@@ -1,0 +1,40 @@
+{
+  "name": "hsf-erp",
+  "version": "0.1.4",
+  "private": true,
+  "description": "Customized NGO ERP for Human Safety Foundation.",
+  "packageManager": "pnpm@11.10.0",
+  "engines": {
+    "node": ">=24.18.0 <27",
+    "pnpm": ">=11.10.0 <12"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:run": "turbo run test:run",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "turbo run clean && node scripts/clean-root.mjs",
+    "db:generate": "pnpm --filter @hsf/database db:generate",
+    "db:validate": "pnpm --filter @hsf/database db:validate",
+    "db:format": "pnpm --filter @hsf/database db:format",
+    "db:migrate": "pnpm --filter @hsf/database db:migrate",
+    "db:studio": "pnpm --filter @hsf/database db:studio",
+    "verify:structure": "node scripts/verify-structure.mjs",
+    "verify:sensitive": "node scripts/check-sensitive-files.mjs",
+    "verify": "pnpm verify:structure && pnpm verify:sensitive && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:run && pnpm build"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "eslint": "9.39.5",
+    "prettier": "3.9.0",
+    "rimraf": "6.0.1",
+    "turbo": "2.10.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.46.1",
+    "vitest": "4.1.0"
+  }
+}

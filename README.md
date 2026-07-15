@@ -1,163 +1,63 @@
-# HSF ERP
+# HSF ERP v0.1.5 Update Patch
+## A2PHC UI Expansion and Role-Aware Module Visibility
 
-A customized NGO Enterprise Resource Planning and Management Information System
-for **Human Safety Foundation (HSF)**.
+This is an additive patch for the HSF ERP `v0.1.4` complete responsive UI blueprint.
 
-HSF ERP is designed to connect planning, people, projects, funds, activities,
-approvals, evidence, achievements, procurement, finance, HR, education, health,
-donors, meetings, training, documents, and reporting through one controlled
-platform.
+It:
 
-## Current release
+- leaves every non-A2PHC UI page untouched;
+- adds a dedicated complete A2PHC field-operations experience;
+- adds UI-only role-based module visibility;
+- separates E4BL and A2PHC navigation for project-specific users;
+- keeps current medicine dispensing disabled and marks it as a future capability;
+- adds release and implementation documentation.
 
-**Version:** `v0.1.4 — Complete Management UI Blueprint`
+## Apply on Windows PowerShell
 
-The repository now contains the complete management-facing interface planned in
-the HSF ERP overview and canonical documentation:
+From the extracted patch directory:
 
-- One executive dashboard
-- Nineteen connected UI domains
-- Four hundred planned module screens
-- Responsive desktop, tablet, and mobile navigation
-- Dashboard, table, workflow, form, report, calendar, library, profile,
-  settings, detail, evidence, and audit-history patterns
-- Synthetic demonstration content only
+```powershell
+.\apply-patch.ps1 -Target "D:\path\to\HSF_ERP"
+```
 
-The complete route catalogue is available in
-[UI Blueprint and Route Map](docs/UI-BLUEPRINT-AND-ROUTE-MAP.md).
+The script:
 
-## Important boundary
+1. validates the target repository;
+2. creates backups for any overwritten patch paths;
+3. copies the additive overlay;
+4. updates root and web package versions to `0.1.5`;
+5. prints validation commands.
 
-This release is **UI only**.
+## Apply manually
 
-A visible route does not mean that its authentication, authorization, database,
-calculation, approval, posting, notification, export, upload, clinical, payroll,
-or integration functionality exists.
-
-Functionality will be connected step by step through separately approved tasks.
-No real HSF financial, patient, student, payroll, donor, banking, employee, or
-credential data is included.
-
-## Technology baseline
-
-- Node.js 24 LTS
-- pnpm 11
-- TypeScript 5.9
-- Next.js 16
-- React 19
-- NestJS 11
-- PostgreSQL 18
-- Prisma ORM 7
-- Redis 8
-- Turborepo
-- Vitest
-- Docker Compose
-
-## Repository structure
+Copy everything inside:
 
 ```text
-HSF_ERP/
-├── apps/
-│   ├── web/          # Complete management UI blueprint
-│   ├── api/          # NestJS foundation
-│   └── worker/       # Background-worker foundation
-├── packages/
-│   ├── auth/
-│   ├── config/
-│   ├── contracts/
-│   ├── database/
-│   ├── reporting/
-│   ├── ui/
-│   └── validation/
-├── docs/
-├── infrastructure/
-├── scripts/
-├── AGENTS.md
-├── docker-compose.yml
-├── netlify.toml
-├── package.json
-├── pnpm-workspace.yaml
-└── turbo.json
+overlay/
 ```
 
-## Local setup
+into the repository root, preserving directories.
 
-Install Node.js `24.18.0` or a compatible declared version.
+Then set these package versions to `0.1.5`:
 
-```powershell
-corepack enable
-corepack prepare pnpm@11.10.0 --activate
-pnpm install
-pnpm --filter @hsf/web dev
+```text
+package.json
+apps/web/package.json
 ```
 
-Open:
-
-- Public presentation: `http://localhost:3000`
-- Complete ERP UI: `http://localhost:3000/dashboard`
-- Module catalogue: `http://localhost:3000/administration/module-catalogue`
-
-The current UI does not require PostgreSQL, Redis, Supabase, or the NestJS API to
-be running.
-
-## Full development services
-
-For later functional work:
+## Required validation
 
 ```powershell
-Copy-Item .env.example .env
-pnpm install
-docker compose up -d
-pnpm db:validate
-pnpm db:generate
-pnpm dev
-```
-
-## Validation
-
-```powershell
+pnpm install --frozen-lockfile
 pnpm verify:structure
 pnpm verify:sensitive
 pnpm format:check
 pnpm lint
 pnpm typecheck
 pnpm test:run
-pnpm build
+pnpm --filter @hsf/web build
 ```
 
-## Netlify deployment
+## Important
 
-The root `netlify.toml` is prepared for the Next.js monorepo web application.
-Connect the GitHub repository and keep the Netlify base directory blank so the
-root pnpm workspace and lockfile are detected.
-
-The file supplies:
-
-```text
-Build command: corepack pnpm --filter @hsf/web build
-Publish directory: apps/web/.next
-Node version: 24.18.0
-```
-
-## Canonical documentation
-
-Read in the order defined by [AGENTS.md](AGENTS.md) and
-[Document Stack](docs/DOCUMENT-STACK.md).
-
-Key references:
-
-1. [Current Status](docs/CURRENT-STATUS.md)
-2. [Complete UI Blueprint and Route Map](docs/UI-BLUEPRINT-AND-ROUTE-MAP.md)
-3. [Product Vision](docs/product/HSF-ERP-PRODUCT-VISION.md)
-4. [Product Requirements](docs/PRODUCT-REQUIREMENTS.md)
-5. [Master System Design](docs/MASTER-SYSTEM-DESIGN.md)
-6. [Architecture](docs/ARCHITECTURE.md)
-7. [Data Model](docs/DATA-MODEL.md)
-8. [RBAC and Approvals](docs/RBAC-AND-APPROVALS.md)
-9. [Open Product Decisions](docs/product/OPEN-PRODUCT-DECISIONS.md)
-
-## Data safety
-
-Never commit real patient, student, employee, salary, bank, donor, bill,
-voucher, identity, safeguarding, or credential data. Use synthetic fixtures and
-screenshots only.
+Role-based menu hiding in this release is a UI preview. It is not authorization. Real security must be enforced through authentication, server-side permissions, project/location scope, database policy, and audit logging.

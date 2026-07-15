@@ -1,0 +1,233 @@
+.layer {
+  position: relative;
+  z-index: 1000;
+}
+
+.preview {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  width: min(340px, calc(100vw - 28px));
+  border: 1px solid rgba(7, 82, 56, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 20px 55px rgba(4, 56, 41, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.previewToggle {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 15px;
+  background: #ffffff;
+  padding: 10px 13px;
+  color: #075238;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.previewOpen .previewToggle {
+  border-bottom: 1px solid #dce8e1;
+  border-radius: 15px 15px 0 0;
+}
+
+.roleDot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #1aa65b;
+  box-shadow: 0 0 0 5px rgba(26, 166, 91, 0.12);
+}
+
+.chevron {
+  margin-left: auto;
+  color: #687771;
+  font-size: 1rem;
+}
+
+.previewPanel {
+  padding: 16px;
+}
+
+.previewHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.previewHeading p,
+.previewHeading strong {
+  display: block;
+  margin: 0;
+}
+
+.previewHeading p {
+  color: #687771;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.previewHeading strong {
+  margin-top: 3px;
+  color: #101c18;
+  font-size: 0.95rem;
+}
+
+.previewHeading span {
+  border-radius: 999px;
+  background: #fff7c7;
+  padding: 5px 8px;
+  color: #725f00;
+  font-size: 0.64rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.previewPanel label {
+  display: block;
+  margin-bottom: 6px;
+  color: #263832;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.previewPanel select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #cdded4;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 0 11px;
+  color: #101c18;
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.description {
+  margin: 10px 0 0;
+  color: #52635c;
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.notice {
+  margin: 12px 0 0;
+  border-left: 3px solid #e3bd27;
+  background: #fffbea;
+  padding: 9px 10px;
+  color: #5f552d;
+  font-size: 0.69rem;
+  line-height: 1.55;
+}
+
+.accessBlocker {
+  position: fixed;
+  inset: 0;
+  z-index: 1150;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 33, 25, 0.72);
+  padding: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.accessCard {
+  width: min(540px, 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  background: #ffffff;
+  padding: clamp(25px, 5vw, 42px);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+
+.accessIcon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  place-items: center;
+  border-radius: 16px;
+  background: #fff4c2;
+  color: #705900;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.kicker {
+  margin: 0;
+  color: #087a43;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.accessCard h2 {
+  margin: 9px 0 0;
+  color: #043829;
+  font-size: clamp(1.45rem, 4vw, 2rem);
+  letter-spacing: -0.025em;
+}
+
+.accessCard > p:not(.kicker) {
+  margin: 15px auto 0;
+  color: #52635c;
+  line-height: 1.7;
+}
+
+.accessActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.accessActions button {
+  min-height: 44px;
+  border: 1px solid #087a43;
+  border-radius: 10px;
+  background: #087a43;
+  padding: 0 15px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.accessActions .secondaryButton {
+  background: #ffffff;
+  color: #075238;
+}
+
+@media (max-width: 640px) {
+  .preview {
+    right: 12px;
+    bottom: 12px;
+    width: calc(100vw - 24px);
+  }
+
+  .accessBlocker {
+    padding: 14px;
+  }
+
+  .accessCard {
+    border-radius: 18px;
+  }
+
+  .accessActions button {
+    width: 100%;
+  }
+}
