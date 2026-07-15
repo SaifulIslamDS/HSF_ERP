@@ -1,0 +1,15 @@
+{
+  "package": "HSF_ERP_A2PHC_Continuation_and_Codex_Docs_v0.1.5",
+  "baseline": "v0.1.5 expected; verify in Git",
+  "purpose": "A2PHC continuation and Codex instruction documents",
+  "files": [
+    "INSTALLATION-GUIDE.md",
+    "README.md",
+    "docs/A2PHC-CONTINUATION-HANDOVER-v0.1.5.md",
+    "docs/A2PHC-CURRENT-STATUS-v0.1.5.md",
+    "docs/A2PHC-FUNCTIONAL-ROADMAP.md",
+    "docs/codex/A2PHC-CODEX-WORKING-INSTRUCTIONS.md",
+    "docs/codex/NEXT-TASK-v0.1.6.md",
+    "docs/product/A2PHC-OPEN-DECISIONS.md"
+  ]
+}
