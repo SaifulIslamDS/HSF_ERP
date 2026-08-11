@@ -6,7 +6,7 @@ import styles from "./access.module.css";
 
 type AccessFormProps = {
   returnTo: string;
-  errorMessage?: string;
+  errorMessage?: string | undefined;
   configurationError?: boolean;
   sessionHours: number;
 };
@@ -52,7 +52,8 @@ export function AccessForm({
           <p className={styles.eyebrow}>Authorized Access</p>
           <h2 id="access-heading">Enter the 6-digit PIN</h2>
           <p className={styles.sessionNote}>
-            The access session remains valid for up to {sessionHours} {sessionHours === 1 ? "hour" : "hours"} on this browser.
+            The access session remains valid for up to {sessionHours}{" "}
+            {sessionHours === 1 ? "hour" : "hours"} on this browser.
           </p>
 
           {configurationError ? (
@@ -123,9 +124,7 @@ export function AccessForm({
         </div>
 
         <div className={styles.rule} />
-        <footer className={styles.footer}>
-          Human Safety Foundation (HSF) · Always we are...
-        </footer>
+        <footer className={styles.footer}>Human Safety Foundation (HSF) · Always we are...</footer>
       </section>
     </main>
   );
