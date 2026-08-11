@@ -1,25 +1,38 @@
 .page {
   min-height: 100dvh;
-  background: #ffffff;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 16% 14%, rgba(0, 140, 68, 0.075), transparent 28%),
+    radial-gradient(circle at 84% 78%, rgba(61, 154, 111, 0.07), transparent 30%),
+    #eef3f1;
+  padding: 22px;
   color: #073f31;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .panel {
-  width: min(760px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: clamp(44px, 7vw, 74px) 0 28px;
+  width: min(820px, 46vw);
+  border: 1px solid #d8e3de;
+  border-radius: 36px;
+  background: rgba(255, 255, 255, 0.98);
+  padding: clamp(40px, 4vw, 62px) clamp(42px, 4.2vw, 64px) 30px;
+  box-shadow:
+    0 28px 80px rgba(32, 72, 58, 0.12),
+    0 3px 10px rgba(32, 72, 58, 0.04);
 }
 
 .brandHeader {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 24px;
 }
 
 .logo {
   width: 92px;
-  height: 92px;
+  height: 100px;
+  flex: 0 0 auto;
   object-fit: contain;
 }
 
@@ -30,7 +43,7 @@
 
 .brandCopy p {
   color: #008c44;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: clamp(0.92rem, 1.25vw, 1.12rem);
   font-weight: 900;
   letter-spacing: 0.15em;
   line-height: 1.25;
@@ -38,9 +51,9 @@
 }
 
 .brandCopy h1 {
-  margin-top: 10px;
+  margin-top: 9px;
   color: #083f31;
-  font-size: clamp(1.45rem, 4.2vw, 2rem);
+  font-size: clamp(1.35rem, 2vw, 1.82rem);
   font-weight: 850;
   letter-spacing: -0.025em;
   line-height: 1.15;
@@ -48,48 +61,48 @@
 
 .rule {
   height: 1px;
-  margin: 36px 0;
-  background: #d9e8df;
+  margin: 34px 0;
+  background: #dce6e1;
 }
 
 .intro {
   margin: 0;
   color: #657b72;
-  font-size: clamp(1rem, 2.7vw, 1.17rem);
+  font-size: clamp(0.98rem, 1.15vw, 1.08rem);
   line-height: 1.65;
 }
 
 .formSection {
-  margin-top: 40px;
+  margin-top: 37px;
 }
 
 .eyebrow {
   margin: 0;
   color: #008c44;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.17em;
   text-transform: uppercase;
 }
 
 .formSection h2 {
-  margin: 16px 0 0;
+  margin: 14px 0 0;
   color: #073f31;
-  font-size: clamp(2rem, 6vw, 2.6rem);
+  font-size: clamp(1.95rem, 3.1vw, 2.45rem);
   font-weight: 900;
   letter-spacing: -0.04em;
-  line-height: 1.05;
+  line-height: 1.07;
 }
 
 .sessionNote {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   color: #657b72;
-  font-size: 1rem;
+  font-size: 0.96rem;
   line-height: 1.6;
 }
 
 .error {
-  margin-top: 20px;
+  margin-top: 19px;
   border: 1px solid #eccfd2;
   border-radius: 14px;
   background: #fff4f5;
@@ -105,12 +118,12 @@
 }
 
 .form {
-  margin-top: 38px;
+  margin-top: 34px;
 }
 
 .form label {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 11px;
   color: #294a40;
   font-size: 0.93rem;
   font-weight: 800;
@@ -122,14 +135,14 @@
 
 .inputWrap input {
   width: 100%;
-  height: 84px;
+  height: 80px;
   border: 1px solid #c9ddd1;
   border-radius: 20px;
   outline: none;
   background: #fbfdfc;
   padding: 0 76px 0 24px;
   color: #073f31;
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 0.24em;
   transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
@@ -138,7 +151,9 @@
 .inputWrap input:focus {
   border-color: #008c44;
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(0, 140, 68, 0.1);
+  box-shadow:
+    0 0 0 5px rgba(0, 140, 68, 0.1),
+    0 10px 24px rgba(5, 91, 55, 0.05);
 }
 
 .inputWrap input:disabled {
@@ -149,7 +164,7 @@
 .visibilityButton {
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 19px;
   display: grid;
   width: 42px;
   height: 42px;
@@ -184,15 +199,15 @@
 
 .submitButton {
   width: 100%;
-  min-height: 74px;
+  min-height: 72px;
   margin-top: 20px;
   border: 0;
-  border-radius: 20px;
+  border-radius: 19px;
   background: #009b4d;
   box-shadow: 0 22px 38px rgba(0, 140, 68, 0.14);
   color: #ffffff;
   cursor: pointer;
-  font-size: clamp(1.05rem, 3vw, 1.25rem);
+  font-size: clamp(1.03rem, 1.6vw, 1.2rem);
   font-weight: 900;
   transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
 }
@@ -215,9 +230,9 @@
 }
 
 .help {
-  margin: 22px 0 0;
+  margin: 21px 0 0;
   color: #879991;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   line-height: 1.55;
   text-align: center;
 }
@@ -228,37 +243,50 @@
   text-align: center;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 1280px) {
   .panel {
-    width: min(100% - 28px, 760px);
-    padding-top: 32px;
+    width: min(760px, 72vw);
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    display: block;
+    padding: 14px;
+  }
+
+  .panel {
+    width: 100%;
+    min-height: calc(100dvh - 28px);
+    border-radius: 26px;
+    padding: 32px 28px 24px;
   }
 
   .brandHeader {
     align-items: flex-start;
-    gap: 16px;
+    gap: 17px;
   }
 
   .logo {
     width: 70px;
-    height: 70px;
+    height: 78px;
   }
 
   .brandCopy p {
-    font-size: 0.78rem;
+    font-size: 0.77rem;
   }
 
   .brandCopy h1 {
     margin-top: 7px;
-    font-size: 1.34rem;
+    font-size: 1.28rem;
   }
 
   .rule {
-    margin: 28px 0;
+    margin: 27px 0;
   }
 
   .formSection {
-    margin-top: 32px;
+    margin-top: 31px;
   }
 
   .inputWrap input {
@@ -272,14 +300,23 @@
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 430px) {
+  .panel {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
   .brandHeader {
     display: grid;
-    grid-template-columns: 58px 1fr;
+    grid-template-columns: 60px 1fr;
   }
 
   .logo {
-    width: 58px;
-    height: 58px;
+    width: 60px;
+    height: 66px;
+  }
+
+  .formSection h2 {
+    font-size: 1.85rem;
   }
 }
