@@ -45,6 +45,7 @@ identify matters that must not be invented.
 5. `docs/PHASE-1-SCOPE.md`
 6. `docs/FINANCE-WORKFLOWS.md`
 7. `docs/UI-BLUEPRINT-AND-ROUTE-MAP.md`
+8. `docs/PREVIEW-PIN-ACCESS-GATE.md`
 
 These files control implementation architecture, data boundaries, access,
 approval, initial finance scope, and the approved management-facing UI route

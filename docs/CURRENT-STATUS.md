@@ -1,8 +1,8 @@
 # HSF ERP — Current Status
 
-**Current version:** `v0.1.4`  
+**Current version:** `v0.1.6`  
 **Stage:** Complete Management UI Blueprint; Functional Implementation Pending  
-**Last updated:** 15 July 2026
+**Last updated:** 11 August 2026
 
 ## Completed
 
@@ -38,6 +38,18 @@
 - Sensitive-file guard
 - Canonical documentation stack
 - Codex operating instructions and task workflow
+
+### Temporary management-preview access gate
+
+- HSF-branded six-digit PIN access screen
+- PIN stored only in a server-side environment variable
+- Signed HttpOnly preview-session cookie
+- 12-hour default preview session
+- Safe return to the originally requested ERP route
+- Lightweight repeated-failure throttling
+- `/api/health` remains available for deployment health checks
+- All existing ERP UI modules remain unchanged behind the gate
+- This gate is temporary preview protection and does not replace future Supabase authentication or real RBAC
 
 ### Complete management UI blueprint
 

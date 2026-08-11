@@ -75,7 +75,7 @@ export function RoleVisibilityPreview() {
   }, []);
 
   const profile = useMemo(() => getPortalRoleProfile(roleId), [roleId]);
-  const isPortalRoute = pathname !== "/";
+  const isPortalRoute = pathname !== "/" && !pathname.startsWith("/access");
   const hasRouteAccess = canRoleViewRoute(roleId, pathname);
 
   const applyRoleVisibility = useCallback(() => {
