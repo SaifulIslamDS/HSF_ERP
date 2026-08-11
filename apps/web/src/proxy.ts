@@ -5,13 +5,10 @@ import {
   isPreviewGateEnabled,
   isPreviewSessionValid,
   safeReturnTo,
+  createPublicUrl,
 } from "@/lib/preview-access";
 
-const PUBLIC_API_PATHS = new Set([
-  "/api/health",
-  "/api/access/verify",
-  "/api/access/logout",
-]);
+const PUBLIC_API_PATHS = new Set(["/api/health", "/api/access/verify", "/api/access/logout"]);
 
 function isPublicAsset(pathname: string): boolean {
   return (
@@ -23,11 +20,12 @@ function isPublicAsset(pathname: string): boolean {
 }
 
 function accessRedirect(request: NextRequest): NextResponse {
-  const url = request.nextUrl.clone();
   const requestedPath = `${request.nextUrl.pathname}${request.nextUrl.search}`;
-  url.pathname = "/access";
-  url.search = "";
+
+  const url = createPublicUrl("/access", request);
+
   url.searchParams.set("returnTo", safeReturnTo(requestedPath));
+
   return NextResponse.redirect(url);
 }
 
@@ -49,7 +47,7 @@ export function proxy(request: NextRequest) {
     if (!hasPreviewAccess) return NextResponse.next();
 
     const returnTo = safeReturnTo(request.nextUrl.searchParams.get("returnTo"));
-    return NextResponse.redirect(new URL(returnTo, request.url));
+    return NextResponse.redirect(createPublicUrl(returnTo, request));
   }
 
   if (hasPreviewAccess) {
@@ -57,10 +55,7 @@ export function proxy(request: NextRequest) {
   }
 
   if (pathname.startsWith("/api/")) {
-    return NextResponse.json(
-      { error: "HSF ERP preview access is required." },
-      { status: 401 },
-    );
+    return NextResponse.json({ error: "HSF ERP preview access is required." }, { status: 401 });
   }
 
   return accessRedirect(request);

@@ -36,9 +36,7 @@ export function getPreviewSessionHours(): number {
 function signingSecret(): string {
   const pin = accessPin();
   const serverSecret =
-    process.env.HSF_ERP_ACCESS_SECRET?.trim() ||
-    process.env.AUTH_SECRET?.trim() ||
-    pin;
+    process.env.HSF_ERP_ACCESS_SECRET?.trim() || process.env.AUTH_SECRET?.trim() || pin;
 
   // Include the PIN so rotating the PIN also invalidates existing preview
   // sessions, even when a separate long-lived server secret is configured.
@@ -104,4 +102,14 @@ export function safeReturnTo(candidate: string | null | undefined): string {
   }
 
   return candidate;
+}
+
+export function createPublicUrl(pathname: string, request: Request): URL {
+  const configuredPublicUrl = process.env.HSF_ERP_PUBLIC_URL?.trim();
+
+  if (configuredPublicUrl) {
+    return new URL(pathname, configuredPublicUrl);
+  }
+
+  return new URL(pathname, request.url);
 }

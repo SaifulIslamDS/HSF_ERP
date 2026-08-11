@@ -6,6 +6,7 @@ import {
   isPreviewGateConfigured,
   isSubmittedPinValid,
   safeReturnTo,
+  createPublicUrl,
 } from "@/lib/preview-access";
 
 type AttemptRecord = {
@@ -62,7 +63,7 @@ function clearFailures(key: string): void {
 }
 
 function accessUrl(request: NextRequest, error: "invalid" | "format" | "rate", returnTo: string) {
-  const url = new URL("/access", request.url);
+  const url = createPublicUrl("/access", request);
   url.searchParams.set("error", error);
   url.searchParams.set("returnTo", returnTo);
   return url;
@@ -74,7 +75,10 @@ export async function POST(request: NextRequest) {
   const returnTo = safeReturnTo(String(formData.get("returnTo") ?? "/dashboard"));
 
   if (!isPreviewGateConfigured()) {
-    return NextResponse.redirect(new URL(`/access?returnTo=${encodeURIComponent(returnTo)}`, request.url), 303);
+    return NextResponse.redirect(
+      createPublicUrl(`/access?returnTo=${encodeURIComponent(returnTo)}`, request),
+      303,
+    );
   }
 
   if (!/^\d{6}$/.test(submittedPin)) {
@@ -99,7 +103,7 @@ export async function POST(request: NextRequest) {
 
   clearFailures(key);
   const { token, maxAgeSeconds } = createPreviewSessionToken(now);
-  const response = NextResponse.redirect(new URL(returnTo, request.url), 303);
+  const response = NextResponse.redirect(createPublicUrl(returnTo, request), 303);
   response.cookies.set({
     name: PREVIEW_ACCESS_COOKIE,
     value: token,
