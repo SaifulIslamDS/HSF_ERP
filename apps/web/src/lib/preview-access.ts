@@ -2,6 +2,7 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 
 export const PREVIEW_ACCESS_COOKIE = "hsf_erp_preview_access";
 export const DEFAULT_PREVIEW_SESSION_HOURS = 12;
+export const DEFAULT_PREVIEW_IDLE_MINUTES = 30;
 
 const TOKEN_VERSION = "v1";
 
@@ -31,6 +32,12 @@ export function getPreviewSessionHours(): number {
   const parsed = Number(process.env.HSF_ERP_ACCESS_SESSION_HOURS ?? "");
   if (!Number.isFinite(parsed)) return DEFAULT_PREVIEW_SESSION_HOURS;
   return Math.min(24, Math.max(1, Math.floor(parsed)));
+}
+
+export function getPreviewIdleMinutes(): number {
+  const parsed = Number(process.env.HSF_ERP_ACCESS_IDLE_MINUTES ?? "");
+  if (!Number.isFinite(parsed)) return DEFAULT_PREVIEW_IDLE_MINUTES;
+  return Math.min(1440, Math.max(1, Math.floor(parsed)));
 }
 
 function signingSecret(): string {

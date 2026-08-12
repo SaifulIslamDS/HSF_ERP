@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { PreviewAccessSignOut } from "@/components/preview-access-signout";
-import { isPreviewGateEnabled } from "@/lib/preview-access";
+import { getPreviewIdleMinutes, isPreviewGateEnabled } from "@/lib/preview-access";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,7 +27,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en">
       <body>
         {children}
-        <PreviewAccessSignOut enabled={isPreviewGateEnabled()} />
+        <PreviewAccessSignOut
+          enabled={isPreviewGateEnabled()}
+          idleMinutes={getPreviewIdleMinutes()}
+        />
       </body>
     </html>
   );
