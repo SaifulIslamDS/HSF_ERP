@@ -19,12 +19,17 @@ export function PreviewAccessSignOut({ enabled }: PreviewAccessSignOutProps) {
       action="/api/access/logout"
       data-role-visibility-ignore="true"
     >
-      <button className={styles.signOutButton} type="submit" aria-label="Sign out of protected HSF ERP preview">
+      <button
+        className={styles.signOutButton}
+        type="submit"
+        aria-label="Sign out of protected HSF ERP preview"
+        title="End this protected access session"
+      >
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="5.5" y="10" width="13" height="10" rx="2.4" />
-          <path d="M8.5 10V7.3a3.5 3.5 0 017 0V10" />
+          <rect height="10" rx="2" width="14" x="5" y="10" />
+          <path d="M8 10V7a4 4 0 0 1 8 0v3" />
         </svg>
-        <span>Protected - Sign out</span>
+        <span>Protected · Sign out</span>
       </button>
     </form>
   );
