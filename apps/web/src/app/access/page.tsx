@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AccessForm } from "./access-form";
 import {
+  getPreviewIdleMinutes,
   getPreviewSessionHours,
   isPreviewGateConfigured,
   safeReturnTo,
@@ -46,6 +47,7 @@ export default async function AccessPage({ searchParams }: AccessPageProps) {
       errorMessage={errorMessage}
       configurationError={!isPreviewGateConfigured()}
       sessionHours={getPreviewSessionHours()}
+      idleMinutes={getPreviewIdleMinutes()}
     />
   );
 }
