@@ -2,7 +2,7 @@
 
 **Current version:** `v0.1.6`  
 **Stage:** Complete Management UI Blueprint; Functional Implementation Pending  
-**Last updated:** 11 August 2026
+**Last updated:** 11 September 2026
 
 ## Completed
 
@@ -90,7 +90,7 @@
 - E4BL education
 - A2PHC health
 - Climate Action
-- Women Empowerment
+- Women Empowerment (UI blueprint only; active programme status requires management confirmation)
 - Inventory and assets
 - Donors, CSR, grants, and sponsorship
 - MEAL and impact
@@ -99,6 +99,14 @@
 - Documents and evidence
 - Reports and analytics
 - Administration and system configuration
+
+## Institutional alignment baseline — 11 September 2026
+
+The repository now mirrors **HSF Digital Institutional System Contract v1.0.0** from the Knowledge Hub. The alignment adds explicit rules for system boundaries, programme status, evidence states, data classification, approved public information, public-repository safety and external security/accessibility baselines.
+
+This governance alignment does **not** convert the UI blueprint into functional ERP capability. It also does not approve any unconfirmed programme merely because a module exists in the interface.
+
+The GitHub repository is intentionally public. All committed code/documentation must therefore be safe for public disclosure; real restricted operational data remains outside source control.
 
 ## Important implementation boundary
 
@@ -139,21 +147,17 @@ production hosting details.
 
 ## Validation position
 
-The following rebuild-environment checks passed:
+The following repository/alignment checks passed on the 11 September 2026 alignment snapshot:
 
 - Repository structure verification
 - Sensitive-file guard
-- TypeScript and TSX syntax parsing for all web source files
-- Strict web-source static analysis with temporary framework declarations
-- Portal route count, uniqueness, and route-resolution validation
-- Static internal-link validation
-- CSS parser validation
-- Check for inaccessible internal package-registry URLs
+- Institutional alignment verifier
+- Exact Knowledge Hub ↔ ERP Digital System Contract v1.0.0 parity
+- JSON parsing across repository JSON files
+- TypeScript/TSX syntax transpilation check (52 source/test files, zero syntax errors)
+- Previous UI baseline checks: route count/uniqueness/resolution, static internal links, CSS parsing and package-registry URL checks
 
-A complete dependency install, Prettier check, ESLint run, Vitest run, and
-Next.js production build were not completed in the rebuild environment because
-external npm resolution timed out and the available Node.js runtime was version
-22 rather than the repository-required version 24.18.0.
+A complete dependency install, Prettier check, ESLint run, Vitest run, Prisma generation/validation, and Next.js production build were not completed in this alignment environment because external npm resolution is unavailable and the available Node.js runtime is version 22 rather than the repository-required version 24.18.0.
 
 Run the full repository gates on the user's Node 24.18.0 and pnpm 11.10.0
 environment before a release-ready claim. Do not treat the static checks above

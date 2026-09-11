@@ -1,5 +1,8 @@
 # A2PHC Continuation Handover — v0.1.5
 
+> **Historical release note:** This document preserves the v0.1.5 UI/discovery snapshot. Coverage, staffing and other operational figures in it are not current source-of-truth values; use the approved A2PHC operational dataset/ERP reporting period for current reporting.
+
+
 ## 1. Purpose
 
 This document preserves the complete project context after the A2PHC UI

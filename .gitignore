@@ -10,6 +10,7 @@ coverage/
 out/
 
 # Generated
+*.tsbuildinfo
 packages/database/src/generated/
 
 # Environment and secrets

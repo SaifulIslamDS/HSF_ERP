@@ -1,29 +1,25 @@
 ## Purpose
 
-Describe the problem and the approved task.
+Describe the approved task and why this change is required.
 
-## Scope
+## Scope control
 
-- [ ] Scope is limited to the approved task.
-- [ ] Acceptance criteria are referenced.
+- [ ] `AGENTS.md` and `docs/CURRENT-STATUS.md` reviewed
+- [ ] HSF Digital System Contract / programme registry checked
+- [ ] No unresolved business/clinical/financial policy was invented
+- [ ] No real restricted HSF data or secrets introduced
+- [ ] UI existence is not being claimed as functional implementation
 
 ## Validation
 
 - [ ] `pnpm verify:structure`
 - [ ] `pnpm verify:sensitive`
-- [ ] `pnpm format:check`
-- [ ] `pnpm lint`
-- [ ] `pnpm typecheck`
-- [ ] `pnpm test:run`
-- [ ] `pnpm build`
-- [ ] Database validation completed when applicable
-
-## Security and data
-
-- [ ] No real HSF patient, child, payroll, donor, bank, voucher, or credential data is included.
-- [ ] Permission and audit implications were reviewed.
+- [ ] `pnpm verify:alignment`
+- [ ] Prisma validation (if relevant)
+- [ ] format/lint/typecheck/tests/build (as required)
 
 ## Documentation
 
-- [ ] `docs/CURRENT-STATUS.md` updated.
-- [ ] Relevant specification or ADR updated.
+- [ ] `docs/CURRENT-STATUS.md` updated if implementation status changed
+- [ ] Relevant module/workflow/governance docs updated
+- [ ] Open decisions recorded rather than assumed

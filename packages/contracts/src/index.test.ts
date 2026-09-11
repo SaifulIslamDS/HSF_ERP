@@ -1,4 +1,4 @@
-﻿import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import type { HealthResponse } from "./index.js";
 
 describe("shared API contracts", () => {
@@ -6,7 +6,7 @@ describe("shared API contracts", () => {
     const response: HealthResponse = {
       service: "hsf-api",
       status: "ok",
-      version: "0.1.0",
+      version: "0.1.6",
     };
 
     expect(response.status).toBe("ok");

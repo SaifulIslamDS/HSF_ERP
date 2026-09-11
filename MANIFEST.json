@@ -1,15 +1,38 @@
 {
-  "package": "HSF_ERP_A2PHC_Continuation_and_Codex_Docs_v0.1.5",
-  "baseline": "v0.1.5 expected; verify in Git",
-  "purpose": "A2PHC continuation and Codex instruction documents",
-  "files": [
-    "INSTALLATION-GUIDE.md",
-    "README.md",
-    "docs/A2PHC-CONTINUATION-HANDOVER-v0.1.5.md",
-    "docs/A2PHC-CURRENT-STATUS-v0.1.5.md",
-    "docs/A2PHC-FUNCTIONAL-ROADMAP.md",
-    "docs/codex/A2PHC-CODEX-WORKING-INSTRUCTIONS.md",
-    "docs/codex/NEXT-TASK-v0.1.6.md",
-    "docs/product/A2PHC-OPEN-DECISIONS.md"
-  ]
+  "repository": "SaifulIslamDS/HSF_ERP",
+  "repository_role": "HSF operational ERP source and controlled technical documentation",
+  "visibility": "public",
+  "manifest_date": "2026-09-11",
+  "current_version": "0.1.6",
+  "stage": "Complete Management UI Blueprint; Functional Implementation Pending",
+  "governance_contract": {
+    "version": "1.0.0",
+    "mirror_path": "docs/governance/HSF_DIGITAL_SYSTEM_CONTRACT.json",
+    "canonical_repository": "SaifulIslamDS/hsfdigitalhub"
+  },
+  "implemented_foundations": [
+    "pnpm/Turborepo monorepo",
+    "Next.js management UI blueprint",
+    "NestJS API foundation",
+    "worker foundation",
+    "Prisma/PostgreSQL foundation",
+    "temporary preview PIN gate",
+    "RBAC and approval design documentation",
+    "CI definition",
+    "sensitive-file guard"
+  ],
+  "not_implemented_as_production_capability": [
+    "production individual authentication",
+    "server-enforced organization/RBAC/project/location/sensitivity authorization",
+    "operational UI persistence",
+    "production approval engines and separation-of-duties enforcement",
+    "live finance/procurement/payroll processing",
+    "E4BL operational persistence",
+    "A2PHC clinical persistence",
+    "production audit coverage",
+    "production deployment and migration"
+  ],
+  "next_task": "docs/codex/NEXT-TASK.md",
+  "validation": "pnpm verify",
+  "public_repository_rule": "No real restricted operational data or secrets in source control."
 }

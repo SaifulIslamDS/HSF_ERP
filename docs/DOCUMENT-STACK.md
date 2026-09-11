@@ -12,6 +12,16 @@ relate to one another, and which source wins when documents conflict.
 This file controls repository-wide working rules, technology constraints,
 security, quality gates, and documentation discipline.
 
+## Tier 0.5 — Institutional governance contract
+
+1. `docs/governance/HSF_DIGITAL_SYSTEM_CONTRACT.json`
+2. `docs/governance/SYSTEM-BOUNDARIES.md`
+3. `docs/governance/PROGRAMME-REGISTRY.md`
+4. `docs/governance/DATA-CLASSIFICATION-AND-EVIDENCE.md`
+5. `docs/governance/APPROVED-INFORMATION-LAYER.md`
+
+These files mirror HSF-wide institutional definitions maintained canonically in the Knowledge Hub. They control cross-repository vocabulary, programme status, evidence states, classification and public-information boundaries. ERP implementation may specialize technical behavior but must not silently redefine these concepts.
+
 ## Tier 1 — Current execution state
 
 1. `docs/CURRENT-STATUS.md`
@@ -81,13 +91,13 @@ records what shipped but does not override current product requirements.
 When two documents conflict:
 
 1. Follow `AGENTS.md` for repository process.
-2. Follow `CURRENT-STATUS.md` for the current implementation state.
-3. Follow the explicitly approved current task for task scope.
-4. Follow the latest approved product requirement for business behavior.
-5. Treat anything marked **Recommendation**, **Proposed**, **Draft**, or
-   **Open Decision** as unapproved.
-6. Do not infer approval from the existence of a design document.
-7. Record the conflict and request a decision rather than guessing.
+2. Follow the HSF Digital System Contract for cross-repository institutional definitions.
+3. Follow `CURRENT-STATUS.md` for the current implementation state.
+4. Follow the explicitly approved current task for task scope.
+5. Follow the latest approved product requirement for business behavior.
+6. Treat anything marked **Recommendation**, **Proposed**, **Draft**, or **Open Decision** as unapproved.
+7. Do not infer approval from the existence of a route, module, mock-up or design document.
+8. Record the conflict and request a decision rather than guessing.
 
 ## Update rules
 

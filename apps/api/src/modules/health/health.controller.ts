@@ -7,7 +7,7 @@ export class HealthController {
     return {
       service: "hsf-api",
       status: "ok",
-      version: "0.1.0",
+      version: "0.1.6",
       timestamp: new Date().toISOString(),
     };
   }

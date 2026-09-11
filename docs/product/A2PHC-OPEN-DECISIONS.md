@@ -10,10 +10,10 @@ behavior configurable and mark it provisional.
 
 ## A. Programme and geography
 
-- Confirm current active upazilas and unions in all five districts.
+- Confirm current active districts, upazilas and unions from the approved A2PHC operational dataset/ERP source; do not hard-code an earlier five-district snapshot.
 - Confirm current camp frequency by team.
 - Confirm whether teams are permanently district-based or rotate.
-- Select the first pilot district and unions.
+- Select/confirm the first functional pilot area and approved locations for persistence testing.
 
 ## B. Supervisor workflow
 

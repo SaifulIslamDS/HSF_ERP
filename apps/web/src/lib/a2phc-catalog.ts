@@ -51,7 +51,7 @@ export const A2PHC_SCREENS: A2PHCScreen[] = [
     id: "dashboard",
     title: "A2PHC Dashboard",
     description:
-      "Five-district management view for camps, patients, teams, quality, and field finance.",
+      "Synthetic multi-district management view for camps, patients, teams, quality, and field finance.",
     group: "Overview",
     kind: "dashboard",
     roles: [

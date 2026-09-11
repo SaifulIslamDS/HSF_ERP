@@ -53,7 +53,7 @@ Where a spreadsheet conflicts with a current statement, the current statement is
 
 Examples:
 
-- A March 2025 education report shows 327 students and includes legacy centre structures. HSF's current confirmed figure is **300 students in two education centres**.
+- A March 2025 education report shows 327 students and includes legacy centre structures. Later discovery material used a different 300-student snapshot. Neither figure should be treated as a timeless current value; current enrolment must come from the approved E4BL operational dataset/ERP reporting period.
 - Older education templates contain activities for islands, chars, adult centres, secondary programmes, and external programme terminology. These should not automatically be treated as active HSF activities.
 - The health patient file is named “from July 2025,” but the data includes records from January through December 2025.
 - Historical beneficiary and expenditure figures are evidence of past operations, not automatically current monthly targets.
@@ -125,9 +125,9 @@ HSF currently operates four principal initiatives.
 | Code  | Project                       | Current operational purpose                                                                      |
 | ----- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
 | E4BL  | Education for Better Life     | Education, school support, educational materials, student development, and continuation support  |
-| A2PHC | Access to Primary Health Care | Free mobile or field-level medical consultation and primary health services                      |
+| A2PHC | Access to Primary Healthcare | Free mobile or field-level medical consultation and primary health services                      |
 | CAI   | Climate Action Initiative     | Climate awareness, resilience, youth engagement, adaptation, and climate-linked support          |
-| WEI   | Women Empowerment Initiative  | Women’s health, dignity, awareness, rights, education, protection, and future livelihood support |
+| WEI   | Women Empowerment (blueprint) | Future/optional domain; active programme status requires management confirmation |
 
 HSF also has important cross-cutting activities, including:
 
@@ -172,24 +172,13 @@ The organizational profile presents a structure including:
 
 The CEO manages the organization under the governance and direction of the Chairman and governing body.
 
-## 5.2 Current central-office staffing
+## 5.2 Central-office staffing discovery snapshot
 
-HSF has stated that there are **10 working officials and staff members** at the Dhaka head office.
-
-The roles directly listed are:
-
-- Chairman
-- Chief Executive Officer
-- Finance Director
-- Four project coordinators
-- Admin Assistant
-- Helping Hand
-
-The listed roles account for nine positions. Therefore, one position or the treatment of the Chairman within the staff count should be clarified during system discovery.
+Earlier discovery material recorded a Dhaka head-office staffing snapshot and listed roles including Chairman, Chief Executive Officer, Finance Director, project coordinators, Admin Assistant and Helping Hand. Because staffing changes over time and the historical count/role list did not reconcile cleanly, **current headcount and assignments must come from approved HR master data** rather than this architecture document.
 
 ## 5.3 Project leadership
 
-Each of the four main projects has a project coordinator.
+Approved programmes/projects may have Project Coordinators or other designated leads. Current assignments must come from approved HR/project master data and the canonical programme registry; the existence of a UI module does not establish a live project/coordinator position.
 
 Project coordinators currently perform several combined responsibilities:
 
@@ -210,21 +199,13 @@ Project coordinators currently perform several combined responsibilities:
 
 ### E4BL
 
-Current confirmed resources:
-
-- 300 students
-- Two education centres
-- 10 teachers
-- Two helping hands
+Current operating structure includes the Hazaribagh and Uttara education centres. Enrolment and staffing are volatile operational values and must come from approved E4BL/HR records for the relevant reporting period.
 
 ### A2PHC
 
-Current confirmed resources:
+A2PHC uses supervisor/doctor field roles. Current staffing numbers and geographic assignments must come from approved A2PHC/HR records rather than historical discovery snapshots.
 
-- Five general physicians
-- Five field supervisors
-
-Each supervisor and doctor is associated with a service area or district according to operational assignment.
+Each supervisor and doctor is associated with approved service areas according to operational assignment.
 
 ## 5.5 Supporting roles
 
@@ -423,7 +404,7 @@ Separate MFRs are prepared for:
 - E4BL
 - A2PHC
 - Climate Action Initiative
-- Women Empowerment Initiative
+- Women Empowerment (blueprint domain; activate only after management confirmation)
 - Other approved projects when required
 
 A separate special MFR is prepared for:
@@ -1196,11 +1177,7 @@ Both cover:
 
 ## 18.2 Current students and staff
 
-Current confirmed structure:
-
-- 300 students
-- 10 teachers
-- Two helping hands
+Current enrolment and staffing are reporting-period operational values. The ERP must source them from approved E4BL and HR records; architecture documentation does not define a fixed student/staff count.
 
 ## 18.3 Fee model
 
@@ -1370,7 +1347,7 @@ The future system must preserve historical data without allowing old templates t
 
 ---
 
-# 19. Access to Primary Health Care Operations
+# 19. Access to Primary Healthcare Operations
 
 ## 19.1 Service model
 
@@ -1389,10 +1366,7 @@ Patients receive:
 
 ## 19.3 Current staff
 
-A2PHC currently has:
-
-- Five general physicians
-- Five supervisors
+A2PHC uses General Physician and Medical Supervisor roles. Current headcount and assignment are volatile operational values and must come from approved HR/A2PHC records for the reporting period.
 
 ## 19.4 Field workflow
 
@@ -1620,9 +1594,9 @@ The project coordinator should ultimately report:
 
 ---
 
-# 23. Women Empowerment Initiative Operations
+# 23. Women Empowerment Blueprint Operations
 
-Women’s empowerment currently appears across several HSF activities:
+Women-focused themes may appear across HSF activities. A dedicated Women Empowerment programme is not treated as active by the ERP governance baseline until management confirms its status. The blueprint can accommodate:
 
 - Menstrual hygiene
 - Sanitary product distribution
@@ -1637,7 +1611,7 @@ Women’s empowerment currently appears across several HSF activities:
 - Rights and legal-awareness goals
 - Future livelihood and financial empowerment
 
-The initiative is recognized as one of HSF's four projects, but a dedicated monthly project-report sample was not supplied.
+Earlier discovery documentation described this as one of four projects; the aligned programme registry now treats that status as requiring management confirmation. A dedicated current approved programme record/report was not established by the supplied repository.
 
 The future operational structure should distinguish:
 
@@ -1972,7 +1946,7 @@ The following items should be confirmed next:
 1. Exact head-office employee list and the tenth position
 2. Complete organizational approval matrix
 3. Financial year
-4. All three bank accounts and their operational purpose
+4. All current bank accounts and their approved operational purpose
 5. Cash and MFS custodians
 6. Donor and restricted-fund rules
 7. Final Chart of Accounts structure

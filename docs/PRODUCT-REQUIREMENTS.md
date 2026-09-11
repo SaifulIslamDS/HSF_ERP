@@ -80,61 +80,55 @@ The same platform will later manage:
 
 ---
 
-# 3. Current Operational Baseline
+# 3. Current Operational Baseline and Source Rule
+
+Operational reality changes faster than architecture documents. This section therefore defines the **current model and source-of-truth rule**, not timeless beneficiary/staff/account counts. Earlier discovery snapshots remain traceable in `DECISIONS-AND-OPEN-ITEMS.md` but must not be presented as current without dated verification.
 
 ## 3.1 Organization
 
-HSF is a Bangladesh-based non-governmental, non-political, and non-profit organization supported mainly by:
+HSF is a Bangladesh-based non-governmental, non-political and non-profit organization. Funding/support may include national and international donors, individuals, corporate/CSR partners and sponsorship contributors. Exact current donor/funding composition belongs in approved Finance/Resource Mobilization records rather than hard-coded ERP architecture.
 
-- National donors
-- International donors
-- Individual donors
-- Corporate Social Responsibility partners
-- Sponsorship contributors
+## 3.2 Current canonical programmes
 
-## 3.2 Active projects
+The HSF Digital Institutional System Contract currently recognizes:
 
-- Education for Better Life (E4BL)
-- Access to Primary Health Care (A2PHC)
-- Climate Action Initiative
-- Women Empowerment Initiative
-- Central Office Management as a separate operational and financial cost centre
+- Education for Better Life (`E4BL`)
+- Access to Primary Healthcare (`A2PHC`)
+- Climate Action (`CLIMATE_ACTION`)
 
-## 3.3 Current education baseline
+Central Office Management is an organizational/financial cost centre, not automatically a programme.
 
-- Two education centres
-- Hazaribagh and Uttara
-- 300 students
-- Pre-primary through Grade Five
-- 10 teachers
-- Two helping hands
-- Hazaribagh provides free education and free materials
-- Uttara charges a very small fee and provides free materials
-- Grade Five completers are called HSF Graduates
-- HSF supports high-school admission and necessary education costs through Grade Ten
+A Women Empowerment module remains in the UI/product blueprint, but the module's existence does **not** establish an active management-approved programme. Treat activation/status as an open management decision.
 
-## 3.4 Current health baseline
+## 3.3 E4BL operating baseline
 
-- Five general physicians
-- Five supervisors
-- Free medical-camp service
-- Patient data currently collected through Google Forms
-- Camp-level and patient-level reporting currently managed through spreadsheets and exports
+- Current formal education model includes the Hazaribagh and Uttara centres.
+- The academic pathway covers pre-primary/primary progression through Grade Five, with graduate/secondary-transition support represented in the programme model.
+- Student Master and Annual Enrollment must remain separate concepts.
+- Attendance, examinations, progression, Grade V completion, secondary transition, learning materials and student support belong to the E4BL domain.
+- **Current enrolment, staffing, completion and transition values must be sourced from the approved E4BL operational dataset/ERP reporting period.**
+- Fee/waiver/support rules must be approved requirements; historical discovery wording must not be encoded automatically as current policy.
 
-## 3.5 Current financial baseline
+## 3.4 A2PHC operating baseline
 
-- Three bank accounts in different banks
-- Cash and MFS usage
-- Monthly MFRs
-- Separate COM MFR
-- Additional MFRs for unplanned expenditure
-- Purchase Requisition after MFR approval
-- Field disbursement through cash or bank
-- Bills and vouchers
-- Monthly project financial reports
-- Salary sheets and bank instructions
-- Annual planning meeting in October or November
-- Monthly budgets and MFRs expected to reflect the annual plan
+- A2PHC uses a community-based primary healthcare / medical-camp service model.
+- Patient Master and Patient Visit must remain separate concepts so follow-up does not create duplicate patient identities.
+- Camp planning, staff assignment, consultation/service records, awareness, referral, geographic coverage, data quality and reporting belong to the domain.
+- Patient/clinical records are sensitive and require least-privilege access, masking and audit controls.
+- **Current district/upazila/union coverage, staffing and service totals must come from approved A2PHC operational data for the reporting period.**
+- Earlier Google Form/spreadsheet workflows are migration/current-state references, not the target architecture.
+
+## 3.5 Financial operating baseline
+
+The discovery model includes annual planning/budgeting, monthly MFRs, COM cost-centre requirements, purchase requisitions, field disbursement, bills/vouchers, bank/cash/MFS handling, payroll preparation, reconciliation, closing and reporting. Exact current bank accounts, cash/MFS custodians, thresholds, tax/VAT rules and approval authorities require approved Finance master data and open-decision resolution before production configuration.
+
+## 3.6 Evidence and publication boundary
+
+Operational records do not become public statistics automatically. The intended chain is:
+
+`Operational Record → Verification → Indicator → Analysis/Learning → Management Approval → Approved Information → Reporting/Public Communication`
+
+Evidence states (`VERIFIED`, `CALCULATED`, `ESTIMATED`, `INFERRED`, etc.) must remain distinct from management approval and publication permission.
 
 ---
 
@@ -246,10 +240,10 @@ Included:
 - MHPSS
 - Health reporting and data quality
 
-## 5.5 Phase 5 — Climate, Women Empowerment, Donor, and MEAL
+## 5.5 Phase 5 — Climate, Additional Approved Programmes, Donor, and MEAL
 
 - Climate activities
-- Women Empowerment activities
+- Women Empowerment activities only if/when management confirms the programme status
 - Participants
 - Distributions
 - Outcomes

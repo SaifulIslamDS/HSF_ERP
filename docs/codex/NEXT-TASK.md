@@ -14,14 +14,18 @@ The temporary PIN gate must remain clearly separate from future Supabase user au
 
 1. `AGENTS.md`
 2. `docs/CURRENT-STATUS.md`
-3. `docs/PREVIEW-PIN-ACCESS-GATE.md`
-4. `docs/A2PHC-CURRENT-STATUS-v0.1.5.md`
-5. `docs/A2PHC-CONTINUATION-HANDOVER-v0.1.5.md`
-6. `docs/modules/A2PHC-UI-EXPANSION-AND-ROLE-VISIBILITY.md`
-7. `docs/A2PHC-FUNCTIONAL-ROADMAP.md`
-8. `docs/product/A2PHC-OPEN-DECISIONS.md`
-9. `docs/codex/A2PHC-CODEX-WORKING-INSTRUCTIONS.md`
-10. relevant architecture, data-model, RBAC, environment, and ADR documents
+3. `docs/governance/HSF_DIGITAL_SYSTEM_CONTRACT.json`
+4. `docs/governance/SYSTEM-BOUNDARIES.md`
+5. `docs/governance/PROGRAMME-REGISTRY.md`
+6. `docs/governance/SECURITY-BASELINE.md`
+7. `docs/PREVIEW-PIN-ACCESS-GATE.md`
+8. `docs/A2PHC-CURRENT-STATUS-v0.1.5.md`
+9. `docs/A2PHC-CONTINUATION-HANDOVER-v0.1.5.md`
+10. `docs/modules/A2PHC-UI-EXPANSION-AND-ROLE-VISIBILITY.md`
+11. `docs/A2PHC-FUNCTIONAL-ROADMAP.md`
+12. `docs/product/A2PHC-OPEN-DECISIONS.md`
+13. `docs/codex/A2PHC-CODEX-WORKING-INSTRUCTIONS.md`
+14. relevant architecture, data-model, RBAC, environment, and ADR documents
 
 ## Scope
 
@@ -37,6 +41,7 @@ The temporary PIN gate must remain clearly separate from future Supabase user au
 ```bash
 pnpm verify:structure
 pnpm verify:sensitive
+pnpm verify:alignment
 pnpm format:check
 pnpm lint
 pnpm typecheck
@@ -123,6 +128,7 @@ Do not replace the temporary preview gate until the real authentication mileston
 - Existing non-access ERP UI remains unchanged.
 - Role-preview behavior remains intact behind the gate.
 - Temporary PIN access is clearly distinguished from user authentication.
+- Institutional programme/evidence/public-repository rules remain aligned with the mirrored HSF Digital System Contract.
 - Access-control contract is complete enough for the next task.
 - No business functionality or real data is introduced.
 

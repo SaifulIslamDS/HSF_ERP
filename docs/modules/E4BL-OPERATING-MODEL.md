@@ -2,9 +2,9 @@
 
 ## Project context
 
-Education for Better Life currently serves 300 students through two education
-centres. Teachers, Head Teachers, and authorized project users will be assigned
-to the E4BL project and relevant centre.
+Education for Better Life (E4BL) is HSF's education-continuity programme. The current formal operating model includes the Hazaribagh and Uttara education centres. Teachers, Head Teachers and authorized project users are assigned to the E4BL project and relevant centre.
+
+Current enrolment, staffing, attendance, Grade V completion, graduate transition and other changing figures must come from the approved E4BL operational dataset/ERP reporting period. Historical discovery figures must not be hard-coded as current programme truth.
 
 ## User responsibilities
 
@@ -100,10 +100,9 @@ Student Master and annual Enrollment must remain separate.
 
 ## Centre-specific policy
 
-- Hazaribagh education and materials are free.
-- Uttara uses a small-fee model with free materials and requires fee-waiver
-  handling.
-- Exact fee policy and waiver authority require approved requirements.
+- Historical programme documentation describes different fee/support practices between Hazaribagh and Uttara.
+- Exact current fee, waiver, material-support and approval rules require approved requirements before production configuration.
+- The ERP should make these rules configurable rather than inferring policy from historical narrative.
 
 ## Data-quality expectations
 

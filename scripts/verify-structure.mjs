@@ -22,6 +22,12 @@ const required = [
   "docs/DECISIONS-AND-OPEN-ITEMS.md",
   "docs/CODEX-ONBOARDING.md",
   "docs/codex/NEXT-TASK.md",
+  "docs/governance/HSF_DIGITAL_SYSTEM_CONTRACT.json",
+  "docs/governance/SYSTEM-BOUNDARIES.md",
+  "docs/governance/PROGRAMME-REGISTRY.md",
+  "docs/governance/DATA-CLASSIFICATION-AND-EVIDENCE.md",
+  "docs/governance/APPROVED-INFORMATION-LAYER.md",
+  "docs/governance/SECURITY-BASELINE.md",
 ];
 
 const missing = required.filter((file) => !existsSync(resolve(file)));

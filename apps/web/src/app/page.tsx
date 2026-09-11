@@ -6,7 +6,7 @@ const programmes = [
   ["E4BL", "Education for Better Life", "Education centres, students, graduates, and sponsorship."],
   [
     "A2PHC",
-    "Access to Primary Health Care",
+    "Access to Primary Healthcare",
     "Medical camps, patients, physicians, and health reporting.",
   ],
   [
@@ -14,7 +14,7 @@ const programmes = [
     "Climate Action Initiative",
     "Community resilience, awareness, and climate-focused action.",
   ],
-  ["WEI", "Women Empowerment Initiative", "Health, dignity, protection, skills, and opportunity."],
+  ["WEI", "Women Empowerment (Blueprint)", "Future/optional module; active programme status requires management confirmation."],
 ];
 
 export default function HomePage() {

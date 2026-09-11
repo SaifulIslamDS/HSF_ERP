@@ -12,7 +12,7 @@
 
 ### ChatGPT
 
-- Maintains product planning and architecture context
+- Maintains product planning, architecture and cross-repository governance context
 - Converts business needs into scoped tasks and acceptance criteria
 - Reviews Codex reports and diffs
 - Decides the next single task with the user
@@ -70,6 +70,7 @@ Codex must not:
 - implement future roadmap items
 - change architecture without an ADR
 - choose unresolved business policy
+- redefine canonical HSF programme/evidence/publication concepts outside the Digital System Contract
 - import real HSF data
 - add a new framework for convenience
 - claim unexecuted validation
@@ -91,6 +92,7 @@ When a command fails:
 Every implementation task should update:
 
 - `docs/CURRENT-STATUS.md`
+- relevant `docs/governance/` files when institutional alignment is affected
 - the relevant module or workflow document
 - `docs/product/OPEN-PRODUCT-DECISIONS.md` when a new decision is needed
 - release notes only when a release is being prepared

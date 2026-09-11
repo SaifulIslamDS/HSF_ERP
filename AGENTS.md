@@ -4,9 +4,10 @@ These instructions apply to the entire HSF ERP repository.
 
 HSF ERP is a customized NGO Enterprise Resource Planning and Management
 Information System for Human Safety Foundation. Its purpose is to become the
-organization's controlled **single source of truth** for plans, people,
+organization's controlled **operational system of record** for plans, people,
 projects, funds, service delivery, achievements, evidence, approvals, and
-reports.
+reports. Institutional policies, frameworks and cross-repository governance remain
+controlled by the HSF Knowledge Hub; public systems receive approved information only.
 
 ## 1. Begin every task here
 
@@ -14,17 +15,20 @@ Before planning or changing code, read the following in this order:
 
 1. `AGENTS.md`
 2. `docs/CURRENT-STATUS.md`
-3. `docs/codex/NEXT-TASK.md`
-4. `docs/DOCUMENT-STACK.md`
-5. `docs/product/HSF-ERP-PRODUCT-VISION.md`
-6. `docs/PRODUCT-REQUIREMENTS.md`
-7. `docs/MASTER-SYSTEM-DESIGN.md`
-8. `docs/ARCHITECTURE.md`
-9. `docs/DATA-MODEL.md`
-10. `docs/RBAC-AND-APPROVALS.md`
-11. The relevant workflow and module documents
-12. `docs/product/OPEN-PRODUCT-DECISIONS.md`
-13. `docs/DECISIONS-AND-OPEN-ITEMS.md`
+3. `docs/governance/HSF_DIGITAL_SYSTEM_CONTRACT.json`
+4. `docs/governance/SYSTEM-BOUNDARIES.md`
+5. `docs/governance/PROGRAMME-REGISTRY.md`
+6. `docs/codex/NEXT-TASK.md`
+7. `docs/DOCUMENT-STACK.md`
+8. `docs/product/HSF-ERP-PRODUCT-VISION.md`
+9. `docs/PRODUCT-REQUIREMENTS.md`
+10. `docs/MASTER-SYSTEM-DESIGN.md`
+11. `docs/ARCHITECTURE.md`
+12. `docs/DATA-MODEL.md`
+13. `docs/RBAC-AND-APPROVALS.md`
+14. The relevant workflow and module documents
+15. `docs/product/OPEN-PRODUCT-DECISIONS.md`
+16. `docs/DECISIONS-AND-OPEN-ITEMS.md`
 
 Do not allow archived, copied, generated, sample, or outdated documents to
 override the canonical stack defined in `docs/DOCUMENT-STACK.md`.
@@ -34,6 +38,10 @@ override the canonical stack defined in `docs/DOCUMENT-STACK.md`.
 The following are current product truths:
 
 - HSF ERP is one integrated system for the whole organization.
+
+- The canonical current HSF programmes are E4BL, A2PHC and Climate Action. A UI module does not establish programme status; Women Empowerment remains a blueprint/unconfirmed domain until management approval.
+- Current beneficiary, enrolment, coverage, staffing and service figures are volatile and must come from dated approved operational sources rather than architecture text or synthetic UI.
+- Public communication must use the Approved Information Layer after verification, management approval, classification and publication-state checks.
 - Data should be entered once and reused through controlled workflows.
 - Every user is scoped by role, project, location, record status, and
   sensitivity.
@@ -157,7 +165,7 @@ recording the decision and its trade-offs.
 - Evidence must remain linked to the relevant activity and achievement.
 - Indicator performance is calculated by indicator and unit.
 - Weighted performance requires an approved weight configuration.
-- Final project reporting uses verified data only.
+- Final reporting must preserve evidence status. Verified operational data may feed calculated indicators; any calculated, estimated or inferred output must remain explicitly labelled and must not be silently presented as a verified operational record.
 
 ## 8. A2PHC clinical-data rules
 

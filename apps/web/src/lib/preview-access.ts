@@ -24,8 +24,23 @@ export function isPreviewGateEnabled(): boolean {
   return process.env.NODE_ENV === "production" || accessPin().length > 0;
 }
 
+function configuredSigningSecret(): string {
+  return (process.env.HSF_ERP_ACCESS_SECRET?.trim() || process.env.AUTH_SECRET?.trim() || "").trim();
+}
+
+function isPlaceholderSecret(secret: string): boolean {
+  const normalized = secret.toLowerCase();
+  return normalized.includes("replace-with") || normalized.includes("change-me") || normalized.includes("example");
+}
+
+export function isPreviewSigningSecretConfigured(): boolean {
+  const secret = configuredSigningSecret();
+  const pin = accessPin();
+  return secret.length >= 32 && secret !== pin && !isPlaceholderSecret(secret);
+}
+
 export function isPreviewGateConfigured(): boolean {
-  return /^\d{6}$/.test(accessPin());
+  return /^\d{6}$/.test(accessPin()) && isPreviewSigningSecretConfigured();
 }
 
 export function getPreviewSessionHours(): number {
@@ -42,11 +57,14 @@ export function getPreviewIdleMinutes(): number {
 
 function signingSecret(): string {
   const pin = accessPin();
-  const serverSecret =
-    process.env.HSF_ERP_ACCESS_SECRET?.trim() || process.env.AUTH_SECRET?.trim() || pin;
+  const serverSecret = configuredSigningSecret();
+
+  if (!isPreviewSigningSecretConfigured()) {
+    throw new Error("HSF ERP preview signing secret is not securely configured.");
+  }
 
   // Include the PIN so rotating the PIN also invalidates existing preview
-  // sessions, even when a separate long-lived server secret is configured.
+  // sessions while keeping the signing key independent from the six-digit PIN.
   return `${serverSecret}:hsf-erp-preview:${pin}`;
 }
 

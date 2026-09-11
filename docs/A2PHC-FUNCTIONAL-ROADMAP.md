@@ -175,7 +175,7 @@ Supervisor Requisition
 - privacy review;
 - data reconciliation;
 - management acceptance;
-- five-district rollout;
+- multi-district rollout based on approved current coverage data;
 - controlled retirement of Google Forms.
 
 ## Future medicine phase

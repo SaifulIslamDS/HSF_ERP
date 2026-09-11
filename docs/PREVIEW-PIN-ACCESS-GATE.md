@@ -27,7 +27,7 @@ Set these in Netlify for the web application:
 
 ```text
 HSF_ERP_ACCESS_PIN=<actual six-digit PIN>
-HSF_ERP_ACCESS_SECRET=<long random server-only secret, recommended>
+HSF_ERP_ACCESS_SECRET=<long random server-only secret, required for secure gate operation>
 HSF_ERP_ACCESS_SESSION_HOURS=12
 ```
 
@@ -39,7 +39,7 @@ HSF_ERP_ACCESS_GATE_ENABLED=true
 
 Never prefix these values with `NEXT_PUBLIC_`.
 
-The actual PIN and secret must never be committed.
+The actual PIN and secret must never be committed. The six-digit PIN is never accepted as the session-signing secret. `HSF_ERP_ACCESS_SECRET` (or an independent strong `AUTH_SECRET`) must be at least 32 characters and must not be a placeholder.
 
 ## Generate a session secret in PowerShell
 
@@ -99,7 +99,7 @@ To test locally:
 ```env
 HSF_ERP_ACCESS_GATE_ENABLED=true
 HSF_ERP_ACCESS_PIN=654321
-HSF_ERP_ACCESS_SECRET=replace-with-a-long-local-secret
+HSF_ERP_ACCESS_SECRET=<generate-a-random-secret-of-at-least-32-characters>
 HSF_ERP_ACCESS_SESSION_HOURS=12
 ```
 

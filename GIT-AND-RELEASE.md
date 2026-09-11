@@ -1,26 +1,44 @@
-# Git and Release Instructions — HSF ERP v0.1.5
+# Git and Release Instructions — HSF ERP
 
-## Commit
+## Current baseline
 
-```powershell
-git status
-git diff
-git add .
-git commit -m "feat(web): expand A2PHC UI and add role-aware module visibility"
-git push origin main
+- Codebase: `v0.1.6`
+- Governance alignment: HSF Digital Institutional System Contract `v1.0.0`
+- Next controlled task: `docs/codex/NEXT-TASK.md`
+
+## Working rule
+
+Use a feature/alignment branch and pull request where practical. Do not tag, release or deploy from a working tree that has not passed the required gates.
+
+## Required gates before a release claim
+
+```bash
+pnpm verify:structure
+pnpm verify:sensitive
+pnpm verify:alignment
+pnpm db:format
+pnpm db:validate
+pnpm db:generate
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm test:run
+pnpm build
 ```
 
-## Annotated tag
+## Version discipline
 
-```powershell
-git tag -a v0.1.5 -m "v0.1.5 - A2PHC UI Expansion and Role-Aware Module Visibility"
-git push origin v0.1.5
-```
+Use Semantic Versioning for the codebase. Historical release notes under `docs/releases/` are immutable release records. A new stable tag requires a new release note; do not silently rewrite an existing tag/release.
 
-## Release title
+## Commit discipline
 
-```text
-v0.1.5 — A2PHC UI Expansion and Role-Aware Module Visibility
-```
+Prefer Conventional Commit-style messages, for example:
 
-Use `docs/releases/v0.1.5.md` as the GitHub release body.
+- `docs(governance): align HSF system contract`
+- `fix(ci): enforce frozen lockfile`
+- `security(preview): require independent signing secret`
+- `feat(auth): add authenticated user context`
+
+## Release approval
+
+A technically green build is necessary but not sufficient for HSF operational release. Management approval is still required for business rules, production data use and go-live decisions.

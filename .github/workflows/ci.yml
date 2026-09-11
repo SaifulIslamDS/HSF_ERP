@@ -12,7 +12,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
@@ -23,18 +23,21 @@ jobs:
         with:
           node-version: "24.18.0"
 
+      - name: Sensitive-file guard before dependency install
+        run: node scripts/check-sensitive-files.mjs
+
       - name: Enable pnpm
         run: |
           corepack enable
           corepack prepare pnpm@11.10.0 --activate
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
 
-      - name: Verify repository
+      - name: Verify repository structure and institutional alignment
         run: |
           pnpm verify:structure
-          pnpm verify:sensitive
+          pnpm verify:alignment
 
       - name: Prisma format and validate
         env:

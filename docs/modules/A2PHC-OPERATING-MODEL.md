@@ -2,7 +2,7 @@
 
 ## Project context
 
-Access to Primary Health Care uses Medical Camp Supervisors and General
+Access to Primary Healthcare uses Medical Camp Supervisors and General
 Physicians to provide free consultation, advice, prescription, and medicine
 when available.
 

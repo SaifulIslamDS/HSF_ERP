@@ -25,7 +25,8 @@
     "db:studio": "pnpm --filter @hsf/database db:studio",
     "verify:structure": "node scripts/verify-structure.mjs",
     "verify:sensitive": "node scripts/check-sensitive-files.mjs",
-    "verify": "pnpm verify:structure && pnpm verify:sensitive && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:run && pnpm build"
+    "verify": "pnpm verify:structure && pnpm verify:sensitive && pnpm verify:alignment && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:run && pnpm build",
+    "verify:alignment": "node scripts/verify-alignment.mjs"
   },
   "devDependencies": {
     "@eslint/js": "9.39.5",

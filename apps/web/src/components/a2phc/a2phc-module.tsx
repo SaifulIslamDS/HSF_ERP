@@ -288,7 +288,7 @@ function DashboardView() {
 
       <div className={styles.twoColumn}>
         <Section
-          title="Five-district field coverage"
+          title="Multi-district field coverage · synthetic demo"
           description="Current operating geography presented without hard-coded union limits."
         >
           <div className={styles.districtGrid}>

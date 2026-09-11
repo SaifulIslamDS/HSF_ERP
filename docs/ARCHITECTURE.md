@@ -77,7 +77,7 @@ Primary domains:
 - E4BL
 - A2PHC
 - Climate Action
-- Women Empowerment
+- Women Empowerment (blueprint; activation requires management confirmation)
 - Donors and grants
 - MEAL
 - Documents

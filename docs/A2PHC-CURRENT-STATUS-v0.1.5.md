@@ -1,5 +1,8 @@
 # A2PHC Current Status — v0.1.5
 
+> **Historical release note:** This document preserves the v0.1.5 UI/discovery snapshot. Coverage, staffing and other operational figures in it are not current source-of-truth values; use the approved A2PHC operational dataset/ERP reporting period for current reporting.
+
+
 ## Release status
 
 **Expected version:** `v0.1.5`  

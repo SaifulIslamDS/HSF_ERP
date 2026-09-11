@@ -36,7 +36,7 @@ It will connect:
 - Patient records
 - Medicine and equipment management
 - Climate Action
-- Women Empowerment
+- Women Empowerment (blueprint; activation requires management confirmation)
 - Child Sponsorship
 - Donors, CSR, and grants
 - Project management
@@ -218,9 +218,9 @@ Users should see only the data required for their responsibility.
 | ----- | ----------------------------- |
 | COM   | Central Office Management     |
 | E4BL  | Education for Better Life     |
-| A2PHC | Access to Primary Health Care |
+| A2PHC | Access to Primary Healthcare |
 | CAI   | Climate Action Initiative     |
-| WEI   | Women Empowerment Initiative  |
+| WEI   | Women Empowerment (blueprint / programme status unconfirmed) |
 
 ## 6.3 Cross-cutting initiatives
 
@@ -249,9 +249,9 @@ The final classification will be approved during master-data design.
 
 ## 6.5 Current health operating structure
 
-- Five supervisors
-- Five general physicians
-- Current and historical service locations across several districts
+- Medical Supervisor and General Physician field roles
+- Current and historical service locations across multiple districts
+- Current staff counts and geographic coverage are reporting-period values sourced from approved A2PHC/HR records
 
 The location hierarchy must support:
 
@@ -537,7 +537,7 @@ The Chairman may:
 - Emergency response
 - Outcome tracking
 
-## 9.11 Women Empowerment
+## 9.11 Women Empowerment (Blueprint)
 
 - Menstrual health
 - Sanitary product distribution
@@ -1569,17 +1569,13 @@ After closing:
 
 # 27. E4BL School Management Design
 
-## 27.1 Current operating baseline
+## 27.1 Current operating model and source rule
 
-- Two education centres
-- 300 students
-- Pre-primary through Grade Five
-- 10 teachers
-- Two helping hands
-- Hazaribagh: free education and free materials
-- Uttara: very small fee and free materials
-- Grade Five completers become HSF Graduates
-- HSF supports high-school admission and necessary fees through Grade Ten
+- Current formal education model includes the Hazaribagh and Uttara centres.
+- Academic structure covers pre-primary through Grade Five.
+- Grade Five completion/graduate transition is represented in the E4BL domain.
+- Current enrolment, staffing, fee/waiver, completion and secondary-transition values must come from approved E4BL operational data for the reporting period.
+- Historical discovery figures remain reference material only and must not be hard-coded as current programme facts or entitlements.
 
 ## 27.2 Admission
 
@@ -1696,14 +1692,14 @@ After closing:
 
 # 28. A2PHC Health Management Design
 
-## 28.1 Current operating baseline
+## 28.1 Current operating model and source rule
 
-- Free patient service
-- Five general physicians
-- Five supervisors
-- Patient data currently collected through Google Forms
-- Medical camps in field locations
-- Patient records include demographics, condition, diabetes test, contact, and blood pressure
+- Community medical-camp / primary healthcare service model
+- Medical Supervisor and General Physician roles
+- Field service locations across approved coverage areas
+- Earlier discovery workflows used Google Forms/spreadsheets; these are migration/current-state references rather than target architecture
+- Patient Master and Patient Visit remain separate; clinical/demographic fields require approved requirements
+- Current staffing, geographic coverage and service totals must come from approved A2PHC/HR operational records for the reporting period
 
 ## 28.2 Camp planning
 
@@ -1807,7 +1803,7 @@ The module should support:
 
 ---
 
-# 30. Women Empowerment Design
+# 30. Women Empowerment Blueprint Design
 
 The module should support:
 
@@ -2308,7 +2304,7 @@ E4BL and A2PHC should follow immediately after finance stabilization.
 - Medicine
 - Referral
 
-## v0.10.0 — Climate, Women Empowerment, and MEAL
+## v0.10.0 — Climate, Additional Approved Programmes, and MEAL
 
 - Project activities
 - Participants

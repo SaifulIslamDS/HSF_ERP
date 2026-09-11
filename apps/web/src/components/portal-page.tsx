@@ -6,10 +6,10 @@ import { portalGroups, portalRouteCount } from "@/lib/portal-catalog";
 const lifecycle = ["Draft", "Submitted", "Under review", "Returned", "Approved", "Completed", "Verified", "Closed"];
 
 const projectCards = [
-  ["E4BL", "Education for Better Life", "300 students · 2 centres", "74%"],
-  ["A2PHC", "Access to Primary Health Care", "5 doctors · 5 supervisors", "81%"],
+  ["E4BL", "Education for Better Life", "Synthetic demo · 2 centres", "74%"],
+  ["A2PHC", "Access to Primary Healthcare", "Synthetic demo · multi-district teams", "81%"],
   ["CAI", "Climate Action Initiative", "Community resilience and action", "68%"],
-  ["WEI", "Women Empowerment Initiative", "Dignity, skills and opportunity", "72%"],
+  ["WEI", "Women Empowerment (Blueprint)", "Unconfirmed programme domain · synthetic demo", "72%"],
 ];
 
 const operatingCycle = ["Plan", "Budget", "Request", "Approve", "Deliver", "Verify", "Account", "Report"];
@@ -32,7 +32,7 @@ function metricSet(route: PortalRoute) {
       ["Core projects", "4", "Organization-wide programme portfolio", "Active"],
       ["Planned UI screens", String(portalRouteCount), "All planned modules represented", "Complete"],
       ["Students", "300", "Across Hazaribagh and Uttara", "E4BL"],
-      ["Health field team", "10", "Five physicians and five supervisors", "A2PHC"],
+      ["Health field team", "Synthetic", "Illustrative staffing example", "A2PHC"],
     ],
     finance: [
       ["Approved annual budget", "৳ 24.8M", "Synthetic management preview", "FY 2026"],
@@ -96,7 +96,7 @@ function tablePreset(route: PortalRoute) {
         ["FIN-DEMO-0260", "A2PHC · Health Fund", "Jul 2026", "৳ 418,200", "Project Coordinator", "Recommended"],
         ["FIN-DEMO-0259", "Central Office", "Jun 2026", "৳ 164,800", "Finance Director", "Approved"],
         ["FIN-DEMO-0258", "Climate Action", "Jun 2026", "৳ 92,400", "Programme Team", "Completed"],
-        ["FIN-DEMO-0257", "Women Empowerment", "Jun 2026", "৳ 138,000", "Programme Team", "Verified"],
+        ["FIN-DEMO-0257", "Women Empowerment (Blueprint)", "Jun 2026", "৳ 138,000", "Programme Team", "Synthetic"],
       ],
     },
     requisitions: {
@@ -670,7 +670,7 @@ function ReportView({ route }: { route: PortalRoute }) {
     <>
       <section className="erp-report-controls">
         <label>Reporting period<select defaultValue="Jul 2026"><option>Jul 2026</option><option>Jun 2026</option><option>Q2 2026</option><option>FY 2026</option></select></label>
-        <label>Project<select defaultValue="all"><option value="all">All projects</option><option>E4BL</option><option>A2PHC</option><option>Climate Action</option><option>Women Empowerment</option></select></label>
+        <label>Project<select defaultValue="all"><option value="all">All projects</option><option>E4BL</option><option>A2PHC</option><option>Climate Action</option><option>Women Empowerment (Blueprint)</option></select></label>
         <label>Location<select defaultValue="all"><option value="all">All locations</option><option>Head Office</option><option>Hazaribagh</option><option>Uttara</option></select></label>
         <button className="erp-button secondary" type="button">Refresh preview</button>
         <button className="erp-button primary" type="button">Export report</button>
@@ -866,7 +866,7 @@ function FormView({ route, action }: { route: PortalRoute; action: "new" | "edit
           <div className="erp-form-grid">
             <label>Record title<input defaultValue={action === "edit" ? `Demo ${route.title} record` : ""} placeholder={`Enter ${route.title.toLowerCase()} title`} /></label>
             <label>Reference number<input defaultValue={action === "edit" ? "HSF-DEMO-001" : "Generated after submission"} disabled /></label>
-            <label>Project<select defaultValue="e4bl"><option value="e4bl">Education for Better Life</option><option>A2PHC</option><option>Climate Action</option><option>Women Empowerment</option><option>Central Office</option></select></label>
+            <label>Project<select defaultValue="e4bl"><option value="e4bl">Education for Better Life</option><option>A2PHC</option><option>Climate Action</option><option>Women Empowerment (Blueprint)</option><option>Central Office</option></select></label>
             <label>Location<select defaultValue="head"><option value="head">Head Office</option><option>Hazaribagh Centre</option><option>Uttara Centre</option><option>Field Area 01</option></select></label>
             <label>Reporting period<input type="month" defaultValue="2026-07" /></label>
             <label>Responsible person<select defaultValue="demo"><option value="demo">Demo User 01</option><option>Demo User 02</option><option>Demo User 03</option></select></label>

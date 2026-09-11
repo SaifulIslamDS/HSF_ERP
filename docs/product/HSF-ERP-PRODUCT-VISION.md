@@ -66,7 +66,7 @@ For this reason, many institutions design customized systems around their own wo
 
 For a long time, I have wanted to apply my programming knowledge and software-development skills to build such a unified system for Human Safety Foundation. During the last several months, the need for this platform has become increasingly clear.
 
-HSF now operates across education, primary healthcare, climate action, women empowerment, child sponsorship, central-office management, finance, payroll, recruitment, donor management, project reporting, and field operations.
+HSF's current canonical programme portfolio includes education (E4BL), primary healthcare (A2PHC) and Climate Action, supported by central-office management, finance, HR/payroll, resource mobilization, reporting and other organizational functions. The ERP blueprint also contains future/optional domains such as Women Empowerment; a blueprint domain must not be treated as proof of an active management-approved programme.
 
 Important parts of these operations are currently managed through Excel, Google Forms, email, WhatsApp, bank statements, paper bills, vouchers, and individual follow-up. These methods support the current work, but they also create increasing risks as the organization grows:
 
@@ -1037,7 +1037,7 @@ When a requisition is prepared, current stock should be displayed to reduce unne
 
 ---
 
-# 26. Climate Action and Women Empowerment
+# 26. Climate Action and Women Empowerment Blueprint
 
 The Climate Action module may track:
 
@@ -1052,7 +1052,7 @@ The Climate Action module may track:
 - Emergency Response
 - Outcomes
 
-The Women Empowerment module may track:
+If/when management confirms an active Women Empowerment programme, the blueprint module may track:
 
 - Menstrual Health
 - Maternal Health

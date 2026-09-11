@@ -85,9 +85,10 @@
 - Medicine
 - Referral
 
-## v0.10.0 — Climate, Women Empowerment, and MEAL
+## v0.10.0 — Climate, Additional Approved Programmes, and MEAL
 
-- Activities
+- Climate Action activities
+- Additional approved programme activities (only after management confirmation)
 - Participants
 - Indicators
 - Project reports

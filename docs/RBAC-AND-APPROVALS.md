@@ -300,10 +300,10 @@ This is provisional and must be confirmed by HSF:
 - CEO → CEO
 - Finance Director → FIN_DIR
 - Finance team members → FIN_OFF
-- Four project coordinators → PROJECT_COORD with project-specific access
+- Authorized project coordinators → PROJECT_COORD with project-specific access
 - Admin Assistant → ADMIN_ASST
 - School head teachers → HEAD_TEACHER
 - Teachers → TEACHER
-- Five medical supervisors → MED_SUPERVISOR
-- Five general physicians → PHYSICIAN
+- Medical supervisors → MED_SUPERVISOR
+- General physicians → PHYSICIAN
 - External auditor → AUDITOR
