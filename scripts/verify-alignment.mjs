@@ -19,7 +19,8 @@ const required = [
   "docs/governance/PUBLIC_REPOSITORY_POLICY.md",
   "docs/governance/EXTERNAL_STANDARDS.md",
 ];
-for (const file of required) if (!existsSync(resolve(root, file))) errors.push(`Missing alignment file: ${file}`);
+for (const file of required)
+  if (!existsSync(resolve(root, file))) errors.push(`Missing alignment file: ${file}`);
 
 try {
   const pkg = readJson("package.json");
@@ -29,7 +30,8 @@ try {
   const version = pkg.version;
 
   if (version !== "0.1.6") errors.push(`Expected current codebase version 0.1.6, found ${version}`);
-  if (web.version !== version) errors.push(`apps/web version ${web.version} does not match root ${version}`);
+  if (web.version !== version)
+    errors.push(`apps/web version ${web.version} does not match root ${version}`);
   const workspacePackages = [
     "apps/api/package.json",
     "apps/web/package.json",
@@ -44,19 +46,31 @@ try {
   ];
   for (const file of workspacePackages) {
     const child = readJson(file);
-    if (child.version !== version) errors.push(`${file} version ${child.version} does not match root ${version}`);
+    if (child.version !== version)
+      errors.push(`${file} version ${child.version} does not match root ${version}`);
   }
-  if (manifest.current_version !== version) errors.push(`MANIFEST current_version ${manifest.current_version} does not match root ${version}`);
-  if (contract.contract_version !== "1.0.0") errors.push("Digital System Contract mirror must be v1.0.0");
+  if (manifest.current_version !== version)
+    errors.push(
+      `MANIFEST current_version ${manifest.current_version} does not match root ${version}`,
+    );
+  if (contract.contract_version !== "1.0.0")
+    errors.push("Digital System Contract mirror must be v1.0.0");
 
-  const programmeCodes = Object.keys(contract.programmes ?? {}).sort().join(",");
+  const programmeCodes = Object.keys(contract.programmes ?? {})
+    .sort()
+    .join(",");
   if (programmeCodes !== ["A2PHC", "CLIMATE_ACTION", "E4BL"].sort().join(",")) {
     errors.push(`Unexpected canonical programme set: ${programmeCodes}`);
   }
 
-  const evidence = Object.keys(contract.evidence_states ?? {}).sort().join(",");
-  const expectedEvidence = ["RAW", "CLEANED", "VERIFIED", "CALCULATED", "ESTIMATED", "INFERRED"].sort().join(",");
-  if (evidence !== expectedEvidence) errors.push("Evidence-state set does not match institutional contract");
+  const evidence = Object.keys(contract.evidence_states ?? {})
+    .sort()
+    .join(",");
+  const expectedEvidence = ["RAW", "CLEANED", "VERIFIED", "CALCULATED", "ESTIMATED", "INFERRED"]
+    .sort()
+    .join(",");
+  if (evidence !== expectedEvidence)
+    errors.push("Evidence-state set does not match institutional contract");
 
   for (const file of [
     "apps/web/src/app/api/health/route.ts",
@@ -64,20 +78,26 @@ try {
     "apps/api/src/modules/health/health.controller.ts",
   ]) {
     const text = readText(file);
-    if (!text.includes(`version: \"${version}\"`)) errors.push(`${file} does not expose current codebase version ${version}`);
+    if (!text.includes(`version: \"${version}\"`))
+      errors.push(`${file} does not expose current codebase version ${version}`);
   }
 
   const status = readText("docs/CURRENT-STATUS.md");
   if (!status.includes("`v0.1.6`")) errors.push("CURRENT-STATUS.md does not identify v0.1.6");
-  if (!status.includes("Functional Implementation Pending")) errors.push("CURRENT-STATUS.md lost the implementation-boundary statement");
+  if (!status.includes("Functional Implementation Pending"))
+    errors.push("CURRENT-STATUS.md lost the implementation-boundary statement");
 
   const readme = readText("README.md");
   if (!readme.includes("v0.1.6")) errors.push("README.md does not identify v0.1.6");
-  if (!readme.includes("Functional Implementation Pending")) errors.push("README.md must not imply production completeness");
+  if (!readme.includes("Functional Implementation Pending"))
+    errors.push("README.md must not imply production completeness");
 
-  if (existsSync(resolve(root, "overlay"))) errors.push("Obsolete overlay/ patch package must not be present in the clean baseline");
-  if (existsSync(resolve(root, ".hsf-patch-backup"))) errors.push("Obsolete .hsf-patch-backup/ must not be present in the clean baseline");
-  if (existsSync(resolve(root, "apps/web/tsconfig.tsbuildinfo"))) errors.push("Generated tsconfig.tsbuildinfo must not be committed");
+  if (existsSync(resolve(root, "overlay")))
+    errors.push("Obsolete overlay/ patch package must not be present in the clean baseline");
+  if (existsSync(resolve(root, ".hsf-patch-backup")))
+    errors.push("Obsolete .hsf-patch-backup/ must not be present in the clean baseline");
+  if (existsSync(resolve(root, "apps/web/tsconfig.tsbuildinfo")))
+    errors.push("Generated tsconfig.tsbuildinfo must not be committed");
 
   const workspace = readText("pnpm-workspace.yaml");
   const lockfile = readText("pnpm-lock.yaml");
@@ -102,8 +122,10 @@ try {
     errors.push("CI must install from the committed lockfile with --frozen-lockfile");
 
   const previewAccess = readText("apps/web/src/lib/preview-access.ts");
-  if (previewAccess.includes("|| pin")) errors.push("Preview access must never fall back to the six-digit PIN as a signing secret");
-  if (!previewAccess.includes("isPreviewSigningSecretConfigured")) errors.push("Preview signing-secret configuration check is missing");
+  if (previewAccess.includes("|| pin"))
+    errors.push("Preview access must never fall back to the six-digit PIN as a signing secret");
+  if (!previewAccess.includes("isPreviewSigningSecretConfigured"))
+    errors.push("Preview signing-secret configuration check is missing");
 } catch (error) {
   errors.push(`Alignment validation error: ${error.message}`);
 }

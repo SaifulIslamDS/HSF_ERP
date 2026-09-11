@@ -122,12 +122,12 @@ Project implementation depends on approved donations and grants. HSF therefore n
 
 HSF currently operates four principal initiatives.
 
-| Code  | Project                       | Current operational purpose                                                                      |
-| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| E4BL  | Education for Better Life     | Education, school support, educational materials, student development, and continuation support  |
-| A2PHC | Access to Primary Healthcare | Free mobile or field-level medical consultation and primary health services                      |
-| CAI   | Climate Action Initiative     | Climate awareness, resilience, youth engagement, adaptation, and climate-linked support          |
-| WEI   | Women Empowerment (blueprint) | Future/optional domain; active programme status requires management confirmation |
+| Code  | Project                       | Current operational purpose                                                                     |
+| ----- | ----------------------------- | ----------------------------------------------------------------------------------------------- |
+| E4BL  | Education for Better Life     | Education, school support, educational materials, student development, and continuation support |
+| A2PHC | Access to Primary Healthcare  | Free mobile or field-level medical consultation and primary health services                     |
+| CAI   | Climate Action Initiative     | Climate awareness, resilience, youth engagement, adaptation, and climate-linked support         |
+| WEI   | Women Empowerment (blueprint) | Future/optional domain; active programme status requires management confirmation                |
 
 HSF also has important cross-cutting activities, including:
 

@@ -214,12 +214,12 @@ Users should see only the data required for their responsibility.
 
 ## 6.2 Current projects
 
-| Code  | Project                       |
-| ----- | ----------------------------- |
-| COM   | Central Office Management     |
-| E4BL  | Education for Better Life     |
-| A2PHC | Access to Primary Healthcare |
-| CAI   | Climate Action Initiative     |
+| Code  | Project                                                      |
+| ----- | ------------------------------------------------------------ |
+| COM   | Central Office Management                                    |
+| E4BL  | Education for Better Life                                    |
+| A2PHC | Access to Primary Healthcare                                 |
+| CAI   | Climate Action Initiative                                    |
 | WEI   | Women Empowerment (blueprint / programme status unconfirmed) |
 
 ## 6.3 Cross-cutting initiatives

@@ -14,7 +14,11 @@ const programmes = [
     "Climate Action Initiative",
     "Community resilience, awareness, and climate-focused action.",
   ],
-  ["WEI", "Women Empowerment (Blueprint)", "Future/optional module; active programme status requires management confirmation."],
+  [
+    "WEI",
+    "Women Empowerment (Blueprint)",
+    "Future/optional module; active programme status requires management confirmation.",
+  ],
 ];
 
 export default function HomePage() {

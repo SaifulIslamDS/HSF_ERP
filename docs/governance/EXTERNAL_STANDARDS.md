@@ -7,11 +7,13 @@
 ## Application security
 
 ### OWASP Application Security Verification Standard (ASVS) 5.0.0
+
 Use ASVS 5.0.0 as the web-application technical security verification baseline for HSF ERP.
 
 Official: https://owasp.org/www-project-application-security-verification-standard/
 
 ### OWASP Top 10:2025
+
 Use OWASP Top 10:2025 as the developer/risk-awareness baseline. It complements but does not replace detailed ASVS verification.
 
 Official: https://top10.owasp.org/2025/
@@ -19,6 +21,7 @@ Official: https://top10.owasp.org/2025/
 ## Organizational cybersecurity
 
 ### NIST Cybersecurity Framework (CSF) 2.0
+
 Use CSF 2.0 to organize HSF cybersecurity risk outcomes across Govern, Identify, Protect, Detect, Respond and Recover.
 
 Official: https://www.nist.gov/cyberframework
@@ -26,6 +29,7 @@ Official: https://www.nist.gov/cyberframework
 ## Secure software development
 
 ### NIST SP 800-218 — Secure Software Development Framework (SSDF) 1.1
+
 Use SSDF 1.1 as the secure software-development lifecycle baseline. Later final revisions should be adopted only through controlled review.
 
 Official: https://csrc.nist.gov/pubs/sp/800/218/final
@@ -33,6 +37,7 @@ Official: https://csrc.nist.gov/pubs/sp/800/218/final
 ## Accessibility
 
 ### WCAG 2.2 Level AA
+
 Target WCAG 2.2 AA for the Knowledge Hub and ERP web interfaces.
 
 Official: https://www.w3.org/TR/WCAG22/
@@ -40,11 +45,13 @@ Official: https://www.w3.org/TR/WCAG22/
 ## Versioning and commits
 
 ### Semantic Versioning 2.0.0
+
 Use MAJOR.MINOR.PATCH semantics for software/public interfaces where versioning applies. Do not silently rewrite a published stable release.
 
 Official: https://semver.org/
 
 ### Conventional Commits 1.0.0
+
 Preferred format: `type(optional-scope): concise description`.
 
 Recommended types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `security`.

@@ -2,7 +2,6 @@
 
 > **Historical release note:** This document preserves the v0.1.5 UI/discovery snapshot. Coverage, staffing and other operational figures in it are not current source-of-truth values; use the approved A2PHC operational dataset/ERP reporting period for current reporting.
 
-
 ## Release status
 
 **Expected version:** `v0.1.5`  
@@ -34,17 +33,17 @@ The expanded A2PHC experience presents:
 
 ## Current UI-only access examples
 
-| Role | A2PHC UI | E4BL UI | Finance UI |
-|---|---|---|---|
-| Executive / CEO | Full management view | Visible | Visible according to authority |
-| A2PHC Coordinator | Project and management view | Hidden unless separately assigned | Limited supporting view |
-| Medical Supervisor | Camp, patients, equipment, expense, reports | Hidden | No finance workspace |
-| General Physician | Queue, consultation, prescription, referral, sign-off | Hidden | Hidden |
-| E4BL Coordinator | Hidden | Project view | Limited supporting view |
-| Teacher / Head Teacher | Hidden | Assigned education view | Hidden |
-| Finance user | Supporting A2PHC financial records | No programme workspace by default | Assigned finance view |
-| Auditor | Controlled read-only view | Controlled | Controlled |
-| System Administrator | Configuration only | No automatic programme authority | No automatic approval authority |
+| Role                   | A2PHC UI                                              | E4BL UI                           | Finance UI                      |
+| ---------------------- | ----------------------------------------------------- | --------------------------------- | ------------------------------- |
+| Executive / CEO        | Full management view                                  | Visible                           | Visible according to authority  |
+| A2PHC Coordinator      | Project and management view                           | Hidden unless separately assigned | Limited supporting view         |
+| Medical Supervisor     | Camp, patients, equipment, expense, reports           | Hidden                            | No finance workspace            |
+| General Physician      | Queue, consultation, prescription, referral, sign-off | Hidden                            | Hidden                          |
+| E4BL Coordinator       | Hidden                                                | Project view                      | Limited supporting view         |
+| Teacher / Head Teacher | Hidden                                                | Assigned education view           | Hidden                          |
+| Finance user           | Supporting A2PHC financial records                    | No programme workspace by default | Assigned finance view           |
+| Auditor                | Controlled read-only view                             | Controlled                        | Controlled                      |
+| System Administrator   | Configuration only                                    | No automatic programme authority  | No automatic approval authority |
 
 ## Known security limitation
 

@@ -41,7 +41,13 @@ export function PortalShell({ children, pageTitle }: { children: ReactNode; page
         <div className="erp-sidebar-head">
           <Link className="erp-brand" href="/dashboard" onClick={closeMenu}>
             <span className="erp-brand-mark">
-              <Image src="/branding/hsf-mark.png" alt="HSF emblem" width={50} height={50} priority />
+              <Image
+                src="/branding/hsf-mark.png"
+                alt="HSF emblem"
+                width={50}
+                height={50}
+                priority
+              />
             </span>
             <span>
               <strong>HSF ERP</strong>
@@ -57,7 +63,9 @@ export function PortalShell({ children, pageTitle }: { children: ReactNode; page
           <span aria-hidden="true">⌕</span>
           <input
             value={navigationQuery}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => setNavigationQuery(event.target.value)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              setNavigationQuery(event.target.value)
+            }
             placeholder="Find a module or page"
             aria-label="Search navigation"
           />
@@ -79,7 +87,11 @@ export function PortalShell({ children, pageTitle }: { children: ReactNode; page
           {groups.map((group) => {
             const activeGroup = pathname.startsWith(`/${group.slug}/`);
             return (
-              <details className="erp-nav-group" key={group.id} open={activeGroup || Boolean(navigationQuery)}>
+              <details
+                className="erp-nav-group"
+                key={group.id}
+                open={activeGroup || Boolean(navigationQuery)}
+              >
                 <summary>
                   <span className="erp-nav-code">{group.code}</span>
                   <span>
@@ -178,13 +190,22 @@ export function PortalShell({ children, pageTitle }: { children: ReactNode; page
         <Link className={pathname === "/dashboard" ? "active" : ""} href="/dashboard">
           <span>⌂</span>Overview
         </Link>
-        <Link className={pathname.startsWith("/planning/") ? "active" : ""} href="/planning/dashboard">
+        <Link
+          className={pathname.startsWith("/planning/") ? "active" : ""}
+          href="/planning/dashboard"
+        >
           <span>◎</span>Plans
         </Link>
-        <Link className={pathname.startsWith("/requisitions/") ? "active" : ""} href="/requisitions/dashboard">
+        <Link
+          className={pathname.startsWith("/requisitions/") ? "active" : ""}
+          href="/requisitions/dashboard"
+        >
           <span>↳</span>Approvals
         </Link>
-        <Link className={pathname.startsWith("/reports/") ? "active" : ""} href="/reports/dashboard">
+        <Link
+          className={pathname.startsWith("/reports/") ? "active" : ""}
+          href="/reports/dashboard"
+        >
           <span>▥</span>Reports
         </Link>
         <button type="button" onClick={() => setMenuOpen(true)}>

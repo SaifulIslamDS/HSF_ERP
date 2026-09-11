@@ -25,12 +25,20 @@ export function isPreviewGateEnabled(): boolean {
 }
 
 function configuredSigningSecret(): string {
-  return (process.env.HSF_ERP_ACCESS_SECRET?.trim() || process.env.AUTH_SECRET?.trim() || "").trim();
+  return (
+    process.env.HSF_ERP_ACCESS_SECRET?.trim() ||
+    process.env.AUTH_SECRET?.trim() ||
+    ""
+  ).trim();
 }
 
 function isPlaceholderSecret(secret: string): boolean {
   const normalized = secret.toLowerCase();
-  return normalized.includes("replace-with") || normalized.includes("change-me") || normalized.includes("example");
+  return (
+    normalized.includes("replace-with") ||
+    normalized.includes("change-me") ||
+    normalized.includes("example")
+  );
 }
 
 export function isPreviewSigningSecretConfigured(): boolean {

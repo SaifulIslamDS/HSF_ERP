@@ -1,4 +1,3 @@
-
 :root {
   color-scheme: light;
   --g950: #123b2f;
@@ -28,7 +27,13 @@
   --shadow: 0 24px 70px rgba(23, 74, 56, 0.13);
   --sidebar-width: 286px;
   font-family:
-    Inter, "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    Inter,
+    "Segoe UI",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
 }
 
 * {
@@ -1376,7 +1381,9 @@ button {
   grid-template-columns: 32px 1fr auto;
   padding: 7px 9px;
   text-decoration: none;
-  transition: background 160ms ease, color 160ms ease;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
 }
 
 .erp-nav-main:hover,
@@ -1934,7 +1941,9 @@ button {
   right: -90px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 50%;
-  box-shadow: 0 0 0 62px rgba(255, 255, 255, 0.025), 0 0 0 124px rgba(255, 255, 255, 0.018);
+  box-shadow:
+    0 0 0 62px rgba(255, 255, 255, 0.025),
+    0 0 0 124px rgba(255, 255, 255, 0.018);
   content: "";
 }
 
@@ -4504,8 +4513,7 @@ button {
   gap: 32px;
   padding: 28px;
   background:
-    linear-gradient(135deg, rgba(234, 243, 237, 0.86), rgba(255, 255, 255, 0.96)),
-    var(--white);
+    linear-gradient(135deg, rgba(234, 243, 237, 0.86), rgba(255, 255, 255, 0.96)), var(--white);
 }
 .erp-catalogue-summary > div:first-child {
   max-width: 760px;

@@ -74,18 +74,18 @@ Camp plan
 
 ## Role-visibility examples
 
-| Role | A2PHC | E4BL | Finance | Other programme modules |
-|---|---:|---:|---:|---:|
-| Executive / CEO | Visible | Visible | Visible | Visible |
-| A2PHC Coordinator | Visible | Hidden | Limited supporting routes | Hidden unless assigned |
-| Medical Supervisor | Assigned A2PHC field options | Hidden | Hidden | Hidden |
-| General Physician | Clinical A2PHC options | Hidden | Hidden | Hidden |
-| E4BL Coordinator | Hidden | Visible | Limited supporting routes | Hidden unless assigned |
-| Head Teacher / Teacher | Hidden | Assigned education options | Hidden | Hidden |
-| Finance Director / Officer | Supporting finance and requisition routes | No programme workspaces by default | Visible | Supporting records only |
-| Auditor | Controlled read-only presentation | Controlled | Controlled | Controlled |
-| Donor Viewer | Privacy-safe summaries only | Privacy-safe summaries only | No confidential finance workspace | Restricted |
-| System Administrator | System configuration | No automatic business authority | No automatic approval authority | Configuration only |
+| Role                       |                                     A2PHC |                               E4BL |                           Finance | Other programme modules |
+| -------------------------- | ----------------------------------------: | ---------------------------------: | --------------------------------: | ----------------------: |
+| Executive / CEO            |                                   Visible |                            Visible |                           Visible |                 Visible |
+| A2PHC Coordinator          |                                   Visible |                             Hidden |         Limited supporting routes |  Hidden unless assigned |
+| Medical Supervisor         |              Assigned A2PHC field options |                             Hidden |                            Hidden |                  Hidden |
+| General Physician          |                    Clinical A2PHC options |                             Hidden |                            Hidden |                  Hidden |
+| E4BL Coordinator           |                                    Hidden |                            Visible |         Limited supporting routes |  Hidden unless assigned |
+| Head Teacher / Teacher     |                                    Hidden |         Assigned education options |                            Hidden |                  Hidden |
+| Finance Director / Officer | Supporting finance and requisition routes | No programme workspaces by default |                           Visible | Supporting records only |
+| Auditor                    |         Controlled read-only presentation |                         Controlled |                        Controlled |              Controlled |
+| Donor Viewer               |               Privacy-safe summaries only |        Privacy-safe summaries only | No confidential finance workspace |              Restricted |
+| System Administrator       |                      System configuration |    No automatic business authority |   No automatic approval authority |      Configuration only |
 
 ## Added source files
 

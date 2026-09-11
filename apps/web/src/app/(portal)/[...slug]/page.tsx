@@ -13,7 +13,8 @@ export async function generateMetadata({ params }: RouteProps): Promise<Metadata
   const resolution = resolvePortalRoute(slug);
   if (!resolution) return { title: "Page not found" };
   return {
-    title: resolution.action === "index" ? resolution.route.title : `${resolution.route.title} Preview`,
+    title:
+      resolution.action === "index" ? resolution.route.title : `${resolution.route.title} Preview`,
     description: resolution.route.summary,
   };
 }

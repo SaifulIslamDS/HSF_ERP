@@ -1,13 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  type ChangeEvent,
-} from "react";
+import { useCallback, useEffect, useMemo, useState, type ChangeEvent } from "react";
 import {
   DEFAULT_PORTAL_ROLE,
   PORTAL_ROLE_PROFILES,
@@ -28,12 +22,7 @@ function readStoredRole(): PortalRoleId {
 }
 
 function normaliseHref(href: string): string | null {
-  if (
-    !href ||
-    href.startsWith("#") ||
-    href.startsWith("mailto:") ||
-    href.startsWith("tel:")
-  ) {
+  if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) {
     return null;
   }
 
@@ -45,13 +34,11 @@ function normaliseHref(href: string): string | null {
 }
 
 function resetHiddenLinks(): void {
-  document
-    .querySelectorAll<HTMLElement>("[data-hsf-role-hidden='true']")
-    .forEach((element) => {
-      element.hidden = false;
-      element.removeAttribute("aria-hidden");
-      element.removeAttribute("data-hsf-role-hidden");
-    });
+  document.querySelectorAll<HTMLElement>("[data-hsf-role-hidden='true']").forEach((element) => {
+    element.hidden = false;
+    element.removeAttribute("aria-hidden");
+    element.removeAttribute("data-hsf-role-hidden");
+  });
 }
 
 function findHideTarget(anchor: HTMLAnchorElement): HTMLElement {
@@ -83,20 +70,18 @@ export function RoleVisibilityPreview() {
 
     resetHiddenLinks();
 
-    document
-      .querySelectorAll<HTMLAnchorElement>("a[href]")
-      .forEach((anchor) => {
-        if (anchor.closest("[data-role-visibility-ignore='true']")) return;
-        const path = normaliseHref(anchor.getAttribute("href") ?? "");
-        if (!path || path === "/") return;
+    document.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((anchor) => {
+      if (anchor.closest("[data-role-visibility-ignore='true']")) return;
+      const path = normaliseHref(anchor.getAttribute("href") ?? "");
+      if (!path || path === "/") return;
 
-        if (!canRoleViewRoute(roleId, path)) {
-          const target = findHideTarget(anchor);
-          target.hidden = true;
-          target.setAttribute("aria-hidden", "true");
-          target.setAttribute("data-hsf-role-hidden", "true");
-        }
-      });
+      if (!canRoleViewRoute(roleId, path)) {
+        const target = findHideTarget(anchor);
+        target.hidden = true;
+        target.setAttribute("aria-hidden", "true");
+        target.setAttribute("data-hsf-role-hidden", "true");
+      }
+    });
   }, [isHydrated, roleId]);
 
   useEffect(() => {
@@ -143,14 +128,11 @@ export function RoleVisibilityPreview() {
           <div className={styles.accessCard}>
             <span className={styles.accessIcon}>!</span>
             <p className={styles.kicker}>UI role visibility preview</p>
-            <h2 id="access-title">
-              This module is hidden for {profile.shortLabel}
-            </h2>
+            <h2 id="access-title">This module is hidden for {profile.shortLabel}</h2>
             <p>
-              The selected role does not need this programme area in its normal
-              workspace. This preview hides the menu and blocks the page
-              visually; real authorization must still be enforced on the server
-              during the authentication and RBAC implementation.
+              The selected role does not need this programme area in its normal workspace. This
+              preview hides the menu and blocks the page visually; real authorization must still be
+              enforced on the server during the authentication and RBAC implementation.
             </p>
             <div className={styles.accessActions}>
               <button type="button" onClick={() => router.push("/dashboard")}>
@@ -168,9 +150,7 @@ export function RoleVisibilityPreview() {
         </div>
       ) : null}
 
-      <aside
-        className={`${styles.preview} ${isOpen ? styles.previewOpen : ""}`}
-      >
+      <aside className={`${styles.preview} ${isOpen ? styles.previewOpen : ""}`}>
         <button
           type="button"
           className={styles.previewToggle}
@@ -209,9 +189,8 @@ export function RoleVisibilityPreview() {
             </select>
             <p className={styles.description}>{profile.description}</p>
             <p className={styles.notice}>
-              Navigation visibility is demonstrated here. This is not a
-              substitute for protected routes, API authorization, project scope,
-              location scope, or database policies.
+              Navigation visibility is demonstrated here. This is not a substitute for protected
+              routes, API authorization, project scope, location scope, or database policies.
             </p>
           </div>
         ) : null}

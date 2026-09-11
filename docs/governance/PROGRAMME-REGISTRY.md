@@ -4,12 +4,12 @@
 
 This registry defines programme identifiers used by the ERP. It mirrors the canonical Knowledge Hub Digital System Contract.
 
-| Code | Canonical name | Institutional status | ERP rule |
-|---|---|---|---|
-| `E4BL` | Education for Better Life | Current programme | Supported as education-continuity domain |
-| `A2PHC` | Access to Primary Healthcare | Current programme | Supported as community primary-healthcare domain |
-| `CLIMATE_ACTION` | Climate Action | Current programme | Supported as climate-awareness/community-engagement domain |
-| `WOMEN_EMPOWERMENT` | Women Empowerment | Management confirmation required | UI/module blueprint may remain, but must not be treated as proof of an active approved programme |
+| Code                | Canonical name               | Institutional status             | ERP rule                                                                                         |
+| ------------------- | ---------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `E4BL`              | Education for Better Life    | Current programme                | Supported as education-continuity domain                                                         |
+| `A2PHC`             | Access to Primary Healthcare | Current programme                | Supported as community primary-healthcare domain                                                 |
+| `CLIMATE_ACTION`    | Climate Action               | Current programme                | Supported as climate-awareness/community-engagement domain                                       |
+| `WOMEN_EMPOWERMENT` | Women Empowerment            | Management confirmation required | UI/module blueprint may remain, but must not be treated as proof of an active approved programme |
 
 ## Central Office
 

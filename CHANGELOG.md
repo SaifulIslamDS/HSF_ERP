@@ -16,9 +16,11 @@
 - Kept production authentication, RBAC enforcement, operational persistence and business workflows explicitly unimplemented.
 
 ## v0.1.6 — Temporary Management Preview PIN Gate
+
 See `docs/releases/v0.1.6.md`.
 
 ## v0.1.5 — A2PHC UI Expansion and Role-Aware Module Visibility
+
 See `docs/releases/v0.1.5.md`.
 
 Earlier release notes remain under `docs/releases/`.

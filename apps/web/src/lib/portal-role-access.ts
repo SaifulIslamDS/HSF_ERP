@@ -53,16 +53,14 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "ceo",
     label: "Chief Executive Officer",
     shortLabel: "CEO",
-    description:
-      "Broad operational, project, approval, and performance visibility.",
+    description: "Broad operational, project, approval, and performance visibility.",
     visibleDomains: ["*"],
   },
   {
     id: "finance-director",
     label: "Finance Director",
     shortLabel: "Finance Director",
-    description:
-      "Finance, MFR, procurement, payroll, reports, and management controls.",
+    description: "Finance, MFR, procurement, payroll, reports, and management controls.",
     visibleDomains: [
       "/dashboard",
       "/planning",
@@ -83,8 +81,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "finance-officer",
     label: "Finance Officer",
     shortLabel: "Finance",
-    description:
-      "Operational finance, vouchers, bank work, adjustments, and reports.",
+    description: "Operational finance, vouchers, bank work, adjustments, and reports.",
     visibleDomains: [
       "/dashboard",
       "/projects",
@@ -102,8 +99,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "hr-admin",
     label: "HR and Administration",
     shortLabel: "HR/Admin",
-    description:
-      "Employees, recruitment, attendance, training, notices, and administration.",
+    description: "Employees, recruitment, attendance, training, notices, and administration.",
     visibleDomains: [
       "/dashboard",
       "/planning",
@@ -121,8 +117,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "a2phc-coordinator",
     label: "A2PHC Project Coordinator",
     shortLabel: "A2PHC Coordinator",
-    description:
-      "A2PHC planning, team review, requisition, achievement, and project reporting.",
+    description: "A2PHC planning, team review, requisition, achievement, and project reporting.",
     visibleDomains: [
       ...sharedOperationalDomains,
       "/a2phc",
@@ -154,8 +149,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "general-physician",
     label: "A2PHC General Physician",
     shortLabel: "Doctor",
-    description:
-      "Assigned patient queue, consultation, prescription, referral, and sign-off.",
+    description: "Assigned patient queue, consultation, prescription, referral, and sign-off.",
     visibleDomains: ["/dashboard", "/a2phc", "/documents", "/training"],
     visibleRoutes: [
       "/a2phc",
@@ -189,8 +183,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "e4bl-coordinator",
     label: "E4BL Project Coordinator",
     shortLabel: "E4BL Coordinator",
-    description:
-      "E4BL planning, centre review, requisition, achievement, and reporting.",
+    description: "E4BL planning, centre review, requisition, achievement, and reporting.",
     visibleDomains: [
       ...sharedOperationalDomains,
       "/e4bl",
@@ -205,8 +198,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "head-teacher",
     label: "E4BL Head Teacher",
     shortLabel: "Head Teacher",
-    description:
-      "Assigned centre, teachers, students, reports, and centre requisition.",
+    description: "Assigned centre, teachers, students, reports, and centre requisition.",
     visibleDomains: [
       "/dashboard",
       "/planning",
@@ -222,23 +214,15 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "teacher",
     label: "E4BL Teacher",
     shortLabel: "Teacher",
-    description:
-      "Assigned class, attendance, lessons, students, and achievement reporting.",
-    visibleDomains: [
-      "/dashboard",
-      "/planning",
-      "/e4bl",
-      "/documents",
-      "/training",
-    ],
+    description: "Assigned class, attendance, lessons, students, and achievement reporting.",
+    visibleDomains: ["/dashboard", "/planning", "/e4bl", "/documents", "/training"],
     blockedRoutes: ["/a2phc", "/finance", "/payroll", "/hr", "/requisitions"],
   },
   {
     id: "climate-coordinator",
     label: "Climate Action Coordinator",
     shortLabel: "Climate",
-    description:
-      "Climate activities, participants, evidence, requisitions, and reporting.",
+    description: "Climate activities, participants, evidence, requisitions, and reporting.",
     visibleDomains: [
       ...sharedOperationalDomains,
       "/climate",
@@ -253,8 +237,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "women-empowerment-coordinator",
     label: "Women Empowerment Coordinator",
     shortLabel: "Women Empowerment",
-    description:
-      "Women empowerment activities, participants, protection, evidence, and reports.",
+    description: "Women empowerment activities, participants, protection, evidence, and reports.",
     visibleDomains: [
       ...sharedOperationalDomains,
       "/women-empowerment",
@@ -269,8 +252,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "auditor",
     label: "Auditor",
     shortLabel: "Auditor",
-    description:
-      "Controlled read-only preview of approved records, evidence, and audit trails.",
+    description: "Controlled read-only preview of approved records, evidence, and audit trails.",
     visibleDomains: [
       "/dashboard",
       "/projects",
@@ -296,16 +278,14 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
     id: "donor-viewer",
     label: "Donor / CSR Read-only Viewer",
     shortLabel: "Donor Viewer",
-    description:
-      "Privacy-safe project, achievement, utilization, and evidence summaries only.",
+    description: "Privacy-safe project, achievement, utilization, and evidence summaries only.",
     visibleDomains: ["/dashboard", "/projects", "/donors", "/meal", "/reports"],
   },
   {
     id: "system-administrator",
     label: "System Administrator",
     shortLabel: "System Admin",
-    description:
-      "System configuration preview without automatic business approval authority.",
+    description: "System configuration preview without automatic business approval authority.",
     visibleDomains: [
       "/dashboard",
       "/administration",
@@ -319,9 +299,7 @@ export const PORTAL_ROLE_PROFILES: PortalRoleProfile[] = [
 
 export const DEFAULT_PORTAL_ROLE: PortalRoleId = "executive";
 
-export function getPortalRoleProfile(
-  roleId: string | null | undefined,
-): PortalRoleProfile {
+export function getPortalRoleProfile(roleId: string | null | undefined): PortalRoleProfile {
   return (
     PORTAL_ROLE_PROFILES.find((profile) => profile.id === roleId) ??
     PORTAL_ROLE_PROFILES.find((profile) => profile.id === DEFAULT_PORTAL_ROLE)!
@@ -333,18 +311,11 @@ function normalisePath(pathname: string): string {
   return clean !== "/" && clean.endsWith("/") ? clean.slice(0, -1) : clean;
 }
 
-export function canRoleViewRoute(
-  roleId: string | null | undefined,
-  pathname: string,
-): boolean {
+export function canRoleViewRoute(roleId: string | null | undefined, pathname: string): boolean {
   const profile = getPortalRoleProfile(roleId);
   const route = normalisePath(pathname);
 
-  if (
-    route === "/" ||
-    route.startsWith("/api/") ||
-    route.startsWith("/_next/")
-  ) {
+  if (route === "/" || route.startsWith("/api/") || route.startsWith("/_next/")) {
     return true;
   }
 
@@ -352,11 +323,7 @@ export function canRoleViewRoute(
     return true;
   }
 
-  if (
-    profile.blockedRoutes?.some(
-      (prefix) => route === prefix || route.startsWith(`${prefix}/`),
-    )
-  ) {
+  if (profile.blockedRoutes?.some((prefix) => route === prefix || route.startsWith(`${prefix}/`))) {
     return false;
   }
 
@@ -370,8 +337,7 @@ export function canRoleViewRoute(
 
   if (profile.visibleRoutes && route.startsWith("/a2phc")) {
     return profile.visibleRoutes.some(
-      (allowedRoute) =>
-        route === allowedRoute || route.startsWith(`${allowedRoute}/`),
+      (allowedRoute) => route === allowedRoute || route.startsWith(`${allowedRoute}/`),
     );
   }
 

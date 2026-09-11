@@ -20,29 +20,29 @@
 
 The original discovery register mixed durable decisions with volatile operational snapshots. The aligned register keeps the original IDs but makes the evidence/status boundary explicit. A UI or old discovery statement must not be treated as current programme truth without the appropriate source.
 
-| ID | Statement | Status / implementation rule |
-| --- | --- | --- |
-| C-001 | The system will be a customized HSF ERP. | Confirmed |
+| ID    | Statement                                                                                                       | Status / implementation rule                                                                                                                                                                               |
+| ----- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| C-001 | The system will be a customized HSF ERP.                                                                        | Confirmed                                                                                                                                                                                                  |
 | C-002 | Earlier discovery material listed E4BL, A2PHC, Climate Action and Women Empowerment as four principal projects. | **Reconfirmation required.** Current canonical programme contract confirms E4BL, A2PHC and Climate Action; Women Empowerment remains a blueprint domain until management confirms active programme status. |
-| C-003 | Central Office Management requires a separate MFR. | Confirmed operating requirement |
-| C-004 | Each project coordinator prepares a monthly MFR. | Confirmed operating requirement; cadence may still be refined by approved workflow rules |
-| C-005 | Additional expenses require an Additional MFR and approval. | Confirmed operating requirement |
-| C-006 | Purchases require a Purchase Requisition after MFR approval. | Confirmed operating requirement |
-| C-007 | Expenses require proper bills and vouchers. | Confirmed control principle |
-| C-008 | Project coordinators prepare monthly financial and project management reports. | Confirmed operating model |
-| C-009 | Earlier discovery material recorded three HSF bank accounts in different banks. | **Volatile operational snapshot.** Verify current accounts from approved Finance master data before production configuration. |
-| C-010 | Finance prepares salary sheets, salary request applications and bank instructions. | Confirmed workflow concept; exact approval authority remains controlled by approved RBAC/finance rules |
-| C-011 | HSF holds an annual planning meeting in October or November. | Confirmed planning practice in discovery material |
-| C-012 | Earlier discovery material recorded 300 E4BL students in two centres. | **Historical/volatile snapshot.** Current enrolment must come from the approved E4BL dataset/ERP reporting period; do not hard-code 300 as a current fact. |
-| C-013 | Earlier discovery material recorded 10 teachers and two helping hands. | **Historical/volatile snapshot.** Current staffing must come from approved HR/programme records. |
-| C-014 | Hazaribagh education/materials were described as free. | Programme design reference; exact current fee/waiver/material rules require approved configuration. |
-| C-015 | Uttara was described as charging a small fee and providing free materials. | Programme design reference; exact current fee/waiver/material rules require approved configuration. |
-| C-016 | Grade Five completers are referred to as HSF Graduates. | Confirmed terminology |
-| C-017 | Earlier discovery material described continued support for graduates through secondary education. | Historical programme/sponsorship design reference; current support policy and eligibility must be approved before encoding as an entitlement. |
-| C-018 | Earlier discovery material recorded five A2PHC supervisors and five general physicians. | **Historical/volatile snapshot.** Current staffing/assignment must come from approved HR/A2PHC records. |
-| C-019 | Patients are not charged at HSF medical camps. | Confirmed service-model principle in current design; any future fee policy requires explicit management approval. |
-| C-020 | Medical supervisors were using Google Forms for patient data during discovery. | Dated current-state workflow reference; use only for migration/process analysis, not as a permanent architecture fact. |
-| C-021 | HSF uses pnpm for new JavaScript projects. | Confirmed technical decision |
+| C-003 | Central Office Management requires a separate MFR.                                                              | Confirmed operating requirement                                                                                                                                                                            |
+| C-004 | Each project coordinator prepares a monthly MFR.                                                                | Confirmed operating requirement; cadence may still be refined by approved workflow rules                                                                                                                   |
+| C-005 | Additional expenses require an Additional MFR and approval.                                                     | Confirmed operating requirement                                                                                                                                                                            |
+| C-006 | Purchases require a Purchase Requisition after MFR approval.                                                    | Confirmed operating requirement                                                                                                                                                                            |
+| C-007 | Expenses require proper bills and vouchers.                                                                     | Confirmed control principle                                                                                                                                                                                |
+| C-008 | Project coordinators prepare monthly financial and project management reports.                                  | Confirmed operating model                                                                                                                                                                                  |
+| C-009 | Earlier discovery material recorded three HSF bank accounts in different banks.                                 | **Volatile operational snapshot.** Verify current accounts from approved Finance master data before production configuration.                                                                              |
+| C-010 | Finance prepares salary sheets, salary request applications and bank instructions.                              | Confirmed workflow concept; exact approval authority remains controlled by approved RBAC/finance rules                                                                                                     |
+| C-011 | HSF holds an annual planning meeting in October or November.                                                    | Confirmed planning practice in discovery material                                                                                                                                                          |
+| C-012 | Earlier discovery material recorded 300 E4BL students in two centres.                                           | **Historical/volatile snapshot.** Current enrolment must come from the approved E4BL dataset/ERP reporting period; do not hard-code 300 as a current fact.                                                 |
+| C-013 | Earlier discovery material recorded 10 teachers and two helping hands.                                          | **Historical/volatile snapshot.** Current staffing must come from approved HR/programme records.                                                                                                           |
+| C-014 | Hazaribagh education/materials were described as free.                                                          | Programme design reference; exact current fee/waiver/material rules require approved configuration.                                                                                                        |
+| C-015 | Uttara was described as charging a small fee and providing free materials.                                      | Programme design reference; exact current fee/waiver/material rules require approved configuration.                                                                                                        |
+| C-016 | Grade Five completers are referred to as HSF Graduates.                                                         | Confirmed terminology                                                                                                                                                                                      |
+| C-017 | Earlier discovery material described continued support for graduates through secondary education.               | Historical programme/sponsorship design reference; current support policy and eligibility must be approved before encoding as an entitlement.                                                              |
+| C-018 | Earlier discovery material recorded five A2PHC supervisors and five general physicians.                         | **Historical/volatile snapshot.** Current staffing/assignment must come from approved HR/A2PHC records.                                                                                                    |
+| C-019 | Patients are not charged at HSF medical camps.                                                                  | Confirmed service-model principle in current design; any future fee policy requires explicit management approval.                                                                                          |
+| C-020 | Medical supervisors were using Google Forms for patient data during discovery.                                  | Dated current-state workflow reference; use only for migration/process analysis, not as a permanent architecture fact.                                                                                     |
+| C-021 | HSF uses pnpm for new JavaScript projects.                                                                      | Confirmed technical decision                                                                                                                                                                               |
 
 # 3. Provisional Product Decisions
 
@@ -87,31 +87,31 @@ The original discovery register mixed durable decisions with volatile operationa
 
 ## 4.2 Financial configuration
 
-| ID    | Question                                                                         |
-| ----- | -------------------------------------------------------------------------------- |
-| O-008 | What is HSF's official financial year?                                           |
+| ID    | Question                                                                               |
+| ----- | -------------------------------------------------------------------------------------- |
+| O-008 | What is HSF's official financial year?                                                 |
 | O-009 | What are the official names and operational purposes of all current HSF bank accounts? |
-| O-010 | Which cash boxes and MFS accounts exist?                                         |
-| O-011 | Who are the custodians for cash and MFS?                                         |
-| O-012 | What are the final account codes?                                                |
-| O-013 | What approval thresholds apply by amount?                                        |
-| O-014 | What procurement thresholds require quotations or comparative statements?        |
-| O-015 | What is the IOU settlement deadline?                                             |
-| O-016 | When is the monthly financial closing deadline?                                  |
-| O-017 | Which taxes and VAT rules must be supported?                                     |
-| O-018 | Does HSF need multi-currency accounting in Phase 1?                              |
+| O-010 | Which cash boxes and MFS accounts exist?                                               |
+| O-011 | Who are the custodians for cash and MFS?                                               |
+| O-012 | What are the final account codes?                                                      |
+| O-013 | What approval thresholds apply by amount?                                              |
+| O-014 | What procurement thresholds require quotations or comparative statements?              |
+| O-015 | What is the IOU settlement deadline?                                                   |
+| O-016 | When is the monthly financial closing deadline?                                        |
+| O-017 | Which taxes and VAT rules must be supported?                                           |
+| O-018 | Does HSF need multi-currency accounting in Phase 1?                                    |
 
 ## 4.3 Payroll and HR
 
-| ID    | Question                                                                |
-| ----- | ----------------------------------------------------------------------- |
-| O-019 | What is the exact current head-office staff list?                       |
+| ID    | Question                                                                                                              |
+| ----- | --------------------------------------------------------------------------------------------------------------------- |
+| O-019 | What is the exact current head-office staff list?                                                                     |
 | O-020 | What is the current approved head-office staff list, and how are governance roles distinguished from staff positions? |
-| O-021 | What is the salary cut-off and payment date?                            |
-| O-022 | How is attendance currently recorded?                                   |
-| O-023 | What leave categories are used?                                         |
-| O-024 | What recruitment forms and approvals are mandatory?                     |
-| O-025 | What is the probation and confirmation policy?                          |
+| O-021 | What is the salary cut-off and payment date?                                                                          |
+| O-022 | How is attendance currently recorded?                                                                                 |
+| O-023 | What leave categories are used?                                                                                       |
+| O-024 | What recruitment forms and approvals are mandatory?                                                                   |
+| O-025 | What is the probation and confirmation policy?                                                                        |
 
 ## 4.4 E4BL
 
@@ -129,17 +129,17 @@ The original discovery register mixed durable decisions with volatile operationa
 
 ## 4.5 A2PHC
 
-| ID    | Question                                                   |
-| ----- | ---------------------------------------------------------- |
-| O-035 | What are the current active A2PHC districts and locations? |
+| ID    | Question                                                                                           |
+| ----- | -------------------------------------------------------------------------------------------------- |
+| O-035 | What are the current active A2PHC districts and locations?                                         |
 | O-036 | How are current Medical Supervisors and General Physicians assigned across approved service areas? |
-| O-037 | Which patient fields are mandatory?                        |
-| O-038 | What patient consent process is used?                      |
-| O-039 | Should the patient ID be printed as a card or QR code?     |
-| O-040 | What referral facilities are approved?                     |
-| O-041 | How is medicine stock currently controlled?                |
-| O-042 | Which diagnoses should use standardized codes?             |
-| O-043 | What health records may be exported, and by whom?          |
+| O-037 | Which patient fields are mandatory?                                                                |
+| O-038 | What patient consent process is used?                                                              |
+| O-039 | Should the patient ID be printed as a card or QR code?                                             |
+| O-040 | What referral facilities are approved?                                                             |
+| O-041 | How is medicine stock currently controlled?                                                        |
+| O-042 | Which diagnoses should use standardized codes?                                                     |
+| O-043 | What health records may be exported, and by whom?                                                  |
 
 ## 4.6 Technology and operations
 

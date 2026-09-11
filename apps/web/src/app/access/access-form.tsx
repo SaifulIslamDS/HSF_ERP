@@ -55,8 +55,8 @@ export function AccessForm({
           <h2 id="access-heading">Enter the 6-digit PIN</h2>
           <p className={styles.sessionNote}>
             For security, you will be signed out automatically after {idleMinutes}{" "}
-            {idleMinutes === 1 ? "minute" : "minutes"} of inactivity. The session can remain
-            valid for up to {sessionHours} {sessionHours === 1 ? "hour" : "hours"}.
+            {idleMinutes === 1 ? "minute" : "minutes"} of inactivity. The session can remain valid
+            for up to {sessionHours} {sessionHours === 1 ? "hour" : "hours"}.
           </p>
 
           {configurationError ? (

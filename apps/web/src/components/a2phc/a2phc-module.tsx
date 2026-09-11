@@ -193,8 +193,7 @@ const SAMPLE_EXPENSES = [
 function getInitialRole(): PortalRoleId {
   if (typeof window === "undefined") return DEFAULT_PORTAL_ROLE;
   return (
-    (window.localStorage.getItem(ROLE_STORAGE_KEY) as PortalRoleId | null) ??
-    DEFAULT_PORTAL_ROLE
+    (window.localStorage.getItem(ROLE_STORAGE_KEY) as PortalRoleId | null) ?? DEFAULT_PORTAL_ROLE
   );
 }
 
@@ -205,11 +204,7 @@ function Status({
   children: ReactNode;
   tone?: "green" | "amber" | "red" | "blue" | "neutral";
 }) {
-  return (
-    <span className={`${styles.status} ${styles[`status_${tone}`]}`}>
-      {children}
-    </span>
-  );
+  return <span className={`${styles.status} ${styles[`status_${tone}`]}`}>{children}</span>;
 }
 
 function Section({
@@ -324,26 +319,19 @@ function DashboardView() {
       <div className={styles.noticeGrid}>
         <article className={styles.importantNotice}>
           <span>Current programme rule</span>
-          <h3>
-            Free consultation and prescription; regular medicine dispensing is
-            disabled.
-          </h3>
+          <h3>Free consultation and prescription; regular medicine dispensing is disabled.</h3>
           <p>
-            The UI keeps future medicine planning visible but clearly inactive
-            until HSF approves a budget, procurement policy, stock
-            responsibility, expiry control, and audit process.
+            The UI keeps future medicine planning visible but clearly inactive until HSF approves a
+            budget, procurement policy, stock responsibility, expiry control, and audit process.
           </p>
         </article>
         <article className={styles.privacyNotice}>
           <span>Privacy by design</span>
-          <h3>
-            Patient identity is separated from visit, report, and finance
-            visibility.
-          </h3>
+          <h3>Patient identity is separated from visit, report, and finance visibility.</h3>
           <p>
-            Finance sees camp-linked costs without unrestricted clinical detail.
-            Management dashboards use privacy-safe aggregates unless a justified
-            role requires record-level access.
+            Finance sees camp-linked costs without unrestricted clinical detail. Management
+            dashboards use privacy-safe aggregates unless a justified role requires record-level
+            access.
           </p>
         </article>
       </div>
@@ -360,10 +348,7 @@ function DashboardView() {
             camp.location,
             camp.team,
             camp.date,
-            <Status
-              key={camp.id}
-              tone={camp.status === "Travel check" ? "amber" : "green"}
-            >
+            <Status key={camp.id} tone={camp.status === "Travel check" ? "amber" : "green"}>
               {camp.status}
             </Status>,
           ])}
@@ -407,10 +392,7 @@ function TodayView() {
             </div>
           </dl>
           <div className={styles.buttonRow}>
-            <Link
-              href="/a2phc/patient-registration"
-              className={styles.primaryButton}
-            >
+            <Link href="/a2phc/patient-registration" className={styles.primaryButton}>
               Register patient
             </Link>
             <Link href="/a2phc/patient-queue" className={styles.secondaryLink}>
@@ -449,19 +431,15 @@ function CoverageView() {
         description="Locations remain configurable so HSF can expand, close, or reassign service areas."
       >
         <div className={styles.hierarchy}>
-          {[
-            "District",
-            "Upazila",
-            "Union",
-            "Village / Char / Community",
-            "Camp point",
-          ].map((level, index) => (
-            <div key={level}>
-              <span>{index + 1}</span>
-              <strong>{level}</strong>
-              {index < 4 ? <b>→</b> : null}
-            </div>
-          ))}
+          {["District", "Upazila", "Union", "Village / Char / Community", "Camp point"].map(
+            (level, index) => (
+              <div key={level}>
+                <span>{index + 1}</span>
+                <strong>{level}</strong>
+                {index < 4 ? <b>→</b> : null}
+              </div>
+            ),
+          )}
         </div>
       </Section>
       <Section
@@ -469,13 +447,7 @@ function CoverageView() {
         description="Illustrative operating details for management UI review."
       >
         <DataTable
-          headers={[
-            "District",
-            "Primary area",
-            "Access pattern",
-            "Field team",
-            "Status",
-          ]}
+          headers={["District", "Primary area", "Access pattern", "Field team", "Status"]}
           rows={DISTRICTS.map((district, index) => [
             district.name,
             district.area,
@@ -507,9 +479,7 @@ function CampView({ calendar = false }: { calendar?: boolean }) {
             <article key={day} className={styles.calendarDay}>
               <strong>{day}</strong>
               {[3, 6, 9, 12, 16, 17, 21, 24].includes(day) ? (
-                <span
-                  className={day === 16 ? styles.eventAmber : styles.eventGreen}
-                >
+                <span className={day === 16 ? styles.eventAmber : styles.eventGreen}>
                   Camp · Team {(day % 5) + 1}
                 </span>
               ) : null}
@@ -532,10 +502,7 @@ function CampView({ calendar = false }: { calendar?: boolean }) {
           <Field label="Camp date" value="16 July 2026" />
           <Field label="Expected patients" value="60" />
           <Field label="Assigned Doctor" value="MBBS Doctor · Team 01" />
-          <Field
-            label="Assigned Supervisor"
-            value="Medical Supervisor · Team 01"
-          />
+          <Field label="Assigned Supervisor" value="Medical Supervisor · Team 01" />
           <Field label="Travel method" value="Motorcycle" />
           <Field label="Boat required" value="No" />
         </div>
@@ -555,10 +522,7 @@ function CampView({ calendar = false }: { calendar?: boolean }) {
           ))}
         </div>
       </Section>
-      <Section
-        title="Camp register"
-        description="Planned and active camp records."
-      >
+      <Section title="Camp register" description="Planned and active camp records.">
         <DataTable
           headers={["Camp", "District", "Location", "Team", "Date", "Status"]}
           rows={SAMPLE_CAMPS.map((camp) => [
@@ -582,22 +546,17 @@ function PatientRegistrationView() {
       description="Search first to reduce duplicate patients, then create the visit used by both Supervisor and Doctor."
     >
       <div className={styles.stepper}>
-        {["Search", "Identity", "Location", "Consent", "Visit"].map(
-          (step, index) => (
-            <div className={index <= 1 ? styles.stepActive : ""} key={step}>
-              <span>{index + 1}</span>
-              <p>{step}</p>
-            </div>
-          ),
-        )}
+        {["Search", "Identity", "Location", "Consent", "Visit"].map((step, index) => (
+          <div className={index <= 1 ? styles.stepActive : ""} key={step}>
+            <span>{index + 1}</span>
+            <p>{step}</p>
+          </div>
+        ))}
       </div>
       <div className={styles.searchPanel}>
         <label>
           Search existing patient
-          <input
-            type="search"
-            placeholder="Patient ID, mobile number, or name"
-          />
+          <input type="search" placeholder="Patient ID, mobile number, or name" />
         </label>
         <button type="button">Search patient</button>
       </div>
@@ -616,10 +575,7 @@ function PatientRegistrationView() {
           <input type="checkbox" defaultChecked />
           <span>Patient or guardian consent acknowledgement recorded.</span>
         </label>
-        <p>
-          Only minimum necessary identity and health information should be
-          collected.
-        </p>
+        <p>Only minimum necessary identity and health information should be collected.</p>
       </div>
       <div className={styles.buttonRow}>
         <button type="button" className={styles.primaryButton}>
@@ -653,20 +609,15 @@ function PatientQueueView() {
               <h3>{lane.title}</h3>
               <Status tone={lane.tone}>{lane.count}</Status>
             </header>
-            {SAMPLE_PATIENTS.slice(laneIndex % 3, (laneIndex % 3) + 2).map(
-              (patient) => (
-                <div
-                  className={styles.patientCard}
-                  key={`${lane.title}-${patient.id}`}
-                >
-                  <strong>{patient.id}</strong>
-                  <span>
-                    {patient.visit} · {patient.age} · {patient.sex}
-                  </span>
-                  <p>{patient.complaint}</p>
-                </div>
-              ),
-            )}
+            {SAMPLE_PATIENTS.slice(laneIndex % 3, (laneIndex % 3) + 2).map((patient) => (
+              <div className={styles.patientCard} key={`${lane.title}-${patient.id}`}>
+                <strong>{patient.id}</strong>
+                <span>
+                  {patient.visit} · {patient.age} · {patient.sex}
+                </span>
+                <p>{patient.complaint}</p>
+              </div>
+            ))}
           </article>
         ))}
       </div>
@@ -681,24 +632,14 @@ function PatientsView() {
       description="Synthetic records only. Patient Master and Patient Visit remain separate."
     >
       <DataTable
-        headers={[
-          "Patient ID",
-          "Visit",
-          "Age",
-          "Sex",
-          "Main complaint",
-          "Status",
-        ]}
+        headers={["Patient ID", "Visit", "Age", "Sex", "Main complaint", "Status"]}
         rows={SAMPLE_PATIENTS.map((patient) => [
           patient.id,
           patient.visit,
           patient.age,
           patient.sex,
           patient.complaint,
-          <Status
-            key={patient.id}
-            tone={patient.status.includes("sign-off") ? "amber" : "blue"}
-          >
+          <Status key={patient.id} tone={patient.status.includes("sign-off") ? "amber" : "blue"}>
             {patient.status}
           </Status>,
         ])}
@@ -830,12 +771,7 @@ function EquipmentView() {
           value="42 items"
           note="Synthetic cross-team inventory count"
         />
-        <Metric
-          label="Available"
-          value="35"
-          note="Ready for camp use"
-          accent="blue"
-        />
+        <Metric label="Available" value="35" note="Ready for camp use" accent="blue" />
         <Metric
           label="Service due"
           value="4"
@@ -858,10 +794,7 @@ function EquipmentView() {
           rows={SAMPLE_EQUIPMENT.map((item) => [
             item.item,
             item.team,
-            <Status
-              key={item.item}
-              tone={item.condition === "Available" ? "green" : "amber"}
-            >
+            <Status key={item.item} tone={item.condition === "Available" ? "green" : "amber"}>
               {item.condition}
             </Status>,
             item.next,
@@ -946,11 +879,7 @@ function ReportView({ screen }: { screen: A2PHCScreen }) {
   return (
     <>
       <div className={styles.metricGrid}>
-        <Metric
-          label="Reporting period"
-          value="July 2026"
-          note="Synthetic management preview"
-        />
+        <Metric label="Reporting period" value="July 2026" note="Synthetic management preview" />
         <Metric
           label="Data completeness"
           value="94%"
@@ -1020,15 +949,11 @@ function SettingsView({ screen }: { screen: A2PHCScreen }) {
       {isMedicine ? (
         <article className={styles.futureFeature}>
           <span>Future capability · disabled</span>
-          <h3>
-            Medicine dispensing is not active in the current A2PHC operating
-            model.
-          </h3>
+          <h3>Medicine dispensing is not active in the current A2PHC operating model.</h3>
           <p>
-            Activate only after budget approval, procurement and vendor
-            controls, batch and expiry tracking, storage responsibility,
-            issue-against-prescription rules, stock reconciliation, and audit
-            approval.
+            Activate only after budget approval, procurement and vendor controls, batch and expiry
+            tracking, storage responsibility, issue-against-prescription rules, stock
+            reconciliation, and audit approval.
           </p>
           <div className={styles.toggleRow}>
             <span>Medicine inventory and issue</span>
@@ -1051,9 +976,7 @@ function SettingsView({ screen }: { screen: A2PHCScreen }) {
           ].map((item, index) => (
             <div key={item}>
               <span>{item}</span>
-              <button type="button">
-                {index < 2 ? "Configure" : "Review"}
-              </button>
+              <button type="button">{index < 2 ? "Configure" : "Review"}</button>
             </div>
           ))}
         </div>
@@ -1070,23 +993,14 @@ function GenericView({ screen }: { screen: A2PHCScreen }) {
   return (
     <>
       <div className={styles.metricGrid}>
-        <Metric
-          label="Active records"
-          value="24"
-          note="Synthetic module preview"
-        />
+        <Metric label="Active records" value="24" note="Synthetic module preview" />
         <Metric
           label="Pending review"
           value="6"
           note="Waiting for responsible role"
           accent="amber"
         />
-        <Metric
-          label="Completed"
-          value="18"
-          note="Illustrative status only"
-          accent="blue"
-        />
+        <Metric label="Completed" value="18" note="Illustrative status only" accent="blue" />
         <Metric
           label="Data quality"
           value="96%"
@@ -1104,13 +1018,7 @@ function GenericView({ screen }: { screen: A2PHCScreen }) {
         }
       >
         <DataTable
-          headers={[
-            "Reference",
-            "District / Camp",
-            "Responsible",
-            "Updated",
-            "Status",
-          ]}
+          headers={["Reference", "District / Camp", "Responsible", "Updated", "Status"]}
           rows={Array.from({ length: 6 }, (_, index) => [
             `A2P-${screen.id.toUpperCase().slice(0, 5)}-${String(index + 1).padStart(3, "0")}`,
             DISTRICTS[index % DISTRICTS.length]!.name,
@@ -1126,13 +1034,7 @@ function GenericView({ screen }: { screen: A2PHCScreen }) {
   );
 }
 
-function DataTable({
-  headers,
-  rows,
-}: {
-  headers: string[];
-  rows: ReactNode[][];
-}) {
+function DataTable({ headers, rows }: { headers: string[]; rows: ReactNode[][] }) {
   return (
     <div className={styles.tableWrap}>
       <table>
@@ -1157,15 +1059,7 @@ function DataTable({
   );
 }
 
-function Field({
-  label,
-  value,
-  input = false,
-}: {
-  label: string;
-  value: string;
-  input?: boolean;
-}) {
+function Field({ label, value, input = false }: { label: string; value: string; input?: boolean }) {
   return (
     <label className={styles.field}>
       <span>{label}</span>
@@ -1234,13 +1128,7 @@ function renderScreen(screen: A2PHCScreen) {
   }
 }
 
-export function A2PHCModule({
-  screen,
-  action,
-}: {
-  screen: A2PHCScreen;
-  action?: string;
-}) {
+export function A2PHCModule({ screen, action }: { screen: A2PHCScreen; action?: string }) {
   const [roleId, setRoleId] = useState<PortalRoleId>(DEFAULT_PORTAL_ROLE);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
@@ -1255,10 +1143,7 @@ export function A2PHCModule({
   }, []);
 
   const profile = useMemo(() => getPortalRoleProfile(roleId), [roleId]);
-  const allowedScreens = useMemo(
-    () => getA2PHCScreensForRole(roleId),
-    [roleId],
-  );
+  const allowedScreens = useMemo(() => getA2PHCScreensForRole(roleId), [roleId]);
   const groupedScreens = useMemo(
     () =>
       A2PHC_GROUPS.map((group) => ({
@@ -1293,9 +1178,7 @@ export function A2PHCModule({
       </header>
 
       <div className={styles.portalGrid}>
-        <aside
-          className={`${styles.sidebar} ${mobileNavOpen ? styles.sidebarOpen : ""}`}
-        >
+        <aside className={`${styles.sidebar} ${mobileNavOpen ? styles.sidebarOpen : ""}`}>
           <div className={styles.sidebarIntro}>
             <span>A2PHC</span>
             <h2>Free Medical Camp and Patient Service Management</h2>
@@ -1322,8 +1205,7 @@ export function A2PHCModule({
           <div className={styles.sidebarFooter}>
             <strong>Current service rule</strong>
             <p>
-              Free MBBS consultation and prescription. Regular medicine
-              dispensing is not funded.
+              Free MBBS consultation and prescription. Regular medicine dispensing is not funded.
             </p>
           </div>
         </aside>
@@ -1346,10 +1228,7 @@ export function A2PHCModule({
             </div>
             <div className={styles.headerActions}>
               {action ? <Status tone="blue">Preview: {action}</Status> : null}
-              <Link
-                href={`/a2phc/${screen.id}/new`}
-                className={styles.primaryButton}
-              >
+              <Link href={`/a2phc/${screen.id}/new`} className={styles.primaryButton}>
                 New record
               </Link>
               <button type="button" className={styles.ghostButton}>
