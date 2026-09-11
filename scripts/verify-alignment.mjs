@@ -79,12 +79,27 @@ try {
   if (existsSync(resolve(root, ".hsf-patch-backup"))) errors.push("Obsolete .hsf-patch-backup/ must not be present in the clean baseline");
   if (existsSync(resolve(root, "apps/web/tsconfig.tsbuildinfo"))) errors.push("Generated tsconfig.tsbuildinfo must not be committed");
 
-  const npmrc = readText(".npmrc");
+  const workspace = readText("pnpm-workspace.yaml");
   const lockfile = readText("pnpm-lock.yaml");
   const ci = readText(".github/workflows/ci.yml");
-  if (!npmrc.includes("auto-install-peers=false")) errors.push(".npmrc must keep peer auto-install disabled for explicit dependency control");
-  if (!lockfile.includes("autoInstallPeers: false")) errors.push("pnpm-lock.yaml settings must match .npmrc auto-install-peers=false");
-  if (!ci.includes("pnpm install --frozen-lockfile")) errors.push("CI must install from the committed lockfile with --frozen-lockfile");
+
+  if (!workspace.includes("autoInstallPeers: false"))
+    errors.push("pnpm-workspace.yaml must keep autoInstallPeers disabled");
+
+  if (!workspace.includes("strictPeerDependencies: true"))
+    errors.push("pnpm-workspace.yaml must enforce strict peer dependencies");
+
+  if (!workspace.includes("sharedWorkspaceLockfile: true"))
+    errors.push("pnpm-workspace.yaml must use the shared workspace lockfile");
+
+  if (!workspace.includes("linkWorkspacePackages: true"))
+    errors.push("pnpm-workspace.yaml must link workspace packages");
+
+  if (!lockfile.includes("autoInstallPeers: false"))
+    errors.push("pnpm-lock.yaml settings must match pnpm-workspace.yaml autoInstallPeers=false");
+
+  if (!ci.includes("pnpm install --frozen-lockfile"))
+    errors.push("CI must install from the committed lockfile with --frozen-lockfile");
 
   const previewAccess = readText("apps/web/src/lib/preview-access.ts");
   if (previewAccess.includes("|| pin")) errors.push("Preview access must never fall back to the six-digit PIN as a signing secret");
