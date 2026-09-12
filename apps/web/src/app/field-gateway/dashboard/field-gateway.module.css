@@ -1,0 +1,334 @@
+.page {
+  display: grid;
+  gap: 22px;
+}
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.75fr);
+  gap: 22px;
+  padding: 28px;
+  border: 1px solid #dfe9e3;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f4fbf7 0%, #fff 68%);
+  box-shadow: 0 14px 40px rgba(18, 75, 48, 0.06);
+}
+.kicker,
+.panel header span,
+.financeNote span {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #08783f;
+}
+.hero h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.04;
+  color: #17382a;
+}
+.hero p,
+.panel p,
+.financeNote p,
+.boundary p {
+  margin: 0;
+  color: #5a6d63;
+  line-height: 1.65;
+}
+.connectionCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-content: start;
+  padding: 20px;
+  border-radius: 18px;
+  background: #17382a;
+  color: white;
+}
+.connectionCard small {
+  display: block;
+  opacity: 0.7;
+}
+.connectionCard strong {
+  display: block;
+  margin-top: 4px;
+}
+.connectionCard p {
+  grid-column: 2;
+  color: #d9eee2;
+  font-size: 13px;
+}
+.connectionCard a {
+  grid-column: 1/-1;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: white;
+  color: #17382a;
+  text-align: center;
+  font-weight: 800;
+  text-decoration: none;
+}
+.offlineDot {
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: #f0a128;
+  box-shadow: 0 0 0 5px rgba(240, 161, 40, 0.18);
+}
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.metricGrid article {
+  padding: 18px;
+  border: 1px solid #e2e9e5;
+  border-radius: 17px;
+  background: white;
+}
+.metricGrid span {
+  display: block;
+  font-size: 12px;
+  color: #6e7e75;
+}
+.metricGrid strong {
+  display: block;
+  margin: 5px 0;
+  font-size: 28px;
+  color: #17382a;
+}
+.metricGrid p {
+  margin: 0;
+  font-size: 12px;
+  color: #78877f;
+}
+.panel {
+  padding: 22px;
+  border: 1px solid #e1e9e5;
+  border-radius: 20px;
+  background: white;
+}
+.panel header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+.panel header h3,
+.financeNote h3 {
+  margin: 4px 0 0;
+  color: #17382a;
+  font-size: 22px;
+}
+.panel header > p {
+  max-width: 520px;
+  text-align: right;
+  font-size: 13px;
+}
+.panel header > a {
+  font-weight: 800;
+  color: #08783f;
+  text-decoration: none;
+}
+.pathwayGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.pathwayGrid article {
+  padding: 18px;
+  border-radius: 16px;
+  background: #f7faf8;
+  border: 1px solid #e5ece8;
+}
+.pathwayGrid b {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: #17382a;
+  color: white;
+  font-size: 12px;
+}
+.pathwayGrid h4 {
+  margin: 12px 0 7px;
+  color: #1d3f30;
+}
+.pathwayGrid p {
+  min-height: 84px;
+  font-size: 13px;
+}
+.pathwayGrid a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #08783f;
+  font-weight: 800;
+  text-decoration: none;
+}
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.stateList {
+  display: grid;
+  gap: 9px;
+}
+.stateList > div {
+  display: flex;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 13px;
+  background: #f8faf9;
+}
+.stateList i {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-style: normal;
+  font-weight: 900;
+  background: white;
+}
+.stateList strong {
+  font-size: 14px;
+  color: #213b30;
+}
+.stateList p {
+  font-size: 12px;
+}
+.state_blue {
+  border-left: 4px solid #2d7fd3;
+}
+.state_green {
+  border-left: 4px solid #2f9f63;
+}
+.state_amber {
+  border-left: 4px solid #e1a126;
+}
+.state_red {
+  border-left: 4px solid #cf4f4f;
+}
+.state_neutral {
+  border-left: 4px solid #98a7a0;
+}
+.flow {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.flow li {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #edf1ef;
+}
+.flow b {
+  color: #17382a;
+}
+.flow span {
+  color: #65766d;
+  font-size: 13px;
+}
+.policyNote {
+  margin-top: 15px !important;
+  padding: 13px;
+  border-radius: 12px;
+  background: #fff8e8;
+  color: #66542d !important;
+}
+.tableWrap {
+  overflow: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e8eeeb;
+  text-align: left;
+  font-size: 13px;
+}
+th {
+  color: #61736a;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+td {
+  color: #273e33;
+}
+.financeNote {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 22px;
+  border: 1px solid #d8e7de;
+  border-radius: 20px;
+  background: #f2faf5;
+}
+.pendingBadge {
+  max-width: 260px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: #fff2d8;
+  color: #805d16;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+.boundary {
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #202a25;
+  color: #fff;
+}
+.boundary strong {
+  display: block;
+  margin-bottom: 4px;
+}
+.boundary p {
+  color: #d4ddd8;
+  font-size: 13px;
+}
+@media (max-width: 1100px) {
+  .pathwayGrid,
+  .metricGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .hero,
+  .twoColumn,
+  .financeNote {
+    grid-template-columns: 1fr;
+  }
+  .metricGrid,
+  .pathwayGrid {
+    grid-template-columns: 1fr;
+  }
+  .panel header {
+    display: block;
+  }
+  .panel header > p {
+    text-align: left;
+    margin-top: 8px;
+  }
+  .pathwayGrid p {
+    min-height: auto;
+  }
+  .pendingBadge {
+    max-width: none;
+  }
+}

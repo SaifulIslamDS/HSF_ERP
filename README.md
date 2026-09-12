@@ -8,6 +8,7 @@ Customized NGO ERP for **Human Safety Foundation (HSF)**.
 - **Stage:** Complete Management UI Blueprint; Functional Implementation Pending
 - **Current governance alignment baseline:** HSF Digital Institutional System Contract `v1.0.0` — 11 September 2026
 - **Next controlled task:** `docs/codex/NEXT-TASK.md` (`v0.1.7` baseline verification and access-control contract)
+- **Field Data Gateway:** offline-first capture/sync management UI blueprint added 12 September 2026; functional offline storage/synchronization remains pending.
 
 The repository contains a broad management UI blueprint, but the existence of a screen or route does **not** mean the business function is implemented. Production authentication, server-enforced RBAC, operational database persistence, approval engines, financial processing, E4BL persistence, A2PHC clinical persistence, notifications, real uploads/exports and production deployment remain incomplete unless `docs/CURRENT-STATUS.md` explicitly says otherwise.
 

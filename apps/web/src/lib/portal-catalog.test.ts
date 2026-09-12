@@ -3,9 +3,9 @@ import { portalGroups, portalRouteCount, portalRoutes, resolvePortalRoute } from
 
 describe("HSF ERP complete UI route catalogue", () => {
   it("contains the complete management UI surface", () => {
-    expect(portalGroups.length).toBe(19);
-    expect(portalRoutes.length).toBe(400);
-    expect(portalRouteCount).toBe(401);
+    expect(portalGroups.length).toBe(20);
+    expect(portalRoutes.length).toBe(412);
+    expect(portalRouteCount).toBe(413);
   });
 
   it("uses unique route paths", () => {

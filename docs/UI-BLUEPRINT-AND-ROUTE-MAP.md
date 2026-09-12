@@ -2,7 +2,7 @@
 
 **Status:** Management presentation UI only  
 **Version:** v0.1.4  
-**Coverage:** 1 executive dashboard + 400 module screens across 19 domains  
+**Coverage:** 1 executive dashboard + 412 module screens across 20 domains  
 
 ## Purpose
 
@@ -77,6 +77,28 @@ Implemented screens: **15**
 | Women Empowerment Overview | `/projects/women-empowerment` | Dashboard |
 | Project Calendar | `/projects/project-calendar` | Calendar |
 | Project Issues & Decisions | `/projects/project-issues-and-decisions` | Workflow |
+
+### 2A. Field Data Gateway (`FG`)
+
+Base path: `/field-gateway`  
+Implemented screens: **12**
+
+| Screen | Route | UI type |
+|---|---|---|
+| Field Gateway Dashboard | `/field-gateway/dashboard` | Dashboard |
+| My Assigned Field Work | `/field-gateway/my-work` | Dashboard |
+| New Field Record | `/field-gateway/capture` | Workflow |
+| Offline Drafts | `/field-gateway/offline-drafts` | Workflow |
+| Sync Centre | `/field-gateway/sync-centre` | Workflow |
+| Sync Conflicts | `/field-gateway/sync-conflicts` | Workflow |
+| Attachment Queue | `/field-gateway/attachment-queue` | Workflow |
+| Field Expenses & Bills | `/field-gateway/field-expenses` | Workflow |
+| Programme Activity Capture | `/field-gateway/programme-activity-capture` | Workflow |
+| Device & Session Status | `/field-gateway/device-and-session-status` | Settings |
+| Submission Verification Queue | `/field-gateway/submission-verification-queue` | Workflow |
+| Field Data Reports | `/field-gateway/field-data-reports` | Report |
+
+> This is an offline-first management UI blueprint. Production offline persistence and synchronization remain unimplemented until the functional gateway is built.
 
 ### 3. Requisitions & MFR (`RQ`)
 

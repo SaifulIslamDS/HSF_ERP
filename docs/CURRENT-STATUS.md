@@ -2,7 +2,7 @@
 
 **Current version:** `v0.1.6`  
 **Stage:** Complete Management UI Blueprint; Functional Implementation Pending  
-**Last updated:** 11 September 2026
+**Last updated:** 12 September 2026
 
 ## Completed
 
@@ -57,8 +57,8 @@
 - Responsive executive ERP shell with desktop sidebar, tablet navigation, and
   mobile bottom navigation
 - One executive management dashboard
-- Nineteen connected UI domains
-- Four hundred module screens represented through the route catalogue
+- Twenty connected UI domains
+- Four hundred twelve module screens represented through the route catalogue
 - UI-only new-record, edit, and synthetic detail routes for applicable screens
 - Reusable presentation patterns for:
   - Dashboards
@@ -82,6 +82,7 @@
 
 - Planning and performance
 - Projects and locations
+- Field Data Gateway (offline-first UI blueprint)
 - Field requisitions and MFR
 - Procurement
 - Finance and accounting
@@ -125,6 +126,7 @@ The following are **not implemented** merely because their screens exist:
 - Live MFR, procurement, IOU, bill, voucher, cash, bank, or payroll processing
 - E4BL operational persistence
 - A2PHC clinical persistence or medical policy enforcement
+- Offline-first Field Data Gateway storage, device encryption, synchronization, conflict handling, and attachment retry
 - Notification delivery
 - Real file uploads, exports, report generation, online meetings, or external
   integrations
