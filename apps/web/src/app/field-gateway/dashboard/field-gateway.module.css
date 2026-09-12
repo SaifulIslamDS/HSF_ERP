@@ -247,24 +247,24 @@
 .tableWrap {
   overflow: auto;
 }
-table {
+.tableWrap table {
   width: 100%;
   border-collapse: collapse;
 }
-th,
-td {
+.tableWrap th,
+.tableWrap td {
   padding: 12px 10px;
   border-bottom: 1px solid #e8eeeb;
   text-align: left;
   font-size: 13px;
 }
-th {
+.tableWrap th {
   color: #61736a;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
-td {
+.tableWrap td {
   color: #273e33;
 }
 .financeNote {
