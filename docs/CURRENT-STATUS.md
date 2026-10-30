@@ -165,6 +165,24 @@ Run the full repository gates on the user's Node 24.18.0 and pnpm 11.10.0
 environment before a release-ready claim. Do not treat the static checks above
 as a replacement for the real package-level gates.
 
+## v0.1.7 candidate verification — 30 October 2026
+
+**Classification:** verification/documentation candidate, NOT a v0.1.7 published release. The uploaded v0.1.6 source ZIP has no `.git` metadata; root and workspace package versions remain `0.1.6`, awaiting complete toolchain CI, live HTTP and browser QA, Git/tag verification and HSF approval.
+
+Completed in this candidate:
+
+- Three dependency-free existing repository verification commands passed (structure, sensitive files and institutional alignment).
+- Dependency-free new access-contract validator passed for 20 existing domain route IDs and 30 preserved UI/asset hashes.
+- Five dependency-free source-level preview-token tests passed under Node 22's experimental TypeScript stripping, including rejected PIN, token expiry, PIN rotation, secure config and ambiguous redirect prevention.
+- Confirmed and fixed one preview return-path parsing risk (`/\\host` interpreted as external URL); extended Vitest regression tests, not yet run by Vitest.
+- Created a draft 20-domain access-control contract, scoped role/permission proposal, security/data boundaries and G1 COM-first task.
+- Recorded explicit COM → E4BL Hazaribagh → A2PHC Bogura rollout decision (ADR-0006), without changing the Knowledge Hub governance mirror or adopting the draft PRD as approved policy.
+- No functional authentication, database migration, operational data, module activation or business workflow was introduced.
+
+Still blocked/unverified: actual Git branch/tag, Node 24.18.0/pnpm 11.10.0 availability, lockfile dependency install, Prisma/format/lint/typecheck/Vitest/build, deployed access-gate behavior, desktop/mobile and role-preview visual QA. These are **not pass claims**; see `docs/reports/V017_BASELINE_VERIFICATION_REPORT_2026-10-30.md`.
+
+**Next task:** `docs/codex/NEXT-TASK.md` — only after blockers/approvals, G1 authenticated read-only COM vertical slice.
+
 ## Current next task
 
 Follow `docs/codex/NEXT-TASK.md`.

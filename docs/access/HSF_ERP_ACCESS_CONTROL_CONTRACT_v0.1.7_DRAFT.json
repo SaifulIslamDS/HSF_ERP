@@ -1,0 +1,473 @@
+{
+  "name": "HSF ERP v0.1.7 access-control contract",
+  "version": "0.1.7-draft",
+  "status": "DRAFT_NOT_ENFORCED",
+  "date": "2026-10-30",
+  "source_baseline": "uploaded source ZIP declares 0.1.6; Git branch/tag unavailable",
+  "architecture_decision": "docs/decisions/ADR-0005-supabase-auth-and-postgresql-hosting.md",
+  "governance_mirror": "docs/governance/HSF_DIGITAL_SYSTEM_CONTRACT.json",
+  "pilot_sequence": [
+    "FOUNDATION_ADMIN",
+    "COM_HEAD_OFFICE",
+    "E4BL_HAZARIBAGH",
+    "A2PHC_BOGURA",
+    "CONTROLLED_EXPANSION"
+  ],
+  "critical_separation": {
+    "preview_pin": "temporary presentation gate; no user authorization",
+    "identity": "Supabase Auth verified JWT, linked to HSF local user by immutable subject",
+    "business_authority": "NestJS queries HSF tables; fail closed; browser UI hiding insufficient",
+    "database": "PostgreSQL/Prisma controlled by backend; no direct browser business-table access"
+  },
+  "decision_order": [
+    "valid_authenticated_identity",
+    "active_local_user",
+    "organization_membership",
+    "active_role_assignment",
+    "required_permission",
+    "released_module",
+    "project_scope",
+    "location_scope",
+    "record_ownership_or_assignment",
+    "workflow_status",
+    "sensitivity_scope",
+    "delegation_authority_and_separation_of_duties"
+  ],
+  "default_decision": "DENY",
+  "permission_code_pattern": "<module_namespace>.<resource>.<action>",
+  "permission_actions": [
+    "view",
+    "create",
+    "edit",
+    "submit",
+    "review",
+    "approve",
+    "reject",
+    "export",
+    "configure",
+    "post",
+    "close",
+    "reopen",
+    "verify",
+    "publish"
+  ],
+  "initial_read_only_com_example": {
+    "permission_code": "administration.organization.view",
+    "route": "/administration/organization-profile",
+    "module_id": "administration",
+    "scope": "COM_HEAD_OFFICE",
+    "classification": "INTERNAL",
+    "status": "PROPOSED_TEST_CONTRACT_NOT_AUTHORIZED"
+  },
+  "module_registry": [
+    {
+      "module_id": "planning",
+      "route_prefix": "/planning",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "INTERNAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "planning"
+    },
+    {
+      "module_id": "projects",
+      "route_prefix": "/projects",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "INTERNAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "projects"
+    },
+    {
+      "module_id": "field-gateway",
+      "route_prefix": "/field-gateway",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "CONFIDENTIAL",
+      "requires_project_scope": true,
+      "requires_location_scope": true,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "field_gateway"
+    },
+    {
+      "module_id": "requisitions",
+      "route_prefix": "/requisitions",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "CONFIDENTIAL",
+      "requires_project_scope": true,
+      "requires_location_scope": true,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "requisitions"
+    },
+    {
+      "module_id": "procurement",
+      "route_prefix": "/procurement",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "CONFIDENTIAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "procurement"
+    },
+    {
+      "module_id": "finance",
+      "route_prefix": "/finance",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "finance"
+    },
+    {
+      "module_id": "hr",
+      "route_prefix": "/hr",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": false,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "hr"
+    },
+    {
+      "module_id": "payroll",
+      "route_prefix": "/payroll",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": false,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "payroll"
+    },
+    {
+      "module_id": "e4bl",
+      "route_prefix": "/e4bl",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": true,
+      "requires_location_scope": true,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "e4bl"
+    },
+    {
+      "module_id": "a2phc",
+      "route_prefix": "/a2phc",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": true,
+      "requires_location_scope": true,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "a2phc"
+    },
+    {
+      "module_id": "climate",
+      "route_prefix": "/climate",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "INTERNAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "climate"
+    },
+    {
+      "module_id": "women",
+      "route_prefix": "/women-empowerment",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "INTERNAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "MANAGEMENT_CONFIRMATION_REQUIRED",
+      "permission_namespace": "women"
+    },
+    {
+      "module_id": "inventory",
+      "route_prefix": "/inventory",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "CONFIDENTIAL",
+      "requires_project_scope": true,
+      "requires_location_scope": true,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "inventory"
+    },
+    {
+      "module_id": "donors",
+      "route_prefix": "/donors",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "donors"
+    },
+    {
+      "module_id": "meal",
+      "route_prefix": "/meal",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "CONFIDENTIAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "meal"
+    },
+    {
+      "module_id": "meetings",
+      "route_prefix": "/meetings",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "CONFIDENTIAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "meetings"
+    },
+    {
+      "module_id": "training",
+      "route_prefix": "/training",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "INTERNAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "training"
+    },
+    {
+      "module_id": "documents",
+      "route_prefix": "/documents",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "documents"
+    },
+    {
+      "module_id": "reports",
+      "route_prefix": "/reports",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "CONFIDENTIAL",
+      "requires_project_scope": true,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "reports"
+    },
+    {
+      "module_id": "administration",
+      "route_prefix": "/administration",
+      "release_state": "BLUEPRINT",
+      "enabled_for_ordinary_users": false,
+      "data_classification_ceiling": "RESTRICTED",
+      "requires_project_scope": false,
+      "requires_location_scope": false,
+      "institutional_activation": "EXISTING_PROGRAMME_OR_SHARED_DOMAIN",
+      "permission_namespace": "administration"
+    }
+  ],
+  "roles": {
+    "canonical_catalogue": "docs/RBAC-AND-APPROVALS.md",
+    "ui_role_profiles": "apps/web/src/lib/portal-role-access.ts",
+    "status": "MAPPING_REQUIRES_REVIEW",
+    "rule": "UI role profile does not grant API permission; finance authority is never implied by system-admin rights"
+  },
+  "scope_requirements": {
+    "organization_id": "mandatory",
+    "project_id": "as required by resource; deny mismatched or missing assignments",
+    "location_id": "as required by resource; deny mismatched or missing assignments",
+    "COM": "organizational unit/cost centre, not an active public programme",
+    "record": "filter at query AND guard mutations, not merely UI"
+  },
+  "sensitivity_rules": {
+    "INTERNAL": "approved employee scope",
+    "CONFIDENTIAL": "specific operational need",
+    "RESTRICTED": "explicit fine-grained grant and minimum necessary fields",
+    "health_clinical": "Doctor/authorized clinical role only; finance receives no clinical details",
+    "education_child": "centre/class scoped; no unrestricted photo/guardian access",
+    "finance": "financial review does not grant clinical or child-record editing",
+    "admin": "configures access; cannot self-grant business approvals or self-approve expenses"
+  },
+  "auditable_events": [
+    "authentication_denied",
+    "authorization_denied",
+    "user_invitation",
+    "user_status_change",
+    "role_assignment_change",
+    "project_access_change",
+    "location_access_change",
+    "module_release_change",
+    "policy_change",
+    "privileged_read",
+    "export_request",
+    "approval_attempt",
+    "delegation_change"
+  ],
+  "audit_privacy": "Store actor, organization, purpose, action, resource type/id, scope, decision, reason code, timestamps and correlation id; do not log PIN, tokens or sensitive clinical/personal payload.",
+  "unresolved_decisions": [
+    "canonical role/alias approval",
+    "COM exact location and unit master",
+    "initial module release approval",
+    "audit retention and security event review",
+    "JWT issuer/JWKS and MFA policy",
+    "provisioning, allowlist and revocation policy",
+    "emergency access / break-glass policy",
+    "sensitivity grants per business record"
+  ],
+  "implementation_state": "CONTRACT_ONLY; no guard or persistence implementation in v0.1.7",
+  "representative_role_permission_matrix": [
+    {
+      "role": "SYS_ADMIN",
+      "source": "existing RBAC catalogue",
+      "module_ids": [
+        "administration",
+        "projects"
+      ],
+      "proposed_permissions": [
+        "administration.user.view",
+        "administration.user.invite",
+        "administration.access.assign",
+        "administration.module.configure",
+        "administration.audit.view"
+      ],
+      "may_approve_own_request": false,
+      "clinical_data_access": false,
+      "requires_review_for_privilege_escalation": true
+    },
+    {
+      "role": "COM_REQUESTER",
+      "source": "PROPOSED_PILOT_ROLE_NOT_APPROVED",
+      "module_ids": [
+        "requisitions"
+      ],
+      "proposed_permissions": [
+        "requisitions.request.view",
+        "requisitions.request.create",
+        "requisitions.request.edit",
+        "requisitions.request.submit"
+      ],
+      "scope": "COM only; own records initially",
+      "may_approve_own_request": false
+    },
+    {
+      "role": "COM_APPROVER",
+      "source": "PROPOSED_PILOT_ROLE_NOT_APPROVED",
+      "module_ids": [
+        "requisitions"
+      ],
+      "proposed_permissions": [
+        "requisitions.request.view",
+        "requisitions.request.review",
+        "requisitions.request.approve",
+        "requisitions.request.reject"
+      ],
+      "scope": "COM; independent requests only",
+      "may_approve_own_request": false
+    },
+    {
+      "role": "FIN_OFF",
+      "source": "existing RBAC catalogue",
+      "module_ids": [
+        "finance",
+        "requisitions"
+      ],
+      "proposed_permissions": [
+        "finance.budget.view",
+        "requisitions.request.review"
+      ],
+      "scope": "assigned financial records only",
+      "clinical_data_access": false
+    },
+    {
+      "role": "AUDITOR",
+      "source": "existing RBAC catalogue",
+      "module_ids": [
+        "administration",
+        "reports"
+      ],
+      "proposed_permissions": [
+        "administration.audit.view",
+        "reports.approved.view"
+      ],
+      "scope": "authorized audit population only; no mutating action"
+    },
+    {
+      "role": "TEACHER",
+      "source": "existing RBAC catalogue",
+      "module_ids": [
+        "e4bl"
+      ],
+      "proposed_permissions": [
+        "e4bl.student.view",
+        "e4bl.attendance.create",
+        "e4bl.attendance.submit"
+      ],
+      "scope": "assigned centre and class only; subject to safeguarding controls"
+    },
+    {
+      "role": "HEAD_TEACHER",
+      "source": "existing RBAC catalogue",
+      "module_ids": [
+        "e4bl"
+      ],
+      "proposed_permissions": [
+        "e4bl.attendance.review",
+        "e4bl.student.view"
+      ],
+      "scope": "assigned centre only; no unrestricted health records"
+    },
+    {
+      "role": "MED_SUPERVISOR",
+      "source": "existing RBAC catalogue",
+      "module_ids": [
+        "a2phc"
+      ],
+      "proposed_permissions": [
+        "a2phc.visit.create",
+        "a2phc.visit.submit"
+      ],
+      "scope": "assigned health sites; operational-only patient fields"
+    },
+    {
+      "role": "PHYSICIAN",
+      "source": "existing RBAC catalogue",
+      "module_ids": [
+        "a2phc"
+      ],
+      "proposed_permissions": [
+        "a2phc.consultation.view",
+        "a2phc.consultation.edit",
+        "a2phc.consultation.submit"
+      ],
+      "scope": "assigned consultations; clinical data only by separate grant"
+    }
+  ],
+  "http_failure_contract": {
+    "401": "missing or invalid authenticated session",
+    "403": "authenticated but unauthorized by a scope, status or privilege check",
+    "404": "missing or resource existence withheld by approved policy",
+    "409": "workflow version/idempotency conflict",
+    "500": "internal failure; no sensitive data leakage"
+  },
+  "application_boundary": {
+    "nextjs": "presentation only; preview/role UI never authorizes server business operations",
+    "nestjs": "verifies JWT and requests current local user/context, enforces each action, audits denials",
+    "prisma": "queries filtered by organization and permitted scopes; enforce SoD at business transition",
+    "supabase": "identity only; no reliance on client-supplied role or custom claims as final business authority"
+  }
+}

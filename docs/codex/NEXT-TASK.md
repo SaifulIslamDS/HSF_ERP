@@ -1,150 +1,26 @@
-# Codex Next Task — v0.1.7 Baseline Verification and Access-Control Contract
+# Next Task — Controlled Phase G1: COM Identity / Read-Only Authorization Vertical Slice
 
-## Task type
+**Status:** Proposed after v0.1.7 baseline verification; **not authorized for release**.  
+**Source:** 30 October 2026 Admin Control Centre Specification and Revised COM-first Roadmap; `docs/access/HSF_ERP_ACCESS_CONTROL_CONTRACT_v0.1.7_DRAFT.md`.
 
-Validation and preparation task.
+## Mandatory prerequisites
 
-## Purpose
+1. Perform clean checkout of actual Git repository to verify release/tag and compare against provided 28 October source ZIP.
+2. Install Node.js 24.18.0 and pnpm 11.10.0; install lockfile and pass repository CI gates: structure, sensitive, alignment, Prisma format/validate/generate, Prettier, ESLint, TypeScript, Vitest and production builds.
+3. Run preview PIN HTTP/browser QA including desktop/mobile, 5-failure throttle, safe return, cookie flags, API 401, idle/logout and secrets/headers; capture evidence.
+4. Review and approve canonical roles, Supabase provisioning/Google mode, COM unit/location and minimum module release, audit, backup and deprovisioning policies. Reject migrations/live connections until separately approved.
 
-Verify the `v0.1.6` management-preview PIN gate and the existing `v0.1.5` A2PHC UI expansion as one stable baseline, confirm that all non-access ERP UI remains unchanged, and prepare the implementation-ready contract for real authenticated module access.
+## Minimal implementation scope when approved
 
-The temporary PIN gate must remain clearly separate from future Supabase user authentication and HSF RBAC.
+- Use existing Next.js/NestJS/Prisma/Supabase architecture and ADR-0005.
+- Identity: validate Supabase-issued JWT on the server, link immutable subject to authorized HSF local user, deny disabled/unlisted identities.
+- Scope: use active `UserRole`, `UserProjectAccess`, `UserLocationAccess`, and module acceptance registry for **COM** only.
+- Permit one documented synthetic **read-only** Admin profile route; prove direct route/API denials and audit.
+- Retain preview PIN as independent outer preview layer until replacement is independently accepted.
+- Use no real learner, patient, payroll or financial transaction data.
 
-## Read first
+## Test before any release
 
-1. `AGENTS.md`
-2. `docs/CURRENT-STATUS.md`
-3. `docs/governance/HSF_DIGITAL_SYSTEM_CONTRACT.json`
-4. `docs/governance/SYSTEM-BOUNDARIES.md`
-5. `docs/governance/PROGRAMME-REGISTRY.md`
-6. `docs/governance/SECURITY-BASELINE.md`
-7. `docs/PREVIEW-PIN-ACCESS-GATE.md`
-8. `docs/A2PHC-CURRENT-STATUS-v0.1.5.md`
-9. `docs/A2PHC-CONTINUATION-HANDOVER-v0.1.5.md`
-10. `docs/modules/A2PHC-UI-EXPANSION-AND-ROLE-VISIBILITY.md`
-11. `docs/A2PHC-FUNCTIONAL-ROADMAP.md`
-12. `docs/product/A2PHC-OPEN-DECISIONS.md`
-13. `docs/codex/A2PHC-CODEX-WORKING-INSTRUCTIONS.md`
-14. relevant architecture, data-model, RBAC, environment, and ADR documents
+No auth → 401; unknown user → deny; suspended user → deny; out-of-unit or out-of-location user → deny; tampered browser role ignored; stale/revoked assignment denied; allowed read-only user can read only COM synthetic fixture; write/approve denied; denied requests audited without sensitive payload; logout and token expiry respected. Module defaults remain hidden for ordinary users.
 
-## Scope
-
-### 1. Verify Git and version baseline
-
-- inspect branch and working tree;
-- verify `v0.1.6` tag status after release;
-- verify root and web package versions;
-- report any mismatch.
-
-### 2. Run all repository gates
-
-```bash
-pnpm verify:structure
-pnpm verify:sensitive
-pnpm verify:alignment
-pnpm format:check
-pnpm lint
-pnpm typecheck
-pnpm test:run
-pnpm build
-```
-
-Fix only confirmed baseline defects.
-
-### 3. Verify preview PIN gate
-
-Check:
-
-- `/access` renders correctly on desktop and mobile;
-- six numeric digits are required;
-- invalid PIN is rejected;
-- repeated failures trigger the lightweight rate-limit response;
-- valid PIN returns the user to the requested ERP route;
-- preview cookie is HttpOnly and secure in production;
-- session expires according to configuration;
-- PIN rotation invalidates existing preview sessions;
-- `/api/health` remains public;
-- protected API routes return `401` without preview access;
-- the PIN and signing secret never appear in client code, Git, logs, or rendered HTML.
-
-### 4. Verify UI preservation
-
-Check that:
-
-- the landing page behind the gate is unchanged;
-- A2PHC routes render unchanged;
-- role-preview behavior works after PIN access;
-- E4BL UI is unchanged;
-- representative routes from every other domain remain unchanged;
-- shared navigation remains responsive;
-- all displayed records remain synthetic.
-
-### 5. Build the real access-control contract
-
-Document, without implementing full authentication:
-
-- module identifiers;
-- route groups;
-- permission names;
-- role-to-module visibility;
-- project and location assignment requirements;
-- read/write/submit/review/approve distinctions;
-- clinical sensitivity;
-- finance-versus-clinical boundaries;
-- System Administrator boundaries;
-- audit requirements for denied access.
-
-### 6. Prepare the next functional authentication task
-
-Prepare one small vertical slice for:
-
-```text
-Supabase authentication
-+ secure application session
-+ internal user link
-+ representative role/project/location context
-+ server-protected representative routes
-```
-
-Do not replace the temporary preview gate until the real authentication milestone is explicitly approved and ready.
-
-## Excluded
-
-- patient persistence;
-- Doctor consultation persistence;
-- finance functionality;
-- requisition/MFR functionality;
-- medicine functionality;
-- full RBAC implementation;
-- production patient or staff data;
-- destructive migration;
-- commit, push, tag, release, or production deployment without explicit approval.
-
-## Acceptance criteria
-
-- Exact Git/version baseline is reported.
-- Required gates pass or failures are reported exactly.
-- PIN gate passes the documented security and UX checks.
-- Existing non-access ERP UI remains unchanged.
-- Role-preview behavior remains intact behind the gate.
-- Temporary PIN access is clearly distinguished from user authentication.
-- Institutional programme/evidence/public-repository rules remain aligned with the mirrored HSF Digital System Contract.
-- Access-control contract is complete enough for the next task.
-- No business functionality or real data is introduced.
-
-## Required final report
-
-1. Git and version baseline
-2. Commands and exact results
-3. PIN-gate QA
-4. Security findings
-5. UI regression QA
-6. A2PHC and E4BL isolation QA
-7. Mobile QA
-8. Access-control contract summary
-9. Documentation updates
-10. Remaining warnings
-11. Acceptance-criteria result
-12. Exact recommended next task
-
-Do not commit, push, tag, release, or deploy.
+**Excluded:** full Admin CRUD, COM requisition transactions, school/clinic persistence, programme rollout, deployment, Git push/tag/release. These follow separate approval and acceptance gates.

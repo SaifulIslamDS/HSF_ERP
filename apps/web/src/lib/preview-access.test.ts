@@ -5,6 +5,7 @@ import {
   isPreviewSessionValid,
   isPreviewSigningSecretConfigured,
   isSubmittedPinValid,
+  safeReturnTo,
 } from "./preview-access";
 
 const ORIGINAL_ENV = { ...process.env };
@@ -34,6 +35,35 @@ describe("preview access security configuration", () => {
     expect(isPreviewSigningSecretConfigured()).toBe(true);
     expect(isPreviewGateConfigured()).toBe(true);
     expect(isSubmittedPinValid("654321")).toBe(true);
+  });
+
+  it("permits only unambiguous internal return paths", () => {
+    expect(safeReturnTo("/e4bl/dashboard?tab=attendance")).toBe(
+      "/e4bl/dashboard?tab=attendance",
+    );
+    expect(safeReturnTo("//attacker.example")).toBe("/dashboard");
+    expect(safeReturnTo("/\\attacker.example")).toBe("/dashboard");
+    expect(safeReturnTo("/access?returnTo=/dashboard")).toBe("/dashboard");
+    expect(safeReturnTo("/dashboard\nLocation: https://attacker.example")).toBe("/dashboard");
+  });
+
+  it("rotating the PIN invalidates an existing session", () => {
+    process.env.HSF_ERP_ACCESS_PIN = "654321";
+    process.env.HSF_ERP_ACCESS_SECRET = "7Jx4dQ9Yp2Vn8Lc5Rk3Wm6Ts1Hz0AfEeXbCuPqZo";
+    const now = 1_800_000_000_000;
+    const { token } = createPreviewSessionToken(now);
+    expect(isPreviewSessionValid(token, now + 1000)).toBe(true);
+    process.env.HSF_ERP_ACCESS_PIN = "123456";
+    expect(isPreviewSessionValid(token, now + 1000)).toBe(false);
+  });
+
+  it("refuses an expired preview session", () => {
+    process.env.HSF_ERP_ACCESS_PIN = "654321";
+    process.env.HSF_ERP_ACCESS_SECRET = "7Jx4dQ9Yp2Vn8Lc5Rk3Wm6Ts1Hz0AfEeXbCuPqZo";
+    process.env.HSF_ERP_ACCESS_SESSION_HOURS = "1";
+    const now = 1_800_000_000_000;
+    const { token } = createPreviewSessionToken(now);
+    expect(isPreviewSessionValid(token, now + 3_600_000)).toBe(false);
   });
 
   it("creates a verifiable token only when configuration is secure", () => {

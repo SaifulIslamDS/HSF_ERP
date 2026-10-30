@@ -126,11 +126,20 @@ export function isPreviewSessionValid(token: string | undefined, now = Date.now(
 }
 
 export function safeReturnTo(candidate: string | null | undefined): string {
-  if (!candidate || !candidate.startsWith("/") || candidate.startsWith("//")) {
+  // WHATWG URL parsing treats backslashes in special-scheme URLs as slashes.
+  // A path such as `/\\outside.example` can therefore become an external URL.
+  // Reject ambiguous characters rather than trusting the browser's normalization.
+  if (
+    !candidate ||
+    !candidate.startsWith("/") ||
+    candidate.startsWith("//") ||
+    candidate.includes("\\") ||
+    /[\u0000-\u001f\u007f]/.test(candidate)
+  ) {
     return "/dashboard";
   }
 
-  if (candidate === "/access" || candidate.startsWith("/access?")) {
+  if (candidate === "/access" || candidate.startsWith("/access?") || candidate.startsWith("/access/")) {
     return "/dashboard";
   }
 
