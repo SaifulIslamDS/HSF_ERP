@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import {
-  A2PHC_GROUPS,
-  A2PHC_SCREENS,
-  getA2PHCScreensForRole,
-  type A2PHCScreen,
-} from "@/lib/a2phc-catalog";
+import { A2PHC_GROUPS, getA2PHCScreensForRole, type A2PHCScreen } from "@/lib/a2phc-catalog";
 import {
   DEFAULT_PORTAL_ROLE,
   getPortalRoleProfile,

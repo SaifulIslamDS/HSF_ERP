@@ -71,8 +71,10 @@ function accessUrl(request: NextRequest, error: "invalid" | "format" | "rate", r
 
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
-  const submittedPin = String(formData.get("pin") ?? "").trim();
-  const returnTo = safeReturnTo(String(formData.get("returnTo") ?? "/dashboard"));
+  const rawPin = formData.get("pin");
+  const rawReturnTo = formData.get("returnTo");
+  const submittedPin = typeof rawPin === "string" ? rawPin.trim() : "";
+  const returnTo = safeReturnTo(typeof rawReturnTo === "string" ? rawReturnTo : "/dashboard");
 
   if (!isPreviewGateConfigured()) {
     return NextResponse.redirect(

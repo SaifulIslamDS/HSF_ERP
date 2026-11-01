@@ -38,6 +38,8 @@ jobs:
         run: |
           pnpm verify:structure
           pnpm verify:alignment
+          node scripts/verify-v017-contract.mjs
+          node --experimental-strip-types --test scripts/preview-access-smoke.test.mjs
 
       - name: Prisma format and validate
         env:
