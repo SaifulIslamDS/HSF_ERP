@@ -139,7 +139,11 @@ export function safeReturnTo(candidate: string | null | undefined): string {
     return "/dashboard";
   }
 
-  if (candidate === "/access" || candidate.startsWith("/access?") || candidate.startsWith("/access/")) {
+  if (
+    candidate === "/access" ||
+    candidate.startsWith("/access?") ||
+    candidate.startsWith("/access/")
+  ) {
     return "/dashboard";
   }
 

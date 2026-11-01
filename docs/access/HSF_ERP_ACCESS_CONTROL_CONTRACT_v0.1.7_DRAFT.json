@@ -334,10 +334,7 @@
     {
       "role": "SYS_ADMIN",
       "source": "existing RBAC catalogue",
-      "module_ids": [
-        "administration",
-        "projects"
-      ],
+      "module_ids": ["administration", "projects"],
       "proposed_permissions": [
         "administration.user.view",
         "administration.user.invite",
@@ -352,9 +349,7 @@
     {
       "role": "COM_REQUESTER",
       "source": "PROPOSED_PILOT_ROLE_NOT_APPROVED",
-      "module_ids": [
-        "requisitions"
-      ],
+      "module_ids": ["requisitions"],
       "proposed_permissions": [
         "requisitions.request.view",
         "requisitions.request.create",
@@ -367,9 +362,7 @@
     {
       "role": "COM_APPROVER",
       "source": "PROPOSED_PILOT_ROLE_NOT_APPROVED",
-      "module_ids": [
-        "requisitions"
-      ],
+      "module_ids": ["requisitions"],
       "proposed_permissions": [
         "requisitions.request.view",
         "requisitions.request.review",
@@ -382,36 +375,22 @@
     {
       "role": "FIN_OFF",
       "source": "existing RBAC catalogue",
-      "module_ids": [
-        "finance",
-        "requisitions"
-      ],
-      "proposed_permissions": [
-        "finance.budget.view",
-        "requisitions.request.review"
-      ],
+      "module_ids": ["finance", "requisitions"],
+      "proposed_permissions": ["finance.budget.view", "requisitions.request.review"],
       "scope": "assigned financial records only",
       "clinical_data_access": false
     },
     {
       "role": "AUDITOR",
       "source": "existing RBAC catalogue",
-      "module_ids": [
-        "administration",
-        "reports"
-      ],
-      "proposed_permissions": [
-        "administration.audit.view",
-        "reports.approved.view"
-      ],
+      "module_ids": ["administration", "reports"],
+      "proposed_permissions": ["administration.audit.view", "reports.approved.view"],
       "scope": "authorized audit population only; no mutating action"
     },
     {
       "role": "TEACHER",
       "source": "existing RBAC catalogue",
-      "module_ids": [
-        "e4bl"
-      ],
+      "module_ids": ["e4bl"],
       "proposed_permissions": [
         "e4bl.student.view",
         "e4bl.attendance.create",
@@ -422,33 +401,21 @@
     {
       "role": "HEAD_TEACHER",
       "source": "existing RBAC catalogue",
-      "module_ids": [
-        "e4bl"
-      ],
-      "proposed_permissions": [
-        "e4bl.attendance.review",
-        "e4bl.student.view"
-      ],
+      "module_ids": ["e4bl"],
+      "proposed_permissions": ["e4bl.attendance.review", "e4bl.student.view"],
       "scope": "assigned centre only; no unrestricted health records"
     },
     {
       "role": "MED_SUPERVISOR",
       "source": "existing RBAC catalogue",
-      "module_ids": [
-        "a2phc"
-      ],
-      "proposed_permissions": [
-        "a2phc.visit.create",
-        "a2phc.visit.submit"
-      ],
+      "module_ids": ["a2phc"],
+      "proposed_permissions": ["a2phc.visit.create", "a2phc.visit.submit"],
       "scope": "assigned health sites; operational-only patient fields"
     },
     {
       "role": "PHYSICIAN",
       "source": "existing RBAC catalogue",
-      "module_ids": [
-        "a2phc"
-      ],
+      "module_ids": ["a2phc"],
       "proposed_permissions": [
         "a2phc.consultation.view",
         "a2phc.consultation.edit",

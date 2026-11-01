@@ -68,13 +68,13 @@ they do not reopen the provider and trust-boundary decision.
 
 ## v0.1.7 access-contract / COM-first follow-up decisions (not automatically approved)
 
-| ID | Pending controlled decision | Gate | Status |
-| --- | --- | --- | --- |
-| OPD-021 | Canonical production role catalogue/aliases, including any COM pilot requester/approver templates | G1 authorization | OPEN |
-| OPD-022 | Exact COM Head Office organizational unit, location/master IDs and responsible business owner | G1/G2 | OPEN |
-| OPD-023 | Google-only Supabase provider configuration, allowlist/invitation flow, MFA and bootstrap Super Admin procedure | G1 | OPEN; ADR-0005 approves Supabase Auth architecture only |
-| OPD-024 | Module release/maturity registry and who may approve Pilot/Functional activation | G2 | OPEN |
-| OPD-025 | Authorization-denial audit retention, oversight, safe export and incident handling | G1/G2 | OPEN |
-| OPD-026 | COM first transactional workflow, approved requisition roles/authority and data forms | G3 | OPEN; proposed only |
-| OPD-027 | Canonical `CLIMATE_ACTION` name vs newer management-facing Climate Action & Resilience name across ERP/Knowledge Hub | G9 or governance review | OPEN; do not mutate mirror without authority |
-| OPD-028 | Updated proposed PRD baseline and staging change control following management COM-first instruction | Before stage sign-off | OPEN |
+| ID      | Pending controlled decision                                                                                          | Gate                    | Status                                                  |
+| ------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------- |
+| OPD-021 | Canonical production role catalogue/aliases, including any COM pilot requester/approver templates                    | G1 authorization        | OPEN                                                    |
+| OPD-022 | Exact COM Head Office organizational unit, location/master IDs and responsible business owner                        | G1/G2                   | OPEN                                                    |
+| OPD-023 | Google-only Supabase provider configuration, allowlist/invitation flow, MFA and bootstrap Super Admin procedure      | G1                      | OPEN; ADR-0005 approves Supabase Auth architecture only |
+| OPD-024 | Module release/maturity registry and who may approve Pilot/Functional activation                                     | G2                      | OPEN                                                    |
+| OPD-025 | Authorization-denial audit retention, oversight, safe export and incident handling                                   | G1/G2                   | OPEN                                                    |
+| OPD-026 | COM first transactional workflow, approved requisition roles/authority and data forms                                | G3                      | OPEN; proposed only                                     |
+| OPD-027 | Canonical `CLIMATE_ACTION` name vs newer management-facing Climate Action & Resilience name across ERP/Knowledge Hub | G9 or governance review | OPEN; do not mutate mirror without authority            |
+| OPD-028 | Updated proposed PRD baseline and staging change control following management COM-first instruction                  | Before stage sign-off   | OPEN                                                    |

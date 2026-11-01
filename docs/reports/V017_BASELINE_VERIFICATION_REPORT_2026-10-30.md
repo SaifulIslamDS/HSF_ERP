@@ -13,21 +13,21 @@
 
 ## 2. Validation commands and exact results
 
-| Command | Observed result | Limitation |
-|---|---|---|
-| `node scripts/verify-structure.mjs` | **PASS** — 26 required files | Dependency-free structural check |
-| `node scripts/check-sensitive-files.mjs` | **PASS** | Static secret/public-file guard |
-| `node scripts/verify-alignment.mjs` | **PASS** | Mirrored institutional policy check |
-| `node scripts/verify-v017-contract.mjs` | **PASS** — 20 domains, unchanged UI assets, disabled module defaults, COM-first order | Draft-contract/source-level validator |
-| `node --experimental-strip-types --test scripts/preview-access-smoke.test.mjs` | **PASS 5/5** | Real preview helper functions, Node 22 TS stripping; NOT Next.js HTTP QA |
-| `pnpm install --frozen-lockfile` | **BLOCKED** | pnpm 11.10.0 not available; Corepack gets registry `EAI_AGAIN` |
-| `pnpm verify:structure`, `verify:sensitive`, `verify:alignment` | **BLOCKED as pnpm commands** | Equivalent direct Node scripts above passed |
-| `pnpm format:check` | **NOT RUN** | No pnpm/dependencies |
-| `pnpm lint` | **NOT RUN** | No pnpm/dependencies |
-| `pnpm typecheck` | **NOT RUN** | No pnpm/dependencies |
-| `pnpm test:run` / Vitest | **NOT RUN** | No pnpm/dependencies; new Vitest cases not yet confirmed |
-| `pnpm build` | **NOT RUN** | No pnpm/dependencies; cannot claim build pass |
-| Prisma format/validate/generate | **NOT RUN** | Toolchain unavailable; no operational database needed for this task |
+| Command                                                                        | Observed result                                                                       | Limitation                                                               |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `node scripts/verify-structure.mjs`                                            | **PASS** — 26 required files                                                          | Dependency-free structural check                                         |
+| `node scripts/check-sensitive-files.mjs`                                       | **PASS**                                                                              | Static secret/public-file guard                                          |
+| `node scripts/verify-alignment.mjs`                                            | **PASS**                                                                              | Mirrored institutional policy check                                      |
+| `node scripts/verify-v017-contract.mjs`                                        | **PASS** — 20 domains, unchanged UI assets, disabled module defaults, COM-first order | Draft-contract/source-level validator                                    |
+| `node --experimental-strip-types --test scripts/preview-access-smoke.test.mjs` | **PASS 5/5**                                                                          | Real preview helper functions, Node 22 TS stripping; NOT Next.js HTTP QA |
+| `pnpm install --frozen-lockfile`                                               | **BLOCKED**                                                                           | pnpm 11.10.0 not available; Corepack gets registry `EAI_AGAIN`           |
+| `pnpm verify:structure`, `verify:sensitive`, `verify:alignment`                | **BLOCKED as pnpm commands**                                                          | Equivalent direct Node scripts above passed                              |
+| `pnpm format:check`                                                            | **NOT RUN**                                                                           | No pnpm/dependencies                                                     |
+| `pnpm lint`                                                                    | **NOT RUN**                                                                           | No pnpm/dependencies                                                     |
+| `pnpm typecheck`                                                               | **NOT RUN**                                                                           | No pnpm/dependencies                                                     |
+| `pnpm test:run` / Vitest                                                       | **NOT RUN**                                                                           | No pnpm/dependencies; new Vitest cases not yet confirmed                 |
+| `pnpm build`                                                                   | **NOT RUN**                                                                           | No pnpm/dependencies; cannot claim build pass                            |
+| Prisma format/validate/generate                                                | **NOT RUN**                                                                           | Toolchain unavailable; no operational database needed for this task      |
 
 Environment has Node **22.16.0** rather than required **24.18.0** and cannot retrieve pnpm **11.10.0** because registry DNS lookup fails. This **does not establish a code failure**, but it blocks release verification.
 
@@ -85,21 +85,21 @@ No Git commit/push/tag, production deployment, real data, live database, API bus
 
 ## 10. Acceptance-criteria disposition
 
-| Original v0.1.7 criterion | Disposition |
-|---|---|
-| Exact Git/tag baseline | **Partial** — source package version yes, commit/tag unavailable |
-| Required test gates | **Blocked** — direct Node checks pass; full pnpm CI cannot run |
-| Preview PIN QA | **Partial** — helper function passes, HTTP/UX untested |
-| UI preservation | **Pass at source-hash level**; rendered checks pending |
-| Role preview intact | **Preserved at source level**; browser checks pending |
-| PIN distinct from production identity | **Pass by design and documentation**; production auth still absent |
-| Institutional boundary | **Pass** — mirror unchanged and alignment script passed |
-| Contract for next task | **Pass as proposal**, pending role/policy approval |
-| No business data or new operational functionality | **Pass** |
-| v0.1.7 release-ready | **Not met** |
+| Original v0.1.7 criterion                         | Disposition                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------------ |
+| Exact Git/tag baseline                            | **Partial** — source package version yes, commit/tag unavailable   |
+| Required test gates                               | **Blocked** — direct Node checks pass; full pnpm CI cannot run     |
+| Preview PIN QA                                    | **Partial** — helper function passes, HTTP/UX untested             |
+| UI preservation                                   | **Pass at source-hash level**; rendered checks pending             |
+| Role preview intact                               | **Preserved at source level**; browser checks pending              |
+| PIN distinct from production identity             | **Pass by design and documentation**; production auth still absent |
+| Institutional boundary                            | **Pass** — mirror unchanged and alignment script passed            |
+| Contract for next task                            | **Pass as proposal**, pending role/policy approval                 |
+| No business data or new operational functionality | **Pass**                                                           |
+| v0.1.7 release-ready                              | **Not met**                                                        |
 
 ## 11. Remaining warnings and exact recommended next task
 
 **First:** run locked install and full CI with Node 24.18.0 / pnpm 11.10.0 in a true Git clone. Confirm commit/tag, Vitest, TypeScript, lint, format, Prisma, build, and HTTP/mobile/role-preview regression. Investigate `safeReturnTo` fix under real Next runtime, production cookie flags, rate-limit, API 401 and idle behavior. Do not approve a release without that evidence.
 
-**Then:** after reviewing management approvals for canonical role names, COM unit/location and Google/Supabase invite/allowlist/MFA/audit rules, approve **G1** as a separate task: *authenticated HSF local user linked by Supabase subject + NestJS server-guarded, read-only COM Admin endpoint with audit and negative-path tests*. Keep all clinical, school and financial transactions unavailable.
+**Then:** after reviewing management approvals for canonical role names, COM unit/location and Google/Supabase invite/allowlist/MFA/audit rules, approve **G1** as a separate task: _authenticated HSF local user linked by Supabase subject + NestJS server-guarded, read-only COM Admin endpoint with audit and negative-path tests_. Keep all clinical, school and financial transactions unavailable.

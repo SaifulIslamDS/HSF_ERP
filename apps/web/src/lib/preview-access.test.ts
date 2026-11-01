@@ -38,9 +38,7 @@ describe("preview access security configuration", () => {
   });
 
   it("permits only unambiguous internal return paths", () => {
-    expect(safeReturnTo("/e4bl/dashboard?tab=attendance")).toBe(
-      "/e4bl/dashboard?tab=attendance",
-    );
+    expect(safeReturnTo("/e4bl/dashboard?tab=attendance")).toBe("/e4bl/dashboard?tab=attendance");
     expect(safeReturnTo("//attacker.example")).toBe("/dashboard");
     expect(safeReturnTo("/\\attacker.example")).toBe("/dashboard");
     expect(safeReturnTo("/access?returnTo=/dashboard")).toBe("/dashboard");
